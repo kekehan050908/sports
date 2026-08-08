@@ -1,0 +1,3129 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>体育家园 ｜ 全球顶级期刊运动数据库</title>
+<meta name="description" content="结合全球顶级期刊建立的运动科学数据库，为您带来世界先进的运动理念。">
+<meta name="keywords" content="体育家园,运动科学,体育,期刊,Nature,Science,HIIT,肌肥大,恢复策略,AI 分析,教练,运动员">
+<meta name="author" content="体育家园">
+<meta name="theme-color" content="#f6f7f2">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="体育家园">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:title" content="体育家园 ｜ 全球顶级期刊运动数据库">
+<meta property="og:description" content="结合全球顶级期刊建立的数据库，AI 为您分析世界先进的运动理念。">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="体育家园 ｜ 全球顶级期刊运动数据库">
+<meta name="twitter:description" content="结合全球顶级期刊建立的数据库，AI 为您分析世界先进的运动理念。">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-180.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23f6f7f2'/%3E%3Cpath d='M18.5 6 10 17h5.2L13.8 26 23 14h-5.4L18.5 6z' fill='%235c8a6a'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"体育家园","alternateName":"全球顶级期刊运动数据库","description":"结合全球顶级期刊建立的运动科学数据库，为您带来世界先进的运动理念。","inLanguage":"zh-Hans"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7f2;
+  --surface:#ffffff;
+  --surface-2:#fafbf8;
+  --border:#e4e8df;
+  --border-strong:#d4dacd;
+  --text:#2e3a31;
+  --muted:#78817a;
+  --faint:#9aa39a;
+  --accent:#5c8a6a;
+  --accent-deep:#47664f;
+  --accent-soft:#e9f0e6;
+  --accent-softer:#f2f6ef;
+  --radius-lg:22px;
+  --radius-md:14px;
+  --shadow:0 16px 42px -24px rgba(46,58,49,.24);
+  --shadow-sm:0 5px 16px -9px rgba(46,58,49,.14);
+  --serif:'Noto Serif SC','Noto Serif TC','SimSun','Songti SC',serif;
+  --sans:'Inter','Noto Sans SC','Noto Sans TC','PingFang SC','Microsoft YaHei','Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html{scrollbar-gutter:stable}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(92,138,106,.22)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+svg{display:block}
+.container{width:min(1120px,92%);margin:0 auto}
+
+/* cursor glow — small & quiet */
+#cursorGlow{
+  position:fixed;left:0;top:0;width:150px;height:150px;border-radius:50%;
+  pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(92,138,106,.07),transparent 65%);
+  transform:translate(-50%,-50%);
+  opacity:0;transition:opacity .5s;
+}
+@media (hover:hover) and (pointer:fine){#cursorGlow{opacity:1}}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(246,247,242,.86);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,box-shadow .3s;
+}
+nav.scrolled{border-bottom-color:var(--border);box-shadow:0 8px 24px -18px rgba(46,58,49,.18)}
+.nav-inner{
+  width:min(1060px,92%);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;height:64px;
+}
+.brand{display:flex;align-items:center;gap:10px;cursor:default;user-select:none}
+.brand-text{display:flex;flex-direction:column;align-items:flex-start;line-height:1.2}
+.brand-name{font-size:25px;font-weight:800;letter-spacing:.5px}
+.brand-slogan{font-size:11px;color:var(--muted);line-height:1.45;max-width:330px;margin-top:1px;letter-spacing:.2px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.brand-tag{flex:none;font-size:11px;font-weight:700;color:var(--accent-deep);background:var(--accent-soft);border:1px solid rgba(92,138,106,.3);border-radius:999px;padding:3px 10px;white-space:nowrap;letter-spacing:.3px}
+.brand-sig{
+  font-size:13px;color:var(--muted);background:none;border:none;padding:0;cursor:pointer;
+  font-family:inherit;max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  transition:color .2s;text-align:left;
+}
+.brand-sig:hover{color:var(--accent-deep)}
+.brand-sig-input{
+  font-size:13px;color:var(--text);border:1px solid var(--border-strong);border-radius:6px;
+  padding:2px 6px;font-family:inherit;width:230px;outline:none;
+}
+.brand-sig-input:focus{border-color:var(--accent)}
+.brand-task{
+  font-size:11px;color:var(--muted);background:none;border:none;padding:0;cursor:pointer;
+  font-family:inherit;max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  transition:color .2s;text-align:left;
+}
+.brand-task:hover{color:var(--accent-deep)}
+.brand-task-input{
+  font-size:11px;color:var(--text);border:1px solid var(--border-strong);border-radius:6px;
+  padding:2px 6px;font-family:inherit;width:210px;outline:none;
+}
+.brand-task-input:focus{border-color:var(--accent)}
+.brand-mark{
+  width:34px;height:34px;border-radius:10px;background:var(--accent-soft);
+  display:grid;place-items:center;color:var(--accent-deep);
+  border:1px solid rgba(92,138,106,.25);
+}
+.brand-mark svg{width:18px;height:18px}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-link{
+  font-size:14px;font-weight:700;color:var(--accent-deep);
+  padding:8px 12px;border-radius:999px;transition:all .2s;cursor:pointer;
+  background:none;border:none;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.nav-link:hover{color:var(--accent-deep);background:var(--accent-soft)}
+.nav-link svg{width:15px;height:15px}
+.nav-avatar{
+  display:flex;align-items:center;gap:8px;padding:5px 10px 5px 6px;border-radius:999px;
+  border:1px solid var(--border);background:var(--surface);cursor:pointer;font-family:inherit;
+  transition:all .2s;
+}
+.nav-avatar:hover{border-color:var(--accent);box-shadow:0 4px 14px -8px rgba(92,138,106,.5)}
+.nav-avatar .av{width:27px;height:27px;border-radius:50%;background:var(--accent-soft);border:1px solid rgba(92,138,106,.22);display:grid;place-items:center;font-size:14px}
+.nav-avatar .nm{font-size:13px;font-weight:700;color:var(--text);max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ---------- views ---------- */
+.view{display:none}
+.view.show{display:block;animation:viewIn .2s ease both}
+#viewHome.show .hero-head{animation:riseIn .26s ease .03s both}
+#viewHome.show .hero-quote{animation:riseIn .26s ease .08s both}
+#viewHome.show .search-card{animation:riseIn .26s ease .13s both}
+#viewHome.show .usage{animation:riseIn .26s ease .18s both}
+#viewHome.show .daily-block{animation:riseIn .26s ease .23s both}
+@keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- home hero ---------- */
+.hero{padding:18px 0 16px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(520px 300px at 16% 12%,rgba(92,138,106,.06),transparent 70%),
+    radial-gradient(480px 320px at 88% 28%,rgba(92,138,106,.045),transparent 70%);
+}
+.hero-inner{position:relative;z-index:1}
+.hero-head{text-align:center;max-width:600px;margin:0 auto 10px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:500;color:var(--accent-deep);
+  padding:5px 13px;border-radius:999px;
+  background:var(--accent-soft);border:1px solid rgba(92,138,106,.2);
+  margin-bottom:6px;
+}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(1.35rem,3vw,1.85rem);
+  font-weight:700;line-height:1.3;letter-spacing:1px;margin-bottom:5px;
+}
+.hero .sub{color:var(--muted);font-size:13px;max-width:480px;margin:0 auto}
+.hero-quote{margin:4px auto 0;max-width:520px;text-align:center}
+.hq-text{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--text);line-height:1.7;letter-spacing:.5px}
+.hq-name{font-size:15px;color:var(--accent-deep);margin-top:4px;text-align:right;font-weight:700;padding-right:8px}
+@keyframes blink{50%{opacity:0}}
+
+.hero-grid{
+display:grid;grid-template-columns:1fr 460px;gap:30px;
+  align-items:start;max-width:1120px;margin:0 auto;
+}
+.left-col{display:flex;flex-direction:column;gap:14px;min-width:0}
+
+/* search card (left) */
+.search-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:22px;box-shadow:var(--shadow-sm);position:relative;z-index:2;
+}
+.search-card h2{font-family:var(--serif);font-size:1.15rem;font-weight:700;margin-bottom:5px}
+.search-card .sc-sub{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+.search-box{
+  display:flex;align-items:center;gap:10px;
+  background:var(--surface-2);
+  border:1px solid var(--border-strong);
+  border-radius:var(--radius-md);padding:8px 8px 8px 20px;
+  transition:border-color .3s,box-shadow .3s;
+}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(92,138,106,.12)}
+.search-box.shake{animation:shake .45s}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-8px)}40%{transform:translateX(7px)}
+  60%{transform:translateX(-5px)}80%{transform:translateX(3px)}
+}
+.search-box .s-icon{color:var(--faint);flex:none;width:18px;height:18px;transition:color .3s}
+.search-box:focus-within .s-icon{color:var(--accent)}
+.search-box input{
+  flex:1;min-width:0;background:none;border:none;outline:none;
+  color:var(--text);font-size:16.5px;font-family:inherit;padding:11px 0;
+}
+.search-box input::placeholder{color:var(--faint)}
+.search-btn{
+  display:inline-flex;align-items:center;gap:7px;flex:none;
+  padding:11px 22px;border:none;border-radius:11px;cursor:pointer;
+  background:var(--accent);color:#fff;font-weight:600;font-size:14px;
+  transition:background .25s,transform .2s,box-shadow .25s;
+  box-shadow:0 8px 20px -10px rgba(92,138,106,.65);
+}
+.search-btn:hover{background:var(--accent-deep);transform:translateY(-1px);box-shadow:0 12px 26px -10px rgba(92,138,106,.75)}
+.search-btn:active{transform:scale(.97)}
+.search-btn svg{width:15px;height:15px}
+.search-btn.loading{pointer-events:none;opacity:.8}
+.search-btn.loading svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:0}
+.chip{
+  padding:6px 13px;border-radius:999px;border:1px solid var(--border);
+  background:var(--surface);color:var(--muted);font-size:13.5px;font-weight:500;cursor:pointer;
+  transition:all .22s;font-family:inherit;
+}
+.chip:hover{color:var(--accent-deep);border-color:var(--accent);background:var(--accent-soft)}
+.chips-label{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--accent);margin-top:14px;margin-bottom:8px}
+
+/* usage panel (right, bigger) */
+.usage{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:20px;box-shadow:var(--shadow-sm);position:sticky;top:70px;
+}
+.usage-title{
+  display:flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:1.5px;color:var(--muted);
+  padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:6px;
+}
+.usage-title svg{width:13px;height:13px;color:var(--accent)}
+.usage-stat{margin-bottom:8px}
+.usage-stat .label{font-size:11px;color:var(--muted);margin-bottom:2px}
+.usage-stat .value{font-size:2.1rem;font-weight:700;letter-spacing:.5px;color:var(--text);line-height:1.15}
+.usage-stat .value small{font-size:13px;font-weight:500;color:var(--muted);margin-left:4px}
+.usage-bar{
+  height:6px;border-radius:99px;background:var(--accent-softer);
+  overflow:hidden;margin-top:6px;border:1px solid rgba(92,138,106,.12);
+}
+.usage-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--accent),#8fbc96);
+  transition:width 1.3s cubic-bezier(.16,1,.3,1);
+}
+.usage-bar-caption{display:flex;justify-content:space-between;margin-top:4px;font-size:10.5px;color:var(--faint)}
+.day-dots{display:flex;gap:3px;flex-wrap:wrap;margin-top:4px}
+.day-dot{
+  width:10px;height:10px;border-radius:3px;
+  background:var(--accent-softer);border:1px solid rgba(92,138,106,.15);
+  transform:scale(0);transition:transform .35s cubic-bezier(.2,1.6,.4,1),background .3s;
+}
+.day-dot.on{background:var(--accent);border-color:var(--accent);box-shadow:0 2px 7px -1px rgba(92,138,106,.45)}
+.cal-open{
+  display:inline-flex;align-items:center;gap:4px;margin-top:4px;
+  background:none;border:none;color:var(--accent);font-size:10.5px;font-weight:600;
+  cursor:pointer;font-family:inherit;padding:0;transition:color .2s;
+}
+.cal-open:hover{color:var(--accent-deep)}
+.stat-progress{display:flex;flex-direction:column;align-items:stretch}
+.stat-progress .cal-open{margin-left:auto;margin-top:6px}
+.usage-note{margin-top:5px;font-size:11px;color:var(--faint);border-top:1px dashed var(--border);padding-top:5px}
+.usage-note b{color:var(--accent-deep);font-weight:600}
+
+/* 打卡日历 */
+.cal-head{display:flex;justify-content:space-between;align-items:center;font-size:14px;margin-bottom:12px}
+.cal-head b{font-family:var(--serif);font-size:1.05rem;color:var(--text)}
+.cal-head span{font-size:12px;color:var(--muted)}
+.cal-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:6px}
+.cal-week span{text-align:center;font-size:11px;color:var(--faint);padding:4px 0}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-cell{aspect-ratio:1;display:grid;place-items:center;border-radius:10px;font-size:13px;color:var(--muted);border:1px solid transparent}
+.cal-cell.on{background:var(--accent);color:#fff;font-weight:700;border-color:var(--accent)}
+.cal-cell.today{box-shadow:0 0 0 2px var(--accent-deep)}
+.cal-note{font-size:11.5px;color:var(--faint);margin-top:12px;text-align:center}
+.cal-tasks{margin-top:14px;border-top:1px dashed var(--border);padding-top:12px}
+.cal-tasks .ct-label{font-size:12px;font-weight:700;color:var(--accent-deep);letter-spacing:1px;margin-bottom:8px}
+.cal-task-row{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);padding:5px 8px;border-radius:9px}
+.cal-task-row .ct-num{flex:none;font-size:10.5px;font-weight:700;color:var(--accent-deep);background:var(--accent-soft);border-radius:99px;padding:2px 8px}
+.cal-task-row.miss{background:#fbe9e6}
+.cal-task-row .ok{color:var(--accent);font-weight:700}
+.cal-task-row .no{color:#c2574d;font-weight:700}
+.cal-strip{margin-bottom:10px}
+#calStrips{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 14px}
+.cal-strip .cs-label{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.cal-strip .cs-label .cs-num{flex:none;color:var(--accent-deep);font-weight:700;background:var(--accent-soft);border-radius:99px;padding:1px 7px}
+.cal-strip .cs-label span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cs-rows{display:flex;flex-direction:column;gap:6px}
+.cs-row{display:flex;gap:4px}
+.day-cell{width:15px;height:15px;border-radius:3px;border:1px solid var(--border-strong);background:transparent}
+.day-cell.on{background:var(--accent);border-color:var(--accent)}
+.day-cell.off{background:#f7ddd8;border-color:#efc6bf}
+.day-cell.today2{box-shadow:0 0 0 1px var(--accent-deep)}
+
+/* 打卡任务确认 */
+.ctask{
+  display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+  padding:11px 13px;border:1px solid var(--border-strong);border-radius:12px;
+  background:var(--surface);cursor:pointer;font-family:inherit;margin-bottom:9px;
+  opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s,background .25s,border-color .25s;
+}
+.ctask.in{opacity:1;transform:none}
+.ctask.done{background:var(--accent);border-color:var(--accent);color:#fff}
+.ctask-num{
+  width:24px;height:24px;border-radius:50%;flex:none;
+  background:var(--accent-soft);color:var(--accent-deep);font-size:12px;font-weight:700;
+  display:grid;place-items:center;transition:background .25s,color .25s;
+}
+.ctask.done .ctask-num{background:rgba(255,255,255,.25);color:#fff}
+.ctask-text{flex:1;font-size:13.5px;font-weight:600}
+.ctask-check{flex:none;font-size:15px;opacity:0;transition:opacity .2s}
+.ctask.done .ctask-check{opacity:1}
+.ctask-progress{font-size:12px;color:var(--muted);margin-bottom:12px}
+
+/* 打卡模式：任务格原地动画 + 点击变绿 */
+.task-slot.chk{cursor:pointer;border-color:var(--border-strong)}
+.task-slot.chk:hover{border-color:var(--accent)}
+.task-slot.chk.done{background:var(--accent);border-color:var(--accent);color:#fff}
+.task-slot.chk.done .ts-num{background:rgba(255,255,255,.25);color:#fff}
+.task-slot.chk.done .ts-text{color:#fff}
+.task-card.checking .task-slot,.task-card.checking .task-add{animation:slotPop .45s cubic-bezier(.2,1.3,.4,1) both}
+.task-card.checking .task-slots .task-slot:nth-child(2){animation-delay:.06s}
+.task-card.checking .task-slots .task-slot:nth-child(3){animation-delay:.12s}
+.task-card.checking .task-slots .task-slot:nth-child(4){animation-delay:.18s}
+@keyframes slotPop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+.chk-progress{font-size:11px;color:var(--accent-deep);font-weight:600;margin:0 0 5px}
+.rx-foot{margin-top:18px;border-top:1px dashed var(--border);padding-top:14px}
+.rx-tip{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  background:var(--accent-softer);border:1px solid rgba(92,138,106,.18);
+  border-radius:12px;padding:10px 14px;
+}
+.tip-text{font-size:12.5px;color:var(--muted)}
+.tip-btn{
+  padding:7px 16px;border:none;border-radius:9px;background:var(--accent);color:#fff;
+  font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .2s;
+}
+.tip-btn:hover{background:var(--accent-deep)}
+.rx-dis{font-size:11px;color:var(--faint);margin-top:10px;text-align:center;line-height:1.6}
+
+/* 图片头像 */
+.avatar-opt img{width:22px;height:22px;border-radius:50%;object-fit:cover}
+.nav-avatar .av img,.user-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+
+/* signature + check-in */
+.sign-card{
+  display:flex;align-items:center;gap:14px;
+  background:var(--accent-softer);border:1px solid rgba(92,138,106,.18);
+  border-radius:var(--radius-md);padding:16px;margin-bottom:22px;
+}
+.sign-avatar{
+  width:54px;height:54px;flex:none;border-radius:16px;
+  background:var(--accent-soft);border:1px solid rgba(92,138,106,.22);
+  display:grid;place-items:center;font-size:26px;
+}
+.sign-info{flex:1;min-width:0}
+.sign-label{font-size:10.5px;font-weight:600;letter-spacing:1.5px;color:var(--faint);margin-bottom:3px}
+.sign-value{
+  font-family:var(--serif);font-size:1.08rem;font-weight:700;
+  color:var(--accent-deep);line-height:1.5;word-break:break-all;
+}
+.sign-edit{
+  margin-top:6px;background:none;border:none;cursor:pointer;color:var(--accent);
+  font-size:11.5px;font-weight:600;font-family:inherit;padding:0;
+  display:inline-flex;align-items:center;gap:4px;transition:color .2s;
+}
+.sign-edit:hover{color:var(--accent-deep)}
+.sign-input{
+  width:100%;margin-top:8px;padding:9px 12px;border-radius:10px;
+  border:1px solid var(--border-strong);background:var(--surface);
+  font-family:inherit;font-size:13.5px;color:var(--text);outline:none;
+}
+.sign-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(92,138,106,.12)}
+.task-card{
+  background:var(--accent-softer);border:1px solid rgba(92,138,106,.18);
+  border-radius:var(--radius-md);padding:12px;margin-bottom:8px;cursor:pointer;
+  transition:border-color .2s;
+}
+.task-card:hover{border-color:var(--accent)}
+.task-label{font-size:16px;font-weight:700;letter-spacing:1.5px;color:var(--accent);margin-bottom:4px}
+.task-value{
+  font-family:var(--serif);font-size:1.35rem;font-weight:700;
+  color:var(--accent-deep);line-height:1.5;word-break:break-all;
+}
+.task-input{
+  width:100%;margin-top:6px;padding:10px 12px;border-radius:10px;
+  border:1px solid var(--border-strong);background:var(--surface);
+  font-family:inherit;font-size:1.1rem;color:var(--text);outline:none;
+}
+.task-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(92,138,106,.12)}
+.sig-line{
+  display:block;font-size:16px;font-weight:600;color:var(--text);background:none;border:none;padding:0;
+  margin:0 0 5px;cursor:pointer;font-family:inherit;text-align:left;transition:color .2s;
+}
+.sig-line:hover{color:var(--accent-deep)}
+.sig-line-input{
+  width:100%;margin:0 0 14px;padding:8px 10px;border-radius:9px;
+  border:1px solid var(--border-strong);background:var(--surface);
+  font-family:inherit;font-size:13px;color:var(--text);outline:none;
+}
+.sig-line-input:focus{border-color:var(--accent)}
+.task-slots{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:6px}
+.task-slot{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:8px;
+  border:1px dashed var(--border-strong);border-radius:10px;background:var(--surface);
+  cursor:pointer;font-family:inherit;transition:all .2s;text-align:left;min-height:54px;
+}
+.task-slot:hover{border-color:var(--accent);background:var(--accent-softer)}
+.ts-num{
+  width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700;display:grid;place-items:center;flex:none;
+}
+.ts-text{font-size:12.5px;color:var(--muted);line-height:1.35;word-break:break-all}
+.task-add{
+  display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--accent);
+  border:1px dashed var(--border-strong);border-radius:10px;background:var(--surface);
+  cursor:pointer;min-height:54px;font-family:inherit;transition:all .2s;
+}
+.task-add:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-softer)}
+.task-add.hide{display:none}
+.ts-ops{display:flex;gap:6px;opacity:0;transition:opacity .2s;margin-top:2px}
+.task-slot:hover .ts-ops{opacity:1}
+.task-slot.chk .ts-ops{display:none}
+.ts-op{
+  font-size:10.5px;padding:2px 8px;border-radius:6px;border:1px solid var(--border-strong);
+  color:var(--muted);cursor:pointer;line-height:1.4;
+}
+.ts-op:hover{color:var(--accent-deep);border-color:var(--accent)}
+.ts-op.del{color:#c2574d;border-color:#e3b6b1}
+.ts-op.del:hover{background:#fdf3f2;color:#c2574d}
+.task-foot{display:flex;justify-content:flex-end;margin:0 0 6px}
+.task-foot .checkin-btn{width:auto;padding:7px 15px;margin-bottom:0}
+.checkin-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px}
+.checkin-grid .usage-stat{margin-bottom:0;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:7px 5px;text-align:center}
+.checkin-grid .usage-stat .value{font-size:1.6rem}
+.checkin-grid .usage-stat .value small{font-size:11px}
+.checkin-grid .usage-stat .label{font-size:11px;margin-bottom:3px}
+.checkin-btn{
+  position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;padding:15px;border:none;border-radius:13px;cursor:pointer;
+  background:linear-gradient(135deg,var(--accent),#6f9d7d);color:#fff;
+  font-size:15px;font-weight:700;font-family:inherit;letter-spacing:1px;
+  box-shadow:0 10px 24px -10px rgba(92,138,106,.7);margin-bottom:18px;
+  transition:transform .2s,box-shadow .25s,filter .25s;
+}
+.checkin-btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px -10px rgba(92,138,106,.8)}
+.checkin-btn:active{transform:scale(.98)}
+.checkin-btn.done{background:var(--accent-softer);color:var(--accent-deep);box-shadow:none;cursor:default}
+.checkin-btn svg{width:17px;height:17px}
+.checkin-btn.done svg{color:var(--accent)}
+.checkin-btn .burst{
+  position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,255,255,.75) 0,transparent 60%);
+  opacity:0;transform:scale(.2);
+}
+.checkin-btn.pop .burst{animation:burst .7s ease-out forwards}
+@keyframes burst{40%{opacity:.9;transform:scale(1.6)}100%{opacity:0;transform:scale(2.2)}}
+
+/* sources strip（打卡下方，居中） */
+.sources{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,.45);
+  padding:5px 10px;margin:64px 0 0;
+}
+.sources p{
+  text-align:center;font-size:10.5px;color:var(--muted);margin:0;letter-spacing:.2px;
+}
+.sources b{color:var(--accent-deep);font-weight:700}
+.sources span{color:var(--faint);padding:0 3px;white-space:nowrap}
+
+/* footer */
+footer{padding:22px 0 12px;background:rgba(255,255,255,.45);margin-top:140px}
+.foot-top{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-bottom:12px}
+.foot-brand p{color:var(--muted);font-size:11px;max-width:300px;margin-top:6px;line-height:1.6}
+.foot-links{display:flex;gap:16px}
+.foot-links a{color:var(--muted);font-size:13px;transition:color .2s}
+.foot-links a:hover{color:var(--accent-deep)}
+.foot-bottom{
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+  border-top:1px solid var(--border);padding-top:9px;color:var(--faint);font-size:11px;
+}
+
+/* ============ results view ============ */
+.rx{padding:104px 0 80px}
+.rx-top{
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;
+  margin-bottom:30px;
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:999px;border:1px solid var(--border);
+  background:var(--surface);color:var(--text);font-size:13.5px;font-weight:500;cursor:pointer;
+  transition:all .25s;
+}
+.back-btn:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-soft);transform:translateX(-2px)}
+.back-btn svg{width:15px;height:15px}
+.rx-meta{display:flex;gap:8px;flex-wrap:wrap}
+.rm{
+  display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--muted);
+  padding:6px 13px;border-radius:999px;background:var(--surface);border:1px solid var(--border);
+}
+.rm b{color:var(--text);font-weight:700}
+.rm svg{width:13px;height:13px;color:var(--accent)}
+
+.rx-head{max-width:680px;margin-bottom:28px}
+.rx-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:600;letter-spacing:2px;color:var(--accent-deep);
+  margin-bottom:12px;
+}
+.rx-eyebrow svg{width:14px;height:14px}
+.rx-head h1{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700;line-height:1.4}
+.rx-head h1 span{color:var(--accent-deep)}
+.rx-goal{
+  display:flex;align-items:center;gap:10px;margin-top:14px;
+  font-size:13.5px;color:var(--muted);
+}
+.rx-goal svg{width:15px;height:15px;color:var(--accent);flex:none}
+
+/* essence */
+.rx-essence{
+  position:relative;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:34px 34px 30px;box-shadow:var(--shadow-sm);margin-bottom:30px;overflow:hidden;
+}
+.rx-essence::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);
+}
+.rx-essence .tag{
+  display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:1.5px;
+  color:var(--accent-deep);margin-bottom:14px;
+}
+.rx-essence .tag svg{width:13px;height:13px}
+.rx-essence #essenceText{
+  font-family:var(--serif);font-size:clamp(1.02rem,2vw,1.22rem);line-height:2;
+  min-height:96px;color:var(--text);white-space:pre-line;
+}
+.rx-essence .caret2{
+  display:inline-block;width:2px;height:1.05em;background:var(--accent);
+  vertical-align:-2px;margin-left:2px;animation:blink .9s steps(1) infinite;
+}
+
+/* advice */
+.rx-sub{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;font-weight:700;letter-spacing:1.5px;color:var(--muted);
+  margin-bottom:16px;
+}
+.rx-sub::after{content:"";flex:1;height:1px;background:var(--border)}
+.advice-list{display:grid;gap:8px;margin-bottom:24px}
+.advice{
+  display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:12px 16px;box-shadow:var(--shadow-sm);
+  opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s,border-color .3s;
+}
+.advice.in{opacity:1;transform:none}
+.advice:hover{border-color:var(--border-strong)}
+.advice .num{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--accent-deep);
+  background:var(--accent-soft);border:1px solid rgba(92,138,106,.22);
+}
+.advice .at{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:5px}
+.advice .src{
+  display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;
+  font-size:11.5px;font-weight:600;color:var(--accent-deep);
+  padding:5px 11px;border-radius:999px;background:var(--accent-softer);
+  border:1px solid rgba(92,138,106,.18);
+}
+.advice .src svg{width:12px;height:12px}
+
+/* sources */
+.src-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:36px}
+.src-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:18px 20px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
+  opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s,border-color .3s;
+}
+.src-card.in{opacity:1;transform:none}
+.src-card:hover{border-color:var(--border-strong)}
+.src-top{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.jtag{
+  font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;
+  color:var(--accent-deep);background:var(--accent-soft);border:1px solid rgba(92,138,106,.22);
+}
+.src-year{font-size:11.5px;color:var(--faint);font-weight:500}
+.src-title{font-size:13.5px;font-weight:600;line-height:1.55;margin-bottom:8px}
+.src-doi{font-size:11px;color:var(--faint);font-family:monospace;margin-bottom:10px;word-break:break-all}
+.src-for{
+  display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);
+  border-top:1px dashed var(--border);padding-top:10px;width:100%;
+}
+.src-for svg{width:12px;height:12px;color:var(--accent);flex:none}
+
+.rx-actions{display:flex;gap:10px;flex-wrap:wrap}
+.act-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;
+  border:1px solid var(--border-strong);background:var(--surface);color:var(--text);
+  font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .25s;
+}
+.act-btn:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-soft)}
+.act-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.act-btn.primary:hover{background:var(--accent-deep);border-color:var(--accent-deep)}
+.act-btn svg{width:15px;height:15px}
+
+/* loading card */
+.loading-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:38px;text-align:center;box-shadow:var(--shadow-sm);max-width:640px;margin:0 auto;
+}
+.loader-dots{display:flex;gap:7px;justify-content:center;margin-bottom:18px}
+.loader-dots i{
+  width:9px;height:9px;border-radius:50%;background:var(--accent);
+  animation:bounce 1.1s ease-in-out infinite;
+}
+.loader-dots i:nth-child(2){animation-delay:.15s}
+.loader-dots i:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-7px);opacity:1}}
+.loading-card h3{font-size:15px;font-weight:600;margin-bottom:16px}
+.ai-steps{max-width:320px;margin:0 auto;text-align:left;display:grid;gap:9px}
+.ai-step{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);transition:color .3s}
+.ai-step .st-dot{
+  width:17px;height:17px;border-radius:50%;flex:none;display:grid;place-items:center;
+  border:1.5px solid var(--border-strong);font-size:9px;color:#fff;
+}
+.ai-step.done{color:var(--text)}
+.ai-step.done .st-dot{background:var(--accent);border-color:var(--accent)}
+.ai-step.active{color:var(--accent-deep);font-weight:500}
+.ai-step.active .st-dot{border-color:var(--accent);box-shadow:0 0 0 4px rgba(92,138,106,.12)}
+
+/* toast & to-top */
+/* ============ 搜索建议 ============ */
+.suggest-wrap{position:relative}
+.suggest{
+  position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:40;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  box-shadow:var(--shadow);padding:8px;text-align:left;max-height:min(380px,62vh);overflow-y:auto;
+  opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .22s,transform .22s;
+}
+.suggest.open{opacity:1;transform:none;pointer-events:auto}
+.suggest-title{font-size:10.5px;letter-spacing:1.5px;color:var(--faint);padding:6px 10px 4px}
+.suggest button{
+  display:flex;align-items:center;gap:8px;width:100%;text-align:left;
+  padding:9px 12px;border:none;border-radius:9px;background:none;cursor:pointer;
+  font-family:inherit;font-size:13.5px;color:var(--text);transition:background .2s,color .2s;
+}
+.suggest button:hover{background:var(--accent-soft);color:var(--accent-deep)}
+.suggest button .sg{width:14px;height:14px;color:var(--faint);flex:none}
+.suggest .no-hit{font-size:12.5px;color:var(--faint);padding:10px 12px}
+body.searching nav,
+body.searching .sources,
+body.searching .hero-head,
+body.searching .hero-quote,
+body.searching .usage,
+body.searching .daily-block,
+body.searching footer,
+body.searching #toTop{
+  filter:blur(5px);pointer-events:none;transition:filter .25s ease;
+}
+
+/* ============ 结果弹窗 ============ */
+.modal{position:fixed;inset:0;z-index:90;display:none}
+.modal.open{display:block}
+.modal-backdrop{
+  position:absolute;inset:0;background:rgba(40,52,44,.42);
+  backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+  opacity:0;animation:backIn .3s ease forwards;
+}
+.modal.open .modal-backdrop{opacity:1}
+@keyframes backIn{from{opacity:0}to{opacity:1}}
+.modal-panel{
+  position:absolute;left:50%;top:50%;width:min(780px,94vw);
+  max-height:88vh;display:flex;flex-direction:column;
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:0 24px 70px -22px rgba(46,58,49,.4);
+  transform:translate(-50%,-50%);
+  animation:panelUp .5s cubic-bezier(.2,1.12,.3,1);
+}
+@keyframes panelUp{from{transform:translate(-50%,-46%) scale(.96);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
+.note-panel{width:min(560px,94vw)}
+.modal-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 22px;background:rgba(246,247,242,.94);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--border);
+  border-radius:24px 24px 0 0;flex:none;z-index:2;
+}
+.modal-title{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.05rem;font-weight:700}
+.modal-title svg{width:16px;height:16px;color:var(--accent)}
+.modal-close{
+  width:34px;height:34px;border-radius:11px;border:1px solid var(--border);
+  background:var(--surface);color:var(--muted);cursor:pointer;font-size:17px;line-height:1;
+  display:grid;place-items:center;transition:all .22s;
+}
+.modal-close:hover{color:#c2574d;border-color:#e3b6b1;background:#fdf3f2;transform:rotate(90deg)}
+.modal-body{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:26px 26px 34px}
+.modal-body .rx-head{margin-bottom:22px}
+.modal-body .rx-head h1{font-size:clamp(1.35rem,3vw,1.9rem)}
+
+/* 强调标记 */
+.hl{
+  color:#c2574d;font-weight:700;
+  background:linear-gradient(transparent 62%,rgba(194,87,77,.13) 0);
+  padding:0 2px;border-radius:3px;white-space:nowrap;
+}
+.hl-in{animation:hlIn .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes hlIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+/* ============ 笔记 ============ */
+.notes-page{padding:104px 0 80px;min-height:70vh}
+.note-src{
+  display:flex;gap:10px;align-items:flex-start;
+  background:var(--accent-softer);border:1px solid rgba(92,138,106,.18);
+  border-radius:var(--radius-md);padding:13px 15px;margin-bottom:14px;
+}
+.note-src .jtag{flex:none;margin-top:1px}
+.note-src p{font-size:12.5px;color:var(--muted);line-height:1.6}
+.note-src b{color:var(--text);font-weight:600}
+#noteText{
+  width:100%;min-height:130px;resize:vertical;padding:13px 15px;
+  border:1px solid var(--border-strong);border-radius:var(--radius-md);
+  background:var(--surface-2);font-family:inherit;font-size:14px;color:var(--text);line-height:1.8;outline:none;
+}
+#noteText:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(92,138,106,.12)}
+.note-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
+.notes-list{display:grid;gap:14px}
+.note-card{
+  display:block;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:18px 20px;box-shadow:var(--shadow-sm);
+  opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s,border-color .3s;
+}
+.note-card.in{opacity:1;transform:none}
+.note-card:hover{border-color:var(--border-strong)}
+.note-card .nc-src{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:9px}
+.note-card .nc-title{font-size:13px;font-weight:600;color:var(--accent-deep);margin-bottom:10px;line-height:1.6;word-break:break-all}
+.note-card .nc-body{font-size:14px;line-height:1.85;color:var(--text);white-space:pre-wrap}
+.note-card .nc-time{font-size:11px;color:var(--faint);margin-top:10px;display:block}
+.note-card .nc-do{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.note-del{
+  width:30px;height:30px;border-radius:9px;border:1px solid var(--border);
+  background:var(--surface);color:var(--muted);cursor:pointer;display:grid;place-items:center;
+  transition:all .2s;font-size:15px;line-height:1;
+}
+.note-del:hover{color:#c2574d;border-color:#e3b6b1;background:#fdf3f2}
+.note-del svg{width:14px;height:14px}
+.note-add-btn{
+  display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 14px;
+  border-radius:9px;border:1px solid rgba(92,138,106,.25);background:var(--accent-soft);
+  color:var(--accent-deep);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;
+  transition:all .22s;
+}
+.note-add-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.note-add-btn svg{width:13px;height:13px}
+.nav-badge{
+  display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:17px;
+  padding:0 5px;border-radius:99px;background:var(--accent);color:#fff;
+  font-size:10.5px;font-weight:700;margin-left:3px;vertical-align:1px;
+}
+.notes-empty{
+  text-align:center;padding:64px 20px;color:var(--muted);
+  border:1px dashed var(--border-strong);border-radius:var(--radius-lg);background:var(--surface);
+}
+.notes-empty svg{width:34px;height:34px;color:var(--faint);margin:0 auto 14px}
+.notes-empty h3{font-family:var(--serif);font-size:1.05rem;color:var(--text);margin-bottom:6px}
+.notes-empty p{font-size:13px}
+
+/* ============ 文献卡（资料库） ============ */
+.src-authors{font-size:12px;color:var(--muted);margin-bottom:6px}
+.src-authors b{color:var(--text);font-weight:600}
+.src-abs{font-size:12.5px;color:var(--muted);line-height:1.8;margin-bottom:8px;border-left:2px solid var(--accent-soft);padding-left:10px}
+.src-abs.clamped,.at.clamped{
+  display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;
+}
+.src-abs.clamped{-webkit-line-clamp:4}
+.at.clamped{-webkit-line-clamp:3}
+.more-btn{
+  display:inline-flex;align-items:center;gap:4px;margin:2px 0 8px;
+  background:none;border:none;color:var(--accent);font-size:11.5px;font-weight:600;
+  cursor:pointer;font-family:inherit;padding:0;transition:color .2s;
+}
+.more-btn:hover{color:var(--accent-deep)}
+.advice .more-btn{margin:0 0 8px}
+.essence-more{margin:8px 0 0}
+#essenceText.clamped{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.rx-essence{display:flex;flex-direction:column}
+.ess-note{align-self:flex-end}
+.advice>div:last-child{display:flex;flex-direction:column;align-items:flex-start}
+.advice-note{align-self:flex-end}
+.ess-plan{
+  margin-top:14px;background:var(--accent-softer);
+  border:1px solid rgba(92,138,106,.18);border-left:3px solid var(--accent);
+  border-radius:12px;padding:12px 14px;
+}
+.ess-plan-label{
+  font-size:12px;font-weight:700;color:var(--accent-deep);
+  letter-spacing:1px;margin-bottom:8px;
+}
+.ess-plan-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
+.ess-plan-item:last-child{margin-bottom:0}
+.ess-num{
+  flex:none;width:22px;height:22px;border-radius:50%;
+  display:grid;place-items:center;font-size:12px;font-weight:700;
+  color:var(--accent-deep);background:var(--surface);
+  border:1px solid var(--border-strong);margin-top:5px;
+}
+.ess-note{margin-top:12px}
+.advice .num.n1{background:#e8f2e6;color:#2f7d4f;border-color:rgba(47,125,79,.25)}
+.advice .num.n2{background:#e3f0f5;color:#2f6f8f;border-color:rgba(47,111,143,.25)}
+.advice .num.n3{background:#eae7f6;color:#6a5acd;border-color:rgba(106,90,205,.25)}
+.advice .num.n4{background:#fdf0e3;color:#c47a2c;border-color:rgba(196,122,44,.25)}
+.advice .num.n5{background:#fbe9ea;color:#c2574d;border-color:rgba(194,87,77,.25)}
+.advice .num.n6{background:#efe9f8;color:#7a5aa8;border-color:rgba(122,90,168,.25)}
+.advice-note{margin-top:8px}
+.src-en{font-size:11px;color:var(--faint);line-height:1.6;margin-bottom:8px;border-top:1px dashed var(--border);padding-top:6px;word-break:break-all}
+.oa-badge,.pay-badge,.ev-badge{font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;flex:none}
+.oa-badge{color:#2e7d4f;background:#e4f3e9;border:1px solid rgba(46,125,79,.22)}
+.pay-badge{color:#a0622f;background:#f8efe3;border:1px solid rgba(160,98,47,.22)}
+.ev-badge{color:var(--accent-deep);background:var(--accent-soft);border:1px solid rgba(92,138,106,.2)}
+.db-miss{
+  font-size:12.5px;color:var(--faint);background:var(--surface-2);
+  border:1px dashed var(--border-strong);border-radius:var(--radius-md);
+  padding:10px 14px;margin-bottom:16px;
+}
+.src-note{font-size:11.5px;color:var(--faint);text-align:center;border-top:1px dashed var(--border);padding-top:12px;margin-top:4px}
+
+/* ============ 分享广场 ============ */
+.share-post{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-sm);margin-bottom:28px}
+#shareText{
+  width:100%;min-height:110px;resize:vertical;padding:13px 15px;
+  border:1px solid var(--border-strong);border-radius:var(--radius-md);
+  background:var(--surface-2);font-family:inherit;font-size:14px;color:var(--text);line-height:1.8;outline:none;
+}
+#shareText:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(92,138,106,.12)}
+.share-list{display:grid;gap:14px}
+.share-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:18px 20px;box-shadow:var(--shadow-sm);
+  opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s,border-color .3s;
+}
+.share-card.in{opacity:1;transform:none}
+.share-card:hover{border-color:var(--border-strong)}
+.sh-head{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+.sh-avatar{width:38px;height:38px;flex:none;border-radius:12px;background:var(--accent-soft);border:1px solid rgba(92,138,106,.22);display:grid;place-items:center;font-size:18px}
+.sh-who{flex:1;min-width:0}
+.sh-name{font-size:13.5px;font-weight:700;color:var(--text)}
+.sh-meta{font-size:11px;color:var(--faint);display:block;margin-top:1px}
+.mine-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;color:#fff;background:var(--accent);border-radius:99px;padding:2px 7px;margin-left:6px;vertical-align:2px}
+.sh-like{
+  flex:none;display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--faint);
+  border:1px solid var(--border);background:var(--surface);border-radius:999px;padding:6px 11px;
+  cursor:pointer;transition:all .2s;font-family:inherit;
+}
+.sh-like:hover{color:#c2574d;border-color:#e3b6b1}
+.sh-like.on{color:#c2574d;border-color:#e3b6b1;background:#fdf3f2}
+.sh-text{font-size:14px;line-height:1.85;color:var(--text);white-space:pre-wrap;margin-bottom:12px}
+.sh-src{font-size:11.5px;color:var(--muted);border-top:1px dashed var(--border);padding-top:10px}
+.sh-src b{color:var(--accent-deep);font-weight:600}
+.note-share{
+  display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:9px;
+  border:1px solid rgba(92,138,106,.25);background:var(--accent-soft);color:var(--accent-deep);
+  font-size:11.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;
+}
+.note-share:hover{background:var(--accent);color:#fff}
+.note-preview{
+  font-size:13px;color:var(--muted);line-height:1.8;background:var(--surface-2);
+  border:1px solid var(--border);border-radius:12px;padding:10px 12px;
+  margin-bottom:12px;max-height:130px;overflow-y:auto;
+}
+.note-preview b{color:var(--accent-deep);font-weight:600}
+.share-ops{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.share-op{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;
+  border:1px solid var(--border-strong);background:var(--surface);font-size:12.5px;font-weight:600;
+  cursor:pointer;font-family:inherit;color:var(--text);transition:all .2s;
+}
+.share-op:hover{border-color:var(--accent);color:var(--accent-deep)}
+.share-op.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.share-op.primary:hover{background:var(--accent-deep)}
+.note-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.note-mini{
+  display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:9px;
+  border:1px solid var(--border-strong);background:var(--surface);color:var(--muted);
+  font-size:11.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;
+}
+.note-mini:hover{border-color:var(--accent);color:var(--accent-deep)}
+.note-mini.danger:hover{color:#c2574d;border-color:#e3b6b1}
+.user-card{text-align:center;padding:8px 0 2px}
+.user-avatar{
+  width:72px;height:72px;border-radius:50%;margin:0 auto 12px;
+  background:var(--accent-soft);border:2px solid rgba(92,138,106,.25);
+  display:grid;place-items:center;font-size:36px;
+}
+.user-name{font-size:18px;font-weight:800;color:var(--text)}
+.user-tag{font-size:12px;color:var(--faint);margin-top:2px}
+.avatar-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:14px 0 4px}
+.avatar-opt{
+  width:44px;height:44px;border-radius:50%;border:2px solid var(--border);
+  background:var(--surface);font-size:22px;cursor:pointer;display:grid;place-items:center;transition:all .2s;
+}
+.avatar-opt:hover{border-color:var(--accent)}
+.avatar-opt.on{border-color:var(--accent);background:var(--accent-soft)}
+.set-list{display:grid;gap:10px;margin-top:8px}
+.set-item{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:12px 14px;border:1px solid var(--border);border-radius:12px;
+  background:var(--surface);cursor:pointer;font-family:inherit;transition:all .2s;width:100%;
+}
+.set-item:hover{border-color:var(--accent)}
+.set-item .si-l{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;color:var(--text)}
+.set-item .si-l svg{width:18px;height:18px;flex:none;color:var(--accent)}
+.set-item .si-r{
+  min-width:96px;text-align:right;font-size:12px;color:var(--faint);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.set-item.danger .si-l{color:#c2574d}
+.set-item{min-height:54px}
+.share-board-link{
+  display:inline-flex;align-items:center;gap:4px;background:none;border:none;
+  color:var(--accent);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;
+  padding:0;margin-bottom:12px;transition:color .2s;
+}
+.share-board-link:hover{color:var(--accent-deep)}
+.pick-note{
+  display:flex;flex-direction:column;gap:8px;padding:12px 14px;
+  border:1px solid var(--border);border-radius:12px;background:var(--surface);margin-bottom:10px;
+}
+.pn-title{font-size:12px;font-weight:600;color:var(--accent-deep);line-height:1.5}
+.pn-body{font-size:12.5px;color:var(--muted);line-height:1.7;max-height:60px;overflow:hidden}
+.pn-ops{display:flex;gap:8px;flex-wrap:wrap}
+.sp-hint{font-size:13px;color:var(--muted);margin-bottom:10px}
+.ct-text{font-size:14px;color:var(--text);line-height:1.9;margin-bottom:14px}
+.ct-mail{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px;border-radius:12px;background:var(--accent-soft);
+  border:1px solid rgba(92,138,106,.25);color:var(--accent-deep);
+  font-size:15px;font-weight:700;text-decoration:none;transition:all .2s;
+}
+.ct-mail:hover{background:var(--accent);color:#fff}
+
+/* 打卡签名弹窗 */
+.sign-pop{position:fixed;inset:0;z-index:210;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.sign-pop[hidden]{display:none}
+.sign-pop-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  box-shadow:0 24px 70px -22px rgba(46,58,49,.45);padding:28px 42px;text-align:center;
+  animation:signPop .55s cubic-bezier(.2,1.4,.4,1);
+}
+@keyframes signPop{from{opacity:0;transform:scale(.6) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.sign-pop-badge{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px;margin-bottom:10px}
+.sign-pop-text{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--accent-deep);line-height:1.6}
+
+/* ============ 今日精选 ============ */
+.daily{
+  display:flex;align-items:center;gap:16px;margin:26px auto 0;max-width:960px;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:16px 20px;box-shadow:var(--shadow-sm);
+}
+.daily-star{
+  width:38px;height:38px;flex:none;border-radius:12px;
+  background:var(--accent-soft);border:1px solid rgba(92,138,106,.22);
+  display:grid;place-items:center;color:var(--accent-deep);font-size:16px;
+}
+.daily-info{flex:1;min-width:0}
+.daily-label{font-size:10.5px;letter-spacing:1.5px;font-weight:700;color:var(--accent);margin-bottom:2px}
+.daily-title{font-size:14px;font-weight:600;line-height:1.6}
+.daily-src{font-size:11.5px;color:var(--faint);margin-top:2px}
+.daily-btn{
+  flex:none;display:inline-flex;align-items:center;gap:5px;padding:6px 13px;
+  border:none;border-radius:11px;background:var(--accent);color:#fff;
+  font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;
+  box-shadow:0 8px 18px -9px rgba(92,138,106,.65);transition:all .22s;
+}
+.daily-btn:hover{background:var(--accent-deep);transform:translateY(-1px)}
+.daily-btn:active{transform:scale(.97)}
+.daily-btn svg{width:13px;height:13px}
+.daily-block{width:min(480px,100%)}
+.dl-label{font-size:13.5px;font-weight:700;letter-spacing:1.5px;color:var(--faint);margin-bottom:8px}
+.daily-list{display:grid;gap:9px}
+.ditem{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;
+  background:rgba(255,255,255,.62);border:1px solid rgba(228,232,223,.9);
+  border-radius:13px;opacity:.9;cursor:pointer;
+  transition:transform .22s cubic-bezier(.2,1.2,.4,1),background .22s,border-color .22s,box-shadow .22s,opacity .2s;
+}
+.ditem:hover{
+  opacity:1;transform:scale(1.045);background:var(--surface);
+  border-color:var(--accent);box-shadow:var(--shadow-sm);
+}
+.ditem .di-star{font-size:13px;flex:none}
+.ditem .di-info{flex:1;min-width:0}
+.ditem .di-title{font-size:15px;font-weight:600;color:var(--text);line-height:1.5}
+.ditem .di-src{font-size:11.5px;color:var(--faint);margin-top:2px}
+.ditem .di-btn{
+  flex:none;padding:3px 9px;border-radius:8px;border:1px solid var(--border-strong);
+  background:var(--surface);color:var(--accent-deep);font-size:11.5px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:all .2s;
+}
+.ditem .di-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* ============ 欢迎动画（纯文字＋背景模糊） ============ */
+#welcomeOverlay{
+  position:fixed;inset:0;z-index:200;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(246,247,242,.14);
+  backdrop-filter:blur(10px) saturate(1.08);
+  -webkit-backdrop-filter:blur(10px) saturate(1.08);
+  color:var(--accent-deep);text-align:center;
+  transition:opacity .7s ease,visibility .7s;
+  cursor:pointer;
+}
+#welcomeOverlay.hide{opacity:0;visibility:hidden}
+.welcome-card{max-width:520px;padding:20px}
+.welcome-greet{
+  font-family:var(--serif);font-size:clamp(1.9rem,5vw,2.6rem);
+  font-weight:700;letter-spacing:2px;line-height:1.45;color:var(--accent-deep);
+}
+.wc{
+  display:inline-block;opacity:0;
+  transform:translateY(20px) scale(.92);filter:blur(9px);
+  animation:charIn .5s cubic-bezier(.2,.9,.25,1.15) forwards;
+  will-change:transform,filter,opacity;
+}
+@keyframes charIn{to{opacity:1;transform:none;filter:blur(0)}}
+.welcome-sub{
+  font-size:14px;color:var(--muted);margin-top:14px;letter-spacing:1px;
+  opacity:0;
+  animation:subIn .55s .55s ease both;
+}
+@keyframes subIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.welcome-skip{
+  position:fixed;right:18px;bottom:16px;font-size:11px;opacity:.6;
+  letter-spacing:1px;color:var(--faint);animation:welcomeUp .6s .6s both;
+}
+@keyframes welcomeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ============ AI 服务状态提示 ============ */
+.ai-banner{
+  position:fixed;top:74px;left:50%;transform:translateX(-50%);z-index:130;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+  max-width:min(720px,92vw);padding:10px 14px;border-radius:14px;
+  background:var(--surface);border:1px solid #e3b6b1;box-shadow:var(--shadow);
+  font-size:12.5px;color:var(--text);
+  animation:bannerIn .5s cubic-bezier(.2,1.1,.3,1);
+}
+.ai-banner[hidden]{display:none}
+.ai-banner svg{width:15px;height:15px;color:#c2574d;flex:none}
+.ai-banner-hint{color:var(--muted)}
+.ai-banner-hint b{color:var(--accent-deep);font-weight:700}
+.ai-banner-btn{
+  border:1px solid var(--border-strong);background:var(--surface);color:var(--accent-deep);
+  font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:9px;cursor:pointer;font-family:inherit;
+}
+.ai-banner-btn:hover{background:var(--accent-soft)}
+.ai-banner-x{background:none;border:none;color:var(--faint);cursor:pointer;font-size:13px;padding:2px}
+@keyframes bannerIn{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
+
+#toast{
+  position:fixed;left:50%;bottom:28px;transform:translate(-50%,80px);z-index:100;
+  background:var(--text);color:#f6f7f2;
+  padding:11px 22px;border-radius:999px;font-size:13.5px;font-weight:500;
+  box-shadow:var(--shadow);opacity:0;transition:all .4s cubic-bezier(.2,.9,.3,1.2);
+  display:flex;align-items:center;gap:8px;pointer-events:none;
+}
+#toast.show{transform:translate(-50%,0);opacity:1}
+#toast svg{width:14px;height:14px;color:#9fc7a7}
+#toTop{
+  position:fixed;right:22px;bottom:22px;z-index:60;width:42px;height:42px;border-radius:12px;
+  border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;
+  display:grid;place-items:center;opacity:0;pointer-events:none;transition:all .3s;
+  box-shadow:var(--shadow-sm);
+}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-2px)}
+#toTop svg{width:17px;height:17px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .usage{position:static}
+}
+@media (max-width:1080px){
+  .nav-link{font-size:12.5px;padding:7px 11px}
+  .brand-tag{display:none}
+  .brand-name{font-size:21px}
+}
+@media (max-width:560px){
+  .hero{padding:20px 0 48px}
+  .search-box{flex-wrap:wrap;padding:12px;border-radius:var(--radius-md)}
+  .search-box input{width:100%;flex-basis:100%;padding:8px 2px;font-size:16px}
+  .search-btn{width:100%;justify-content:center}
+  .foot-top{flex-direction:column;align-items:flex-start}
+  .advice{grid-template-columns:34px 1fr;gap:10px;padding:12px 14px}
+  .advice .num{width:34px;height:34px;border-radius:10px;font-size:.9rem}
+  .modal-body{padding:20px 16px 28px}
+  .modal-head{padding:14px 16px}
+  .checkin-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .checkin-grid .usage-stat{padding:14px 8px}
+  .checkin-grid .usage-stat .value{font-size:1.6rem}
+  .checkin-btn{font-size:14px}
+  .daily{flex-wrap:wrap}
+  .daily-btn{width:100%;justify-content:center}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 进站欢迎动画 ============ -->
+<div id="welcomeOverlay" aria-hidden="true">
+  <div class="welcome-card">
+    <div class="welcome-greet" id="welcomeGreet"></div>
+    <div class="welcome-sub" id="welcomeSub">今天也把世界前沿的运动理念，带进你的训练</div>
+  </div>
+  <div class="welcome-skip">点击跳过</div>
+</div>
+
+<div id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ============ AI 服务状态 ============ -->
+<div id="aiBanner" class="ai-banner" hidden>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M12 20h.01"/></svg>
+  <span><b>本机 AI 分析服务未启动</b>，搜索将改用浏览器直连期刊数据库（免费）</span>
+  <span class="ai-banner-hint">双击 <b>start-ai-server.cmd</b> 可启用期刊数据库深度检索</span>
+  <button class="ai-banner-btn" id="aiRetryBtn" type="button">重新检查</button>
+  <button class="ai-banner-x" id="aiBannerClose" type="button" aria-label="关闭提示">✕</button>
+</div>
+
+<!-- ============ 打卡签名弹窗 ============ -->
+<div id="signPopup" class="sign-pop" hidden aria-hidden="true">
+  <div class="sign-pop-card">
+    <div class="sign-pop-badge">✓ 今日打卡成功</div>
+    <div class="sign-pop-text" id="signPopupText"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar" aria-label="主要导览">
+  <div class="nav-inner">
+    <span class="brand" aria-label="体育家园">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 4.5 13.5h5L8 22l9-11.5h-5L13.5 2z"/></svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">体育家园</span>
+      </span>
+      <span class="brand-tag">全球顶级期刊数据库 × AI 综合分析</span>
+    </span>
+    <div class="nav-right">
+      <button class="nav-link" id="navSearchBtn" onclick="goHome()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        开始搜索
+      </button>
+      <button class="nav-link" id="navShareBtn" onclick="openShare()">分享广场</button>
+      <button class="nav-link" id="navNotesBtn" onclick="openNotes()">我的笔记<span class="nav-badge" id="notesBadge">0</span></button>
+      <button class="nav-link" id="navContactBtn" onclick="openContact()">联系我们</button>
+      <button class="nav-avatar" id="navAvatarBtn" type="button" onclick="openUserModal()">
+        <span class="av" id="navAvatarIcon">🏃</span><span class="nm" id="navUserName">运动家</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="sources" aria-label="收录访问来源">
+  <p><b>收录访问来源</b><span>·</span>Nature<span>·</span>Science<span>·</span>Cell<span>·</span>PNAS<span>·</span>Lancet<span>·</span>NEJM<span>·</span>BMJ<span>·</span>BJSM<span>·</span>Sports Med<span>·</span>MSSE<span>·</span>JSCR<span>·</span>J Appl Physiol<span>·</span>Eur JAP<span>·</span>J Sports Sci<span>·</span>EJSS<span>·</span>IJSPP<span>·</span>Scand J MSS<span>·</span>J Health Sci<span>·</span>JSAMS<span>·</span>Biol Sport<span>·</span>Human Kinetics<span>·</span>Am J Sports Med<span>·</span>J Athl Train<span>·</span>Pediatr Exerc Sci<span>·</span>RQES<span>·</span>JSSM<span>·</span>Int J Exerc Sci<span>·</span>J Sport Rehabil<span>·</span>Phys Ther Sport<span>·</span>IJ Sports Med<span>·</span>J Sports Med Phys Fit<span>·</span>J Exerc Rehabil<span>·</span>J Aging Phys Act<span>·</span>J Phys Act Health<span>·</span>Kinesiology<span>·</span>Mov Sport Sci<span>·</span>Gait & Posture<span>·</span>APNM<span>·</span>J Biomech<span>·</span>Front Physiol<span>·</span>等 40+ 本全球顶级期刊</p>
+</div>
+
+<!-- ============ HOME VIEW ============ -->
+<main id="viewHome" class="view show">
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-head">
+        <h1 class="reveal" data-delay="60">全球顶级期刊数据库 × AI 综合分析，<br>为您分析</h1>
+      <div class="hero-quote reveal" data-delay="180">
+        <p class="hq-text" id="heroQuoteText"></p>
+        <p class="hq-name" id="heroQuoteName"></p>
+      </div>
+    </div>
+
+    <div class="hero-grid">
+        <div class="left-col">
+        <!-- 左侧：搜寻 -->
+        <div class="search-card reveal" data-delay="240">
+          <h2>你想解决什么问题？</h2>
+          <p class="sc-sub">选一个热门主题，或直接输入你的训练疑问</p>
+          <div class="suggest-wrap">
+            <form class="search-box" id="searchForm" role="search" aria-label="文献搜寻">
+              <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              <input id="searchInput" type="search" placeholder="例如：HIIT 怎么练最有效？" autocomplete="off" aria-label="输入训练问题">
+              <button class="search-btn" type="submit" id="searchBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M4 13.5 20 6"/></svg>
+                生成处方
+              </button>
+            </form>
+            <div class="suggest" id="suggestBox" role="listbox" aria-label="搜索建议"></div>
+          </div>
+          <div class="chips-label">热门话题</div>
+          <div class="chips" aria-label="热门话题">
+            <button class="chip" type="button">HIIT 训练</button>
+            <button class="chip" type="button">肌肥大</button>
+            <button class="chip" type="button">恢复策略</button>
+            <button class="chip" type="button">跑步经济性</button>
+            <button class="chip" type="button">睡眠与表现</button>
+            <button class="chip" type="button">运动营养</button>
+          </div>
+        </div>
+
+        <!-- 今日精选（紧贴搜索框） -->
+        <div class="daily-block reveal" data-delay="360">
+          <div class="dl-label">今日精选</div>
+          <div class="daily-list" id="dailyList"></div>
+        </div>
+        </div>
+
+        <!-- 右侧：打卡与使用概况（放大版） -->
+        <aside class="usage reveal" data-delay="300" aria-label="本月打卡与使用概况">
+          <div class="usage-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/></svg>
+            本月打卡
+          </div>
+          <button class="sig-line" id="sigLine" type="button" onclick="editSig()" title="点击修改个性签名">个性签名：坚持，就是最好的天赋</button>
+
+          <div class="task-card">
+            <div class="task-label">今日任务</div>
+            <div class="task-slots" id="taskSlots"></div>
+          </div>
+          <div class="chk-progress" id="chkProgress" hidden></div>
+          <div class="task-foot">
+            <button class="checkin-btn" id="checkinBtn" type="button" aria-label="今日打卡">
+              <span class="burst" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/><path d="m9 14 2 2 4-4"/></svg>
+              <span id="checkinLabel">今日打卡</span>
+            </button>
+          </div>
+
+          <div class="checkin-grid">
+            <div class="usage-stat">
+              <div class="label">本月使用</div>
+              <div class="value"><span class="count" id="checkinDays" data-target="12">0</span><small>天</small></div>
+            </div>
+            <div class="usage-stat">
+              <div class="label">查阅文献</div>
+              <div class="value"><span class="count" data-target="128">0</span><small>篇</small></div>
+            </div>
+          </div>
+
+          <div class="usage-stat stat-progress">
+            <div class="label">本月进度</div>
+            <div class="usage-bar" role="img" aria-label="本月进度"><i id="usageBarFill"></i></div>
+            <div class="usage-bar-caption"><span id="daysCaption">已使用 12 天</span><span>共 31 天</span></div>
+            <div class="day-dots" id="dayDots" aria-hidden="true"></div>
+            <button class="cal-open" type="button" onclick="openCalendar()">查看打卡记录 ▸</button>
+          </div>
+
+          <div class="usage-stat">
+            <div class="label">连续阅读</div>
+            <div class="value" style="font-size:1.15rem"><span class="count" data-target="6">0</span><small>周</small></div>
+          </div>
+
+          <div class="usage-note">较上月多 <b>18 篇</b> · 持续保持阅读习惯</div>
+        </aside>
+      </div>
+
+    </div>
+  </header>
+
+  <footer>
+    <div class="container">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a class="brand" href="#top" onclick="goHome();return false;" aria-label="体育家园 首页">
+            <span class="brand-mark">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 4.5 13.5h5L8 22l9-11.5h-5L13.5 2z"/></svg>
+            </span>
+            体育家园
+          </a>
+          <p>结合全球顶级期刊建立的运动科学数据库，把世界先进的运动理念带给每一位教练与运动员。</p>
+        </div>
+        <div class="foot-links">
+          <a href="#top" onclick="goHome();return false;">AI 搜索</a>
+          <a href="#top" onclick="goHome();return false;">热门主题</a>
+          <a href="#top" onclick="goHome();return false;">证据等级说明</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 体育家园. 保留所有权利。</span>
+        <span>期刊内容仅涉及免费期刊内容和摘要，不涉及侵权内容。</span>
+        <span>内容由 AI 结合数据库与公开信息整理，仅供参考。</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- ============ NOTES VIEW ============ -->
+<main id="viewNotes" class="view">
+  <section class="notes-page">
+    <div class="container">
+      <div class="rx-top">
+        <button class="back-btn" onclick="goHome()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          返回首页
+        </button>
+        <div class="rx-meta">
+          <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>我的笔记 <b id="notesCount">0</b> 则</span>
+        </div>
+      </div>
+      <div class="rx-head">
+        <div class="rx-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>个人笔记</div>
+        <h1>把灵感与出处<br>一起留住</h1>
+        <div class="rx-goal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>每一则笔记都会标明出自哪篇文献，方便日后回查。</div>
+      </div>
+      <div id="notesList" class="notes-list"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ SHARE VIEW ============ -->
+<main id="viewShare" class="view">
+  <section class="notes-page">
+    <div class="container">
+      <div class="rx-top">
+        <button class="back-btn" onclick="goHome()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          返回首页
+        </button>
+        <div class="rx-meta">
+          <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg>分享广场 <b id="shareCount">0</b> 则</span>
+        </div>
+      </div>
+      <div class="rx-head">
+        <div class="rx-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg>运动员 × 教练 × 你</div>
+        <h1>把有用的笔记<br>分享给同路人</h1>
+        <div class="rx-goal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>看看别人的训练笔记，也把你的心得发布出去。</div>
+      </div>
+
+      <div class="share-post">
+        <div class="sp-hint">选择一条笔记分享到广场，或先查看大家的分享</div>
+        <button class="act-btn primary" type="button" onclick="openSharePicker()">选择笔记分享 ▸</button>
+      </div>
+
+      <div class="rx-sub">推荐笔记 · 来自其他运动员与教练</div>
+      <div id="shareList" class="share-list"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ AI 处方弹窗 ============ -->
+<div id="rxModal" class="modal" role="dialog" aria-modal="true" aria-label="AI 文献处方">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel" role="document">
+    <div class="modal-head">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+        AI 文献处方
+      </div>
+      <button class="modal-close" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body" id="rxModalBody"></div>
+  </div>
+</div>
+
+<!-- ============ 记笔记弹窗 ============ -->
+<div id="noteModal" class="modal" role="dialog" aria-modal="true" aria-label="记笔记">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel note-panel" role="document">
+    <div class="modal-head">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        记笔记
+      </div>
+      <button class="modal-close" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="note-src" id="noteSrcInfo"></div>
+      <div class="note-preview" id="notePreview"></div>
+<textarea id="noteText" placeholder="写下你的想法、应用计划或提醒…"></textarea>
+      <div class="share-ops">
+        <button class="share-op primary" type="button" onclick="shareOneClick()">一键分享</button>
+        <button class="share-op" type="button" onclick="shareNote('moments')">分享到朋友圈</button>
+        <button class="share-op" type="button" onclick="shareNote('xhs')">分享到小红书</button>
+        <button class="share-op" type="button" onclick="shareLinkFromNote()">生成分享链接</button>
+        <button class="share-op primary" type="button" onclick="copyNotePreview()">复制内容</button>
+      </div>
+      <div class="note-actions">
+        <button class="act-btn" data-close>取消</button>
+        <button class="act-btn primary" id="noteSaveBtn">储存笔记</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 选择笔记分享 ============ -->
+<div id="sharePickModal" class="modal" role="dialog" aria-modal="true" aria-label="选择要分享的笔记">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel note-panel" role="document">
+    <div class="modal-head">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg>
+        选择要分享的笔记
+      </div>
+      <button class="modal-close" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <button class="share-board-link" type="button" onclick="closeSharePick();openShare()">查看分享广场 ▸</button>
+      <div id="sharePickList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 联系我们 ============ -->
+<div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-label="联系我们">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel note-panel" role="document">
+    <div class="modal-head">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        联系我们
+      </div>
+      <button class="modal-close" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="ct-text">把遇到的问题或需要改进的地方发给我们，我们会认真聆听。</p>
+      <a class="ct-mail" href="mailto:1718711761@qq.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        1718711761@qq.com
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 账户与设置 ============ -->
+<div id="userModal" class="modal" role="dialog" aria-modal="true" aria-label="账户与设置">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel note-panel" role="document">
+    <div class="modal-head">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        账户与设置
+      </div>
+      <button class="modal-close" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="user-card">
+        <div class="user-avatar" id="userAvatar">🏃</div>
+        <div class="user-name" id="userName">运动家</div>
+        <div class="user-tag">体育家园 · 运动者</div>
+      </div>
+      <div class="rx-sub">选择头像</div>
+      <div class="avatar-row" id="avatarRow"></div>
+      <input type="file" id="avatarFile" accept="image/*" hidden>
+      <div class="rx-sub">账户设置</div>
+      <div class="set-list">
+        <button class="set-item" type="button" onclick="editName()">
+          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>昵称</span>
+          <span class="si-r" id="userNameVal">运动家</span>
+        </button>
+        <button class="set-item" type="button" onclick="editSigSettings()">
+          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>个性签名</span>
+          <span class="si-r" id="sigVal">坚持，就是最好的天赋</span>
+        </button>
+        <button class="set-item" type="button" onclick="pickLang()">
+          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>语言</span>
+          <span class="si-r" id="langVal">简体中文</span>
+        </button>
+        <button class="set-item danger" type="button" onclick="logoutUser()">
+          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>退出登录</span>
+          <span class="si-r">演示</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 打卡日历 ============ -->
+<div id="calModal" class="modal" role="dialog" aria-modal="true" aria-label="打卡日历">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel note-panel" role="document">
+    <div class="modal-head">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/></svg>
+        打卡记录
+      </div>
+      <button class="modal-close" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="cal-head"><b id="calMonth"></b><span id="calStats"></span></div>
+      <div class="cal-week">
+        <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-tasks" id="calTasks"></div>
+      <div id="calStrips"></div>
+      <div class="cal-note">方格绿色 = 当天完成该任务 · 圈出 = 今天</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 笔记详情 ============ -->
+<div id="viewNoteModal" class="modal" role="dialog" aria-modal="true" aria-label="笔记详情">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel note-panel" role="document">
+    <div class="modal-head">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        笔记详情
+      </div>
+      <button class="modal-close" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="note-src" id="viewNoteSrc"></div>
+      <div class="note-preview" id="viewNoteBody"></div>
+      <div class="note-actions">
+        <button class="act-btn primary" type="button" id="viewNoteSaveBtn" onclick="saveSharedNote()" hidden>保存到我的笔记</button>
+        <button class="act-btn primary" type="button" onclick="copyViewNote()">复制内容</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="toTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<div id="toast" role="status">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
+  <span id="toastText">已复制</span>
+</div>
+
+<script src="./literature.js"></script>
+<script>
+/* ============ 处方内容（UI 示范，非真实检索） ============ */
+const RX={
+  "HIIT 训练":{
+    q:"HIIT 训练",
+    kw:["hiit","间歇","有氧","心肺","vo2max"],
+    goal:"想用最短时间提升最大摄氧量（心肺耐力）",
+    essence:"高强度间歇训练（HIIT）能以一半不到的投入时间，获得与传统耐力训练相当、甚至更好的心肺适应。每周 2–3 次、每次约 20 分钟，就能让最大摄氧量稳步上升，是时间有限者最划算的投资。",
+    advice:[
+      {t:"每周安排 2–3 次 HIIT，每次总时长约 20 分钟即可见效。",s:"BJSM · 2024"},
+      {t:"采用 4×4 分钟经典模式，强度落在 90–95% 最大心率。",s:"BJSM · 2024"},
+      {t:"组间恢复期维持轻度活动，适应效果优于完全静止。",s:"Sports Med · 2023"},
+    ],
+    sources:[
+      {j:"BJSM",y:2024,t:"高强度间歇训练 vs 中强度持续训练：对最大摄氧量的影响",doi:"10.1136/bjsports-2024-108210",for:"处方核心与频率建议"},
+      {j:"Sports Med",y:2023,t:"间歇训练恢复策略：主动恢复对长期适应的影响",doi:"10.1007/s40279-023-01867-x",for:"组间恢复安排"},
+    ],
+  },
+  "肌肥大":{
+    q:"肌肥大",
+    kw:["肌肥大","增肌","肌肉","肥大","肌少症"],
+    goal:"想有效增肌，并避免训练过度",
+    essence:"增肌的关键不是练得越多越好，而是“频率 × 总量 × 强度”的平衡。每周总组数落在 10–20 组、同一肌群分散 2–3 次训练，并在接近力竭的强度下完成，肌肥大效果最好。",
+    advice:[
+      {t:"同一肌群每周分散训练 2–3 次，优于集中练一次。",s:"JSCR · 2023"},
+      {t:"每周总组数 10–20 组是刺激与恢复的最佳甜蜜点。",s:"JSCR · 2023"},
+      {t:"训练日每公斤体重补充 1.6–2.2 公克蛋白质，优先于补充时机。",s:"Nutrients · 2023"},
+    ],
+    sources:[
+      {j:"JSCR",y:2023,t:"阻力训练频率与肌肥大：每块肌群每周 2–3 次更优",doi:"10.1519/jsc.0000000000004521",for:"频率与总量建议"},
+      {j:"Nutrients",y:2023,t:"蛋白质补充与肌蛋白合成：总量仍是最重要变数",doi:"10.3390/nu15040912",for:"营养配合建议"},
+    ],
+  },
+  "恢复策略":{
+    q:"恢复策略",
+    kw:["恢复","酸痛","放松","冷水","疲劳"],
+    goal:"赛事密集期想加速恢复、降低酸痛",
+    essence:"恢复要“看时机”：冷水浸泡能快速缓解酸痛与主观疲劳，但长期使用可能干扰肌肥大讯号。日常训练期以主动恢复与充足睡眠为优先，重要赛事前后再用冷水浸泡辅助。",
+    advice:[
+      {t:"重要赛事密集期使用冷水浸泡，日常训练期保守使用。",s:"Sports Med · 2024"},
+      {t:"浸泡 10–15 分钟、水温 10–15°C，为常见有效区间。",s:"Sports Med · 2024"},
+      {t:"训练后以轻度活动与睡眠做基础恢复，优先于任何补给品。",s:"BJSM · 2023"},
+    ],
+    sources:[
+      {j:"Sports Med",y:2024,t:"冷水浸泡与运动恢复：效果与代价的系统性回顾",doi:"10.1007/s40279-024-01982-3",for:"冷水浸泡方案"},
+      {j:"BJSM",y:2023,t:"运动员恢复阶梯：睡眠与主动恢复的证据更新",doi:"10.1136/bjsports-2022-106212",for:"基础恢复建议"},
+    ],
+  },
+  "跑步经济性":{
+    q:"跑步经济性",
+    kw:["跑步","经济","跑姿","配速"],
+    goal:"想用更省力的跑姿提升跑步表现",
+    essence:"只靠堆跑量对跑步经济性的帮助有限；每周加入 2 次、每次 20–30 分钟的肌力与增强式训练，6–10 周内就能显著改善跑步经济性，等同免费提升最大摄氧量 2–4%。",
+    advice:[
+      {t:"每周 2 次肌力＋增强式训练，每次 20–30 分钟。",s:"MSSE · 2023"},
+      {t:"优先选择深蹲、弓步与短距离跳跃，对跑姿转移性最高。",s:"MSSE · 2023"},
+      {t:"将肌力训练安排在轻松跑日或训练后，避免影响主课表。",s:"J Appl Physiol · 2023"},
+    ],
+    sources:[
+      {j:"MSSE",y:2023,t:"跑步经济性训练：肌力与弹性训练的整合效益",doi:"10.1249/mss.0000000000003188",for:"肌力训练方案"},
+      {j:"J Appl Physiol",y:2023,t:"增强式训练对跑步经济性的神经肌肉机制",doi:"10.1152/japplphysiol.00234.2023",for:"课表安排建议"},
+    ],
+  },
+  "睡眠与表现":{
+    q:"睡眠与表现",
+    kw:["睡眠","睡","疲劳","休息"],
+    goal:"睡眠不足影响训练品质，想找回最佳状态",
+essence:"睡眠是竞技表现的隐形支柱：连续睡眠不足 6 小时，受伤风险几乎翻倍，反应与决策也明显下滑。把睡眠当成训练计划的一环，赛前 2–3 天优先补足，效果胜过任何补给品。",
+    advice:[
+      {t:"每晚至少睡足 7 小时，少于 6 小时伤害风险约翻倍。",s:"J Appl Physiol · 2024"},
+      {t:"赛前 2–3 天是“睡眠银行”关键窗口，优先补足。",s:"J Appl Physiol · 2024"},
+      {t:"固定就寝时间、睡前减少蓝光，午间小睡 20–30 分钟。",s:"Sports Med · 2023"},
+    ],
+    sources:[
+      {j:"J Appl Physiol",y:2024,t:"睡眠剥夺对运动表现与受伤风险的影响",doi:"10.1152/japplphysiol.00104.2024",for:"睡眠时长建议"},
+      {j:"Sports Med",y:2023,t:"运动员睡眠介入：从评估到执行的实务框架",doi:"10.1007/s40279-023-01622-2",for:"睡眠卫生建议"},
+    ],
+  },
+  "运动营养":{
+    q:"运动营养",
+    kw:["营养","蛋白质","饮食","禁食","补给"],
+    goal:"想用饮食支持训练成果，不踩常见误区",
+    essence:"运动营养的第一原则是“总量”，其次才是时机。蛋白质与热量达标时，补充时机与饮食型态的影响很小；与其迷信黄金窗口，不如把蛋白质平均分配到每餐，并确保训练强度不因节食而下滑。",
+    advice:[
+      {t:"每日蛋白质每公斤体重 1.6–2.2 公克，优先于补充时机。",s:"Nutrients · 2023"},
+      {t:"训练后单次 0.4 g/kg 蛋白质已足够，不需超量狂灌。",s:"Nutrients · 2023"},
+      {t:"若采用间歇性禁食，确保热量与蛋白质达标，并监控训练品质。",s:"Nutrients · 2023"},
+    ],
+    sources:[
+      {j:"Nutrients",y:2023,t:"蛋白质补充时机与肌蛋白合成：总量仍是最重要变数",doi:"10.3390/nu15040912",for:"蛋白质总量与时机"},
+      {j:"Nutrients",y:2023,t:"间歇性禁食对力量与肌肉量的影响：统合分析",doi:"10.3390/nu15102284",for:"饮食型态建议"},
+    ],
+  },
+};
+/* 预设处方（任意其他输入） */
+RX["default"]={
+  q:"综合表现",
+  kw:[],
+  goal:"想全面提升训练表现，从哪里开始最有效？",
+  essence:"运动表现由三大支柱支撑：训练刺激、恢复品质与营养支持。先确保睡眠与蛋白质总量达标，再谈训练细节；把基础打好，比追求任何单一花招都更有效。",
+  advice:[
+    {t:"先保证每晚 7 小时以上睡眠，这是恢复与表现的地基。",s:"J Appl Physiol · 2024"},
+    {t:"训练总量控制在可恢复范围：每肌群每周 10–20 组。",s:"JSCR · 2023"},
+    {t:"蛋白质每天每公斤体重 1.6–2.2 公克，平均分配到各餐。",s:"Nutrients · 2023"},
+  ],
+  sources:[
+    {j:"J Appl Physiol",y:2024,t:"睡眠剥夺对运动表现与受伤风险的影响",doi:"10.1152/japplphysiol.00104.2024",for:"恢复与睡眠"},
+    {j:"JSCR",y:2023,t:"阻力训练频率与肌肥大：每块肌群每周 2–3 次更优",doi:"10.1519/jsc.0000000000004521",for:"训练总量"},
+    {j:"Nutrients",y:2023,t:"蛋白质补充时机与肌蛋白合成：总量仍是最重要变数",doi:"10.3390/nu15040912",for:"营养支持"},
+  ],
+};
+
+/* ============ 工具 ============ */
+const $=s=>document.querySelector(s);
+const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function norm(s){return s.toLowerCase().replace(/\s+/g,"");}
+
+/* ============ 标粗标红 ============ */
+const HL={
+  "HIIT 训练":["HIIT","最大摄氧量","心肺适应"],
+  "肌肥大":["肌肥大","力竭","总量"],
+  "恢复策略":["冷水浸泡","主动恢复","睡眠"],
+  "跑步经济性":["跑步经济性","增强式训练"],
+  "睡眠与表现":["睡眠","受伤风险","反应"],
+  "运动营养":["蛋白质","补充时机","间歇性禁食"],
+  "default":["睡眠","蛋白质","训练总量"],
+};
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function hlText(s,key,extra){
+  const keys=(HL[key]||[]).slice();
+  if(extra&&extra.length)keys.push(...extra);
+  let out=esc(s);
+  out=out.replace(/(\d+(?:[–—×x-]\d+)?\s*(?:%|％|次|周|周|分钟|小时|天|组|公克|克|公斤|毫升|卡路里|卡|倍|篇|期|年))/g,'<b class="hl">$1</b>');
+  for(const k of keys){
+    if(!k)continue;
+    const safe=k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+    out=out.replace(new RegExp(safe,"g"),'<b class="hl">$&</b>');
+  }
+  return out;
+}
+
+function icon(name,cls){
+  const map={
+    book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',
+    spark:'<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>',
+    tag:'<path d="M20.6 13.4 11 3H4v7l10.4 10.6a2 2 0 0 0 2.8 0l3.4-3.4a2 2 0 0 0 0-2.8z"/><circle cx="8" cy="8" r="1.5"/>',
+    note:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>',
+    pen:'<path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>',
+    check:'<path d="m5 13 4 4L19 7"/>',
+  };
+  return '<svg class="'+cls+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(map[icon]||"")+'</svg>';
+}
+
+function findRx(q){
+  const nq=norm(q);
+  for(const k of Object.keys(RX)){
+    if(k==="default")continue;
+    if(nq.includes(norm(k)))return RX[k];
+  }
+  for(const k of Object.keys(RX)){
+    if(k==="default")continue;
+    if(RX[k].kw.some(w=>nq.includes(norm(w))))return RX[k];
+  }
+  return RX["default"];
+}
+
+/* ============ 文献资料库比对 ============ */
+let lastPapers=[];
+let lastHl=null;
+let lastAdvice=[];
+let lastQuery="";
+function matchPapers(q){
+  const rx=findRx(q);
+  const nq=norm(q);
+  const terms=new Set();
+  if(nq)terms.add(nq);
+  (rx.kw||[]).forEach(w=>{const n=norm(w);if(n)terms.add(n);});
+  const scored=(window.LIT||[]).map(p=>{
+    const hay=norm((p.t||"")+" "+(p.abs||"")+" "+(p.kw||[]).join(" ")+" "+p.topic);
+    let score=0;
+    for(const t of terms){if(t&&hay.includes(t))score+=3;}
+    if(p.kw&&p.kw.some(k=>nq.includes(norm(k))))score+=6;
+    if(p.topic&&norm(p.topic).includes(nq))score+=4;
+    return {p,score};
+  }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score);
+  return scored.slice(0,5).map(x=>x.p);
+}
+
+/* ============ 视图切换 ============ */
+function goHome(){
+  $("#viewNotes").classList.remove("show");
+  $("#viewShare").classList.remove("show");
+  $("#viewHome").classList.add("show");
+  scrollTo({top:0,behavior:reduced?"auto":"smooth"});
+}
+
+/* ============ 打卡：本月使用概况 ============ */
+function renderUsage(){
+  const checked=checkedIn;
+  const used=checked?13:12;
+  $("#checkinDays").dataset.target=used;
+  let html="";
+  for(let i=1;i<=31;i++){
+    html+=`<span class="day-dot${i<=used?" on":""}" style="transition-delay:${i*18}ms"></span>`;
+  }
+  $("#dayDots").innerHTML=html;
+  $("#daysCaption").textContent="已使用 "+used+" 天";
+  requestAnimationFrame(()=>{
+    setTimeout(()=>{
+      document.querySelectorAll(".day-dot").forEach(d=>d.style.transform="scale(1)");
+      $("#usageBarFill").style.width=(used/31*100)+"%";
+    },300);
+  });
+}
+
+/* ============ 个性签名（本月打卡旁，点击直接修改） ============ */
+let sig=localStorage.getItem("sportlens_sign")||"坚持，就是最好的天赋";
+function renderSig(){
+  let el=document.getElementById("sigLine");
+  if(!el){
+    const host=document.querySelector(".usage-title");
+    if(!host)return;
+    const old=host.parentNode.querySelector(".sig-line-input");
+    if(old)old.remove();
+    el=document.createElement("button");
+    el.className="sig-line";
+    el.id="sigLine";
+    el.type="button";
+    el.title="点击修改个性签名";
+    el.onclick=editSig;
+    host.parentNode.insertBefore(el,host.nextSibling);
+  }
+  el.textContent="个性签名："+sig;
+  const sv=document.getElementById("sigVal");
+  if(sv)sv.textContent=sig;
+}
+function editSig(){
+  const el=document.getElementById("sigLine");
+  if(!el)return;
+  const input=document.createElement("input");
+  input.className="sig-line-input";
+  input.value=sig;
+  input.maxLength=30;
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  let done=false;
+  const commit=()=>{
+    if(done)return;done=true;
+    const v=input.value.trim();
+    if(v){sig=v;localStorage.setItem("sportlens_sign",sig);toast("个性签名已更新");}
+    renderSig();
+  };
+  input.addEventListener("blur",commit);
+  input.addEventListener("keydown",e=>{
+    if(e.key==="Enter"){commit();}
+    else if(e.key==="Escape"){done=true;renderSig();}
+  });
+}
+
+/* ============ 任务清单（＋添加，显示 1、2…） ============ */
+let tasks=JSON.parse(localStorage.getItem("sportlens_tasks")||"[]");
+function saveTasks(){localStorage.setItem("sportlens_tasks",JSON.stringify(tasks));}
+function renderTasks(){
+  const wrap=document.getElementById("taskSlots");
+  if(!wrap)return;
+  let html="";
+  tasks.forEach((t,i)=>{
+    html+=`<button class="task-slot${checkinMode?" chk":""}" type="button" onclick="slotClick(${i})" title="${checkinMode?"点击标记完成":"点击修改"}">
+      <span class="ts-num">${i+1}</span><span class="ts-text">${esc(t)}</span>
+      ${checkinMode?"":`<span class="ts-ops">
+        <span class="ts-op" onclick="event.stopPropagation();editTaskSlot(${i})">修改</span>
+        <span class="ts-op del" onclick="event.stopPropagation();delTask(${i})">删除</span>
+      </span>`}
+    </button>`;
+  });
+  html+=tasks.length>=4?"":`<button class="task-add${checkinMode?" hide":""}" type="button" onclick="addTask()" title="添加任务">＋</button>`;
+  wrap.innerHTML=html;
+}
+function addTask(){
+  if(tasks.length>=4){toast("最多添加 4 个任务");return;}
+  const v=prompt("添加一个今日任务：","");
+  if(v&&v.trim()){tasks.push(v.trim());saveTasks();renderTasks();toast("任务已添加 ✓");}
+}
+function delTask(i){
+  tasks.splice(i,1);
+  saveTasks();
+  renderTasks();
+  toast("任务已删除");
+}
+function editTaskSlot(i){
+  const v=prompt("修改任务：",tasks[i]||"");
+  if(v&&v.trim()){tasks[i]=v.trim();saveTasks();renderTasks();toast("任务已更新");}
+}
+
+/* ============ 今日打卡 ============ */
+let checkedIn=false;
+let checkinMode=false;
+function doCheckin(){
+  if(checkedIn){toast("本次已打卡，重新登录可再打卡");return;}
+  if(checkinMode){confirmCheckin();return;}
+  if(tasks.length){enterCheckinMode();}
+  else{completeCheckin();}
+}
+function enterCheckinMode(){
+  checkinMode=true;
+  document.querySelector(".task-card").classList.add("checking");
+  renderTasks();
+  $("#checkinLabel").textContent="确认打卡";
+  const pr=$("#chkProgress");
+  pr.hidden=false;
+  pr.textContent="点击任务标记完成，再确认打卡";
+}
+function slotClick(i){
+  if(checkinMode){
+    const slot=document.querySelectorAll("#taskSlots .task-slot")[i];
+    if(!slot)return;
+    slot.classList.toggle("done");
+    const total=document.querySelectorAll("#taskSlots .task-slot").length;
+    const done=document.querySelectorAll("#taskSlots .task-slot.done").length;
+    $("#chkProgress").textContent="已完成 "+done+" / "+total+" 项任务";
+    return;
+  }
+  editTaskSlot(i);
+}
+function confirmCheckin(){
+  const done=[...document.querySelectorAll("#taskSlots .task-slot.done .ts-text")].map(e=>e.textContent);
+  localStorage.setItem("sportlens_checkin_tasks",JSON.stringify(done));
+  checkinMode=false;
+  document.querySelector(".task-card").classList.remove("checking");
+  renderTasks();
+  $("#checkinLabel").textContent="今日打卡";
+  $("#chkProgress").hidden=true;
+  completeCheckin(done);
+}
+function logTodayCheckin(done){
+  const d=new Date();
+  const key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  const log=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{}");
+  log[key]=done;
+  localStorage.setItem("sportlens_checkin_log",JSON.stringify(log));
+}
+function completeCheckin(done){
+  if(checkedIn)return;
+  checkedIn=true;
+  logTodayCheckin(done||[]);
+  const btn=$("#checkinBtn");
+  btn.classList.add("pop","done");
+  $("#checkinLabel").textContent="今日已打卡";
+  const dots=$("#dayDots");
+  const used=dots.querySelectorAll(".day-dot.on").length;
+  if(used<31){
+    const d=document.createElement("span");
+    d.className="day-dot on";
+    d.style.transform="scale(0)";
+    dots.appendChild(d);
+    setTimeout(()=>{d.style.transform="scale(1.4)";setTimeout(()=>d.style.transform="scale(1)",260);},40);
+  }
+  const days=$("#checkinDays");
+  days.textContent=+days.textContent+1;
+  $("#daysCaption").textContent="已使用 "+days.textContent+" 天";
+  $("#usageBarFill").style.width=(+days.textContent/31*100)+"%";
+  toast("今日打卡成功，继续保持 💪");
+  showSignPopup();
+}
+let audioCtx=null;
+function playChime(){
+  try{
+    if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state==="suspended")audioCtx.resume();
+    const t=audioCtx.currentTime;
+    [523.25,659.25,783.99].forEach((f,i)=>{
+      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+      o.type="sine";o.frequency.value=f;
+      o.connect(g);g.connect(audioCtx.destination);
+      g.gain.setValueAtTime(0.0001,t+i*0.12);
+      g.gain.exponentialRampToValueAtTime(0.25,t+i*0.12+0.03);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+i*0.12+0.5);
+      o.start(t+i*0.12);o.stop(t+i*0.12+0.55);
+    });
+  }catch(e){}
+}
+function showSignPopup(){
+  const pop=$("#signPopup");
+  $("#signPopupText").textContent="「"+sig+"」";
+  pop.hidden=false;
+  playChime();
+  clearTimeout(window.__signPopTimer);
+  window.__signPopTimer=setTimeout(()=>{pop.hidden=true;},2000);
+}
+function openCalendar(){
+  renderCalendar();
+  $("#calModal").classList.add("open");
+}
+function renderCalendar(){
+  const now=new Date();
+  $("#calMonth").textContent=(now.getMonth()+1)+" 月";
+  const used=checkedIn?13:12;
+  $("#calStats").textContent="已打卡 "+used+" 天";
+  let html="";
+  for(let d=1;d<=31;d++){
+    const on=d<=used;
+    const today=d===now.getDate();
+    html+=`<div class="cal-cell${on?" on":""}${today?" today":""}">${d}</div>`;
+  }
+  $("#calGrid").innerHTML=html;
+  const calT=$("#calTasks");
+  const allTasks=JSON.parse(localStorage.getItem("sportlens_tasks")||"[]");
+  const doneTasks=JSON.parse(localStorage.getItem("sportlens_checkin_tasks")||"[]");
+  let th="<div class=\"ct-label\">今日任务打卡</div>";
+  if(allTasks.length){
+    allTasks.forEach((t,ti)=>{
+      const ok=doneTasks.includes(t);
+      th+=`<div class="cal-task-row${ok?"":" miss"}"><span class="${ok?"ok":"no"}">${ok?"✓":"✗"}</span><span class="ct-num">任务${ti+1}</span><span>${esc(t)}</span></div>`;
+    });
+  }else{
+    th+=`<div class="cal-task-row"><span class="no">—</span><span>暂无安排任务</span></div>`;
+  }
+  calT.innerHTML=th;
+  // 每项任务的本月打卡方格（7 格一组）
+  const log=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{}");
+  const daysInMonth=new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
+  let strips="";
+  allTasks.forEach((t,ti)=>{
+    let rows="",cells="";
+    for(let d=1;d<=daysInMonth;d++){
+      const key=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
+      const on=(log[key]||[]).includes(t);
+      const today=d===now.getDate();
+      cells+=`<span class="day-cell${on?" on":" off"}${today?" today2":""}"></span>`;
+      if(d%7===0||d===daysInMonth){rows+=`<div class="cs-row">${cells}</div>`;cells="";}
+    }
+    strips+=`<div class="cal-strip"><div class="cs-label"><b class="cs-num">任务${ti+1}</b><span>${esc(t)}</span></div><div class="cs-rows">${rows}</div></div>`;
+  });
+  $("#calStrips").innerHTML=strips;
+}
+
+/* ============ 搜索建议 ============ */
+const hotKeys=Object.keys(RX).filter(k=>k!=="default");
+function renderSuggest(q){
+  const box=$("#suggestBox");
+  const nq=norm(q);
+  let hits;
+  if(!q)hits=hotKeys;
+  else hits=hotKeys.filter(k=>norm(k).includes(nq)||RX[k].kw.some(w=>norm(w).includes(nq)));
+  let html="";
+  if(history.length){
+    const hh=q?history.filter(x=>norm(x).includes(nq)):history;
+    if(hh.length){
+      html+='<div class="suggest-title">最近搜索</div>'+
+        hh.map(x=>`<button type="button"><svg class="sg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(x)}</button>`).join("");
+    }
+  }
+  if(q&&hits.length){
+    html+='<div class="suggest-title">相关主题</div>'+
+      hits.map(k=>`<button type="button"><svg class="sg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>${esc(k)}</button>`).join("");
+  }
+  if(!html)html=`<div class="no-hit">直接搜索“${esc(q)}”，让 AI 试试看</div>`;
+  box.innerHTML=html;
+  box.classList.add("open");
+}
+
+/* ============ 每日精选 ============ */
+const DAILY=[
+  {rx:"睡眠与表现",t:"睡眠少于 6 小时，受伤风险近乎翻倍",s:"J Appl Physiol · 2024"},
+  {rx:"跑步经济性",t:"每周 2 次肌力训练，免费提升 2–4% 最大摄氧量",s:"MSSE · 2023"},
+  {rx:"恢复策略",t:"冷水浸泡 10–15 分钟，快速缓解赛事期酸痛",s:"Sports Med · 2024"},
+];
+function initDaily(){
+  let idx=parseInt(localStorage.getItem("sportlens_daily_idx")||"0",10);
+  idx=(idx+1)%DAILY.length;
+  localStorage.setItem("sportlens_daily_idx",String(idx));
+}
+function renderDaily(){
+  const wrap=document.getElementById("dailyList");
+  if(!wrap)return;
+  const idx=parseInt(localStorage.getItem("sportlens_daily_idx")||"0",10)%DAILY.length;
+  const arr=[...DAILY.slice(idx),...DAILY.slice(0,idx)];
+  wrap.innerHTML=arr.map(d=>`
+    <div class="ditem" onclick="openDailyItem('${d.rx}')" title="点击查看">
+      <span class="di-star" aria-hidden="true">✦</span>
+      <div class="di-info">
+        <div class="di-title">${esc(d.t)}</div>
+        <div class="di-src">${esc(d.s)}</div>
+      </div>
+    </div>`).join("");
+}
+
+/* ============ 最近搜索（前六条历史） ============ */
+let history=(()=>{
+  try{const h=JSON.parse(localStorage.getItem("sportlens_history")||"null");return Array.isArray(h)?h:null;}catch(e){return null;}
+})();
+if(!Array.isArray(history)){
+  history=["百米比赛锻炼哪块肌肉能涨成绩","HIIT 最大摄氧量","肌肥大 训练频率","跑步经济性 训练","深蹲重量上不去怎么办","跑完步膝盖内侧疼怎么办"];
+  localStorage.setItem("sportlens_history",JSON.stringify(history));
+}
+function saveHistory(){localStorage.setItem("sportlens_history",JSON.stringify(history));}
+function pushHistory(q){
+  const nq=(q||"").trim();
+  if(!nq)return;
+  history=history.filter(x=>x!==nq);
+  history.unshift(nq);
+  history=history.slice(0,6);
+  saveHistory();
+  renderHistory();
+}
+function renderHistory(){
+  const wrap=document.getElementById("historyList");
+  if(!wrap)return;
+  wrap.innerHTML=history.map(q=>`<button class="hist-chip" type="button">${esc(q)}</button>`).join("");
+}
+function openDailyItem(rx){pushHistory(rx);runRx(rx);}
+
+/* ============ 进站欢迎动画 ============ */
+function initWelcome(){
+  const ov=$("#welcomeOverlay");if(!ov)return;
+  const greet="欢迎回家，"+(user.name||"运动家");
+  const g=$("#welcomeGreet");
+  g.innerHTML=greet.split("").map((ch,i)=>`<span class="wc" style="animation-delay:${i*28}ms">${ch===" "?"&nbsp;":ch}</span>`).join("");
+  document.body.style.overflow="hidden";
+  let done=false;
+  function dismiss(){
+    if(done)return;done=true;
+    ov.classList.add("hide");
+    document.body.style.overflow="";
+    setTimeout(()=>{ov.style.display="none";},reduced?60:400);
+  }
+  const t=setTimeout(dismiss,reduced?400:1400);
+  ov.addEventListener("click",()=>{clearTimeout(t);dismiss();});
+}
+
+/* ============ 计数器 ============ */
+function initCounters(){
+  const els=document.querySelectorAll(".count");
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting)return;
+      const el=en.target,target=+el.dataset.target,dur=1100,t0=performance.now();
+      function step(t){
+        const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+        el.textContent=Math.round(target*e).toLocaleString("en-US");
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      io.unobserve(el);
+    });
+  },{threshold:.5});
+  els.forEach(el=>io.observe(el));
+}
+
+/* ============ 运动员名言（静态） ============ */
+const QUOTES=[
+  {q:"总有人要赢，为什么不能是我？",n:"科比"},
+  {q:"训练不会骗人，流过的汗都会算数。",n:"徐远征"},
+  {q:"哪里跌倒，哪里爬起来，亚洲人也能站上世界之巅。",n:"刘翔"},
+  {q:"我就是要证明，中国人也能跑进十秒。",n:"苏炳添"},
+];
+function initQuote(){
+  const el=$("#heroQuoteText");if(!el)return;
+  const now=new Date();
+  const idx=(now.getFullYear()*372+now.getMonth()*31+now.getDate())%QUOTES.length;
+  const q=QUOTES[idx];
+  el.textContent="“"+q.q+"”";
+  $("#heroQuoteName").textContent="— "+q.n;
+}
+
+/* ============ 卷动效果 ============ */
+const revealIO=new IntersectionObserver(es=>es.forEach(en=>{
+  if(en.isIntersecting){setTimeout(()=>en.target.classList.add("in"),+en.target.dataset.delay||0);revealIO.unobserve(en.target);}
+}),{threshold:.12});
+document.querySelectorAll("#viewHome .reveal").forEach(el=>revealIO.observe(el));
+
+window.addEventListener("scroll",()=>{
+  $("#navbar").classList.toggle("scrolled",scrollY>20);
+  $("#toTop").classList.toggle("show",scrollY>500);
+},{passive:true});
+$("#toTop").addEventListener("click",()=>scrollTo({top:0,behavior:reduced?"auto":"smooth"}));
+
+/* ============ 游标光晕（小） ============ */
+const glow=$("#cursorGlow");
+addEventListener("mousemove",e=>{glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px";},{passive:true});
+
+/* ============ 弹窗 ============ */
+function openRxModal(){
+  $("#rxModal").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeRxModal(){
+  $("#rxModal").classList.remove("open");
+  document.body.style.overflow="";
+}
+$("#rxModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))closeRxModal();});
+$("#noteModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))closeNoteModal();});
+$("#userModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#userModal").classList.remove("open");});
+$("#viewNoteModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#viewNoteModal").classList.remove("open");});
+$("#calModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#calModal").classList.remove("open");});
+$("#sharePickModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#sharePickModal").classList.remove("open");});
+$("#contactModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#contactModal").classList.remove("open");});
+addEventListener("keydown",e=>{if(e.key==="Escape"){closeRxModal();closeNoteModal();$("#userModal").classList.remove("open");$("#viewNoteModal").classList.remove("open");$("#calModal").classList.remove("open");$("#sharePickModal").classList.remove("open");$("#contactModal").classList.remove("open");$("#suggestBox").classList.remove("open");}});
+
+/* ============ 笔记 ============ */
+let notes=JSON.parse(localStorage.getItem("sportlens_notes")||"[]");
+let noteTarget=null;
+let lastRx=null;
+function renderNotesBadge(){$("#notesBadge").textContent=notes.length;}
+let notePreviewText="";
+let editingNoteId=null;
+let currentViewNoteId=null;
+function copyText(t){
+  if(!t)return;
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).catch(()=>{});}
+  else{
+    const ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");}catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+function openNoteEditor(i){
+  const list=lastPapers&&lastPapers.length?lastPapers:lastRx.sources;
+  noteTarget=list[i];
+  editingNoteId=null;
+  const s=noteTarget;
+  $("#noteSrcInfo").innerHTML=`<span class="jtag">${esc(s.j)}</span>
+    <p>出自《<b>${esc(s.t)}</b>》<br>${esc(s.j)} · ${s.y}${s.authors?" · 作者 "+esc(s.authors):""} · ${esc(s.doi)}</p>`;
+  notePreviewText=(s.abs||s.t||"");
+  $("#notePreview").innerHTML="<b>内容：</b>"+esc((s.abs||s.t||"").slice(0,180));
+  $("#notePreview").style.display="";
+  $("#noteText").value="";
+  $("#noteModal").classList.add("open");
+  const nt=$("#noteText");if(nt)nt.focus();
+}
+function openEssenceNote(){
+  editingNoteId=null;
+  noteTarget={j:"核心分析",y:"",t:"核心分析 · "+lastQuery,doi:""};
+  const ess=document.getElementById("essenceText");
+  notePreviewText=(ess?ess.textContent:"")||"";
+  $("#noteSrcInfo").innerHTML=`<span class="jtag">核心分析</span>
+    <p>关于「<b>${esc(lastQuery)}</b>」的核心分析笔记</p>`;
+  $("#notePreview").innerHTML="<b>核心分析：</b>"+esc(notePreviewText.slice(0,200));
+  $("#notePreview").style.display="";
+  $("#noteText").value="";
+  $("#noteModal").classList.add("open");
+  const nt=$("#noteText");if(nt)nt.focus();
+}
+function openAdviceNote(i){
+  const a=lastAdvice[i]||{t:"",s:""};
+  editingNoteId=null;
+  noteTarget={j:(a.s||"分析建议"),y:"",t:a.t||"",doi:""};
+  notePreviewText=a.t||"";
+  $("#noteSrcInfo").innerHTML=`<span class="jtag">${esc(a.s||"分析建议")}</span>
+    <p>关于建议「<b>${esc((a.t||"").slice(0,30))}</b>」的笔记</p>`;
+  $("#notePreview").innerHTML="<b>建议内容：</b>"+esc(notePreviewText.slice(0,160));
+  $("#notePreview").style.display="";
+  $("#noteText").value="";
+  $("#noteModal").classList.add("open");
+  const nt=$("#noteText");if(nt)nt.focus();
+}
+function closeNoteModal(){$("#noteModal").classList.remove("open");editingNoteId=null;}
+function saveNote(){
+  const text=$("#noteText").value.trim();
+  if(!text){toast("先写点内容再保存吧");return;}
+  if(editingNoteId){
+    const n=notes.find(x=>x.id===editingNoteId);
+    if(n){n.text=text;n.time=new Date().toLocaleString("zh-CN")+"（已编辑）";}
+    editingNoteId=null;
+    localStorage.setItem("sportlens_notes",JSON.stringify(notes));
+    closeNoteModal();
+    renderNotesBadge();
+    renderNotesList();
+    toast("笔记已更新 ✓");
+    return;
+  }
+  const s=noteTarget||{j:"",y:"",t:"",doi:""};
+  notes.unshift({id:Date.now(),src:s,text,time:new Date().toLocaleString("zh-CN")});
+  localStorage.setItem("sportlens_notes",JSON.stringify(notes));
+  closeNoteModal();
+  renderNotesBadge();
+  toast("笔记已保存 ✓");
+}
+function shareNote(platform){
+  const myText=$("#noteText").value.trim();
+  const base=notePreviewText||"";
+  let text;
+  if(platform==="moments"){
+    text="【体育家园】"+base+"\n"+(myText?myText+"\n":"")+"——体育家园 "+user.name+" 的笔记";
+  }else{
+    text=(myText||base)+"\n——体育家园 "+user.name+" 的笔记\n\n#运动科学 #训练 #体育家园 #运动";
+  }
+  copyText(text);
+  toast(platform==="moments"?"已复制，去微信朋友圈粘贴":"已复制，去小红书粘贴");
+}
+function copyNotePreview(){copyText(notePreviewText||"");toast("内容已复制");}
+function wrapCtxText(ctx,text,maxW){
+  const lines=[];let line="";
+  for(const ch of text){
+    if(ctx.measureText(line+ch).width>maxW){lines.push(line);line=ch;}
+    else{line+=ch;}
+  }
+  if(line)lines.push(line);
+  return lines;
+}
+function makeShareCard(text){
+  const W=750,H=1000;
+  const c=document.createElement("canvas");
+  c.width=W;c.height=H;
+  const ctx=c.getContext("2d");
+  const g=ctx.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,"#5c8a6a");g.addColorStop(1,"#47664f");
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.textAlign="center";
+  ctx.fillStyle="rgba(255,255,255,.92)";
+  ctx.font="bold 44px 'Noto Sans SC','Microsoft YaHei',sans-serif";
+  ctx.fillText("体育家园",W/2,110);
+  ctx.font="22px 'Noto Sans SC','Microsoft YaHei',sans-serif";
+  ctx.fillStyle="rgba(255,255,255,.75)";
+  ctx.fillText("全球顶级期刊运动数据库",W/2,152);
+  ctx.fillStyle="#fff";
+  ctx.font="26px 'Noto Sans SC','Microsoft YaHei',sans-serif";
+  ctx.textAlign="left";
+  const lines=wrapCtxText(ctx,text,W-120);
+  let y=260;
+  for(const ln of lines.slice(0,22)){ctx.fillText(ln,60,y);y+=44;}
+  ctx.textAlign="center";
+  ctx.font="20px 'Noto Sans SC','Microsoft YaHei',sans-serif";
+  ctx.fillStyle="rgba(255,255,255,.7)";
+  ctx.fillText("— 体育家园 " + user.name + " 的笔记",W/2,H-70);
+  const a=document.createElement("a");
+  a.href=c.toDataURL("image/png");
+  a.download="体育家园分享.png";
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+}
+function shareOneClick(){
+  const myText=$("#noteText").value.trim();
+  const base=notePreviewText||"";
+  const shareText="【体育家园】"+base+"\n"+(myText?myText+"\n":"")+"——体育家园 "+user.name+" 的笔记\n#运动科学 #训练 #体育家园";
+  const fallback=()=>{makeShareCard(shareText);copyText(shareText);toast("已生成分享图并复制文字，去朋友圈保存/粘贴");};
+  if(navigator.share){navigator.share({title:"体育家园",text:shareText}).then(()=>toast("已唤起系统分享")).catch(fallback);return;}
+  fallback();
+}
+function delNote(id){
+  notes=notes.filter(n=>n.id!==id);
+  localStorage.setItem("sportlens_notes",JSON.stringify(notes));
+  renderNotesBadge();
+  renderNotesList();
+  toast("笔记已删除");
+}
+function openNotes(){
+  $("#viewHome").classList.remove("show");
+  $("#viewNotes").classList.add("show");
+  scrollTo({top:0,behavior:"auto"});
+  renderNotesList();
+}
+function renderNotesList(){
+  $("#notesCount").textContent=notes.length;
+  const wrap=$("#notesList");
+  if(!notes.length){
+    wrap.innerHTML=`<div class="notes-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <h3>还没有笔记</h3>
+      <p>搜索文献后，点来源卡片上的“记笔记”，灵感与出处就会一起存下来。</p>
+    </div>`;
+    return;
+  }
+  wrap.innerHTML=notes.map(n=>`
+    <article class="note-card">
+      <div class="nc-src">
+        <span class="jtag">${esc(n.src.j)}</span>
+        <span class="src-year">${n.src.y}</span>
+        <span class="src-year" style="color:var(--accent-deep)">出自文献</span>
+      </div>
+      <div class="nc-title">《${esc(n.src.t)}》</div>
+      <div class="nc-body">${esc(n.text)}</div>
+      <div class="note-row">
+        <button class="note-mini" onclick="viewNote(${n.id})">查看</button>
+        <button class="note-mini" onclick="editNote(${n.id})">编辑</button>
+        <button class="note-mini" onclick="shareNoteFromList(${n.id})">分享</button>
+        <button class="note-mini" onclick="shareLinkFromList(${n.id})">链接</button>
+        <button class="note-mini danger" onclick="delNote(${n.id})">删除</button>
+      </div>
+      <span class="nc-time">${n.time}</span>
+    </article>`).join("");
+  requestAnimationFrame(()=>document.querySelectorAll(".note-card").forEach((c,i)=>setTimeout(()=>c.classList.add("in"),50+i*45)));
+}
+
+function viewNote(id){
+  const n=notes.find(x=>x.id===id);if(!n)return;
+  currentViewNoteId=id;
+  $("#viewNoteSaveBtn").hidden=true;
+  $("#viewNoteSrc").innerHTML=`<span class="jtag">${esc(n.src.j)}</span>
+    <p>出自《<b>${esc(n.src.t)}</b>》<br>${esc(n.src.j)}${n.src.y?" · "+n.src.y:""}</p>`;
+  $("#viewNoteBody").textContent=n.text;
+  $("#viewNoteModal").classList.add("open");
+}
+function copyViewNote(){
+  const n=notes.find(x=>x.id===currentViewNoteId);if(!n)return;
+  copyText("【体育家园】"+n.src.t+"\n"+n.text+"\n——体育家园 "+user.name+" 的笔记");
+  toast("内容已复制");
+}
+function editNote(id){
+  const n=notes.find(x=>x.id===id);if(!n)return;
+  editingNoteId=id;
+  noteTarget=n.src||{j:"",y:"",t:"",doi:""};
+  notePreviewText=n.text||"";
+  $("#noteSrcInfo").innerHTML=`<span class="jtag">${esc(n.src.j)}</span>
+    <p>出自《<b>${esc(n.src.t)}</b>》</p>`;
+  $("#notePreview").style.display="none";
+  $("#noteText").value=n.text;
+  $("#noteModal").classList.add("open");
+  const nt=$("#noteText");if(nt)nt.focus();
+}
+function shareNoteFromList(id){
+  const n=notes.find(x=>x.id===id);if(!n)return;
+  const text="【体育家园】"+n.src.t+"\n"+n.text+"\n——体育家园 "+user.name+" 的笔记\n#运动科学 #训练 #体育家园";
+  const fallback=()=>{makeShareCard(text);copyText(text);toast("已生成分享图并复制文字");};
+  if(navigator.share){navigator.share({title:"体育家园",text}).then(()=>toast("已唤起系统分享")).catch(fallback);return;}
+  fallback();
+}
+function noteLinkBase(){
+  if(location.protocol==="file:")return "";
+  return location.href.split("#")[0];
+}
+function buildNoteLink(n){
+  const payload=btoa(unescape(encodeURIComponent(JSON.stringify({t:n.t||"",j:n.j||"",y:n.y||"",text:n.text||""})))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+  const base=noteLinkBase();
+  return base?base+"#share="+payload:"";
+}
+function shareLinkFromNote(){
+  const text=$("#noteText").value.trim();
+  const srcT=(noteTarget&&noteTarget.t)||"核心分析";
+  const srcJ=(noteTarget&&noteTarget.j)||"体育家园";
+  const link=buildNoteLink({t:srcT,j:srcJ,y:(noteTarget&&noteTarget.y)||"",text:text||notePreviewText||""});
+  if(!link){toast("请先用局域网服务器打开网站，再生成分享链接");return;}
+  copyText(link);
+  toast("分享链接已复制，打开即可查看笔记");
+}
+function shareLinkFromList(id){
+  const n=notes.find(x=>x.id===id);if(!n)return;
+  const link=buildNoteLink({t:n.src.t||"",j:n.src.j||"",y:n.src.y||"",text:n.text||""});
+  if(!link){toast("请先用局域网服务器打开网站，再生成分享链接");return;}
+  copyText(link);
+  toast("分享链接已复制，打开即可查看笔记");
+}
+let currentSharedNote=null;
+function showSharedNote(d){
+  currentSharedNote=d;
+  $("#viewNoteSrc").innerHTML=`<span class="jtag">${esc(d.j||"共享笔记")}</span>
+    <p>共享笔记 · 来自 体育家园<br>出自《<b>${esc(d.t||"")}</b>》${d.y?" · "+esc(d.y):""}</p>`;
+  $("#viewNoteBody").textContent=d.text||"";
+  $("#viewNoteSaveBtn").hidden=false;
+  $("#viewNoteModal").classList.add("open");
+}
+function saveSharedNote(){
+  if(!currentSharedNote)return;
+  const s={j:currentSharedNote.j||"共享笔记",y:currentSharedNote.y||"",t:currentSharedNote.t||"共享笔记",doi:""};
+  notes.unshift({id:Date.now(),src:s,text:currentSharedNote.text||"",time:new Date().toLocaleString("zh-CN")+"（来自共享链接）"});
+  localStorage.setItem("sportlens_notes",JSON.stringify(notes));
+  renderNotesBadge();
+  $("#viewNoteSaveBtn").hidden=true;
+  toast("已保存到我的笔记 ✓");
+}
+function initShareLink(){
+  const m=location.hash.match(/#share=([A-Za-z0-9_-]+)/);
+  if(!m)return;
+  try{
+    let b64=m[1].replace(/-/g,"+").replace(/_/g,"/");
+    while(b64.length%4)b64+="=";
+    const json=decodeURIComponent(escape(atob(b64)));
+    const d=JSON.parse(json);
+    showSharedNote(d);
+  }catch(e){}
+}
+
+/* ============ 账户与设置 ============ */
+let user={name:localStorage.getItem("sportlens_user_name")||"运动家",avatar:localStorage.getItem("sportlens_user_avatar")||"🏃"};
+const AVATARS=["🏃","🏋️","⚽","🏀","🏊","🚴","🥊","🧘"];
+function avatarHtml(a){return a&&a.startsWith("data:")?`<img src="${a}" alt="头像">`:a;}
+function renderUser(){
+  $("#userAvatar").innerHTML=avatarHtml(user.avatar);
+  $("#userName").textContent=user.name;
+  $("#userNameVal").textContent=user.name;
+  $("#navAvatarIcon").innerHTML=avatarHtml(user.avatar);
+  $("#navUserName").textContent=user.name;
+}
+function openUserModal(){
+  $("#avatarRow").innerHTML=`<button class="avatar-opt" type="button" onclick="document.getElementById('avatarFile').click()" title="从相册选择">📷</button>`
+    +AVATARS.map(a=>`<button class="avatar-opt${a===user.avatar?" on":""}" type="button" onclick="pickAvatar('${a}')">${a}</button>`).join("");
+  $("#userModal").classList.add("open");
+}
+function pickAvatar(a){
+  user.avatar=a;
+  localStorage.setItem("sportlens_user_avatar",a);
+  renderUser();
+  openUserModal();
+}
+function editName(){
+  const n=prompt("输入你的昵称：",user.name);
+  if(n&&n.trim()){user.name=n.trim();localStorage.setItem("sportlens_user_name",user.name);renderUser();toast("昵称已更新");}
+}
+function editSigSettings(){
+  const v=prompt("输入你的个性签名：",sig);
+  if(v!==null&&v.trim()){sig=v.trim();localStorage.setItem("sportlens_sign",sig);renderSig();toast("个性签名已更新");}
+}
+function pickLang(){toast("繁体/英语版即将上线，当前为简体中文");}
+function logoutUser(){toast("已退出登录（演示）");}
+
+/* ============ 分享广场 ============ */
+const SHARE_SEED=[
+  {id:"sh1",author:"阿杰教练",tag:"肌力与体能教练",time:"昨天",likes:23,text:"把每周组数从 10 加到 15 后，学员的深蹲进步比之前快很多。重点不是加得多，而是睡得够。",src:{j:"JSCR",y:2024,t:"每块肌群每周组数与肌力成长的剂量关系"}},
+  {id:"sh2",author:"小陈",tag:"马拉松跑者",time:"2 天前",likes:18,text:"试了每周两次增强式训练，六周后 10K 配速快了 12 秒。跳跃动作真的会转移到跑步上。",src:{j:"Sports Med",y:2024,t:"肌力与增强式训练改善跑步经济性的统合分析"}},
+  {id:"sh3",author:"Lily",tag:"运动营养师",time:"3 天前",likes:31,text:"不要再迷信黄金窗口了，把蛋白质平均分到三餐，效果远比训练后狂灌来得好。",src:{j:"Sports Med",y:2023,t:"每日蛋白质分配与阻力训练者的瘦体重增长"}},
+  {id:"sh4",author:"明哥",tag:"业余篮球员",time:"4 天前",likes:12,text:"赛前两天把睡眠补足，比赛日状态真的不一样。睡眠才是最大的补给品。",src:{j:"Nature",y:2021,t:"日间运动后的慢波睡眠有助于运动记忆巩固"}},
+];
+const SHARE_AVATAR={"阿杰教练":"🏋️","小陈":"🏃","Lily":"🥗","明哥":"🏀","我":"👤"};
+let sharedNotes=JSON.parse(localStorage.getItem("sportlens_shared")||"[]");
+let likedShares=new Set(JSON.parse(localStorage.getItem("sportlens_liked")||"[]"));
+function allShares(){return sharedNotes.concat(SHARE_SEED);}
+function openContact(){$("#contactModal").classList.add("open");}
+function openSharePicker(){
+  const wrap=$("#sharePickList");
+  if(!notes.length){
+    wrap.innerHTML=`<div class="notes-empty">
+      <h3>还没有笔记</h3>
+      <p>先搜索文献并记笔记，就能从这里选择分享。</p>
+      <button class="act-btn primary" style="margin-top:12px" type="button" onclick="closeSharePick();openNotes()">去我的笔记</button>
+    </div>`;
+  }else{
+    wrap.innerHTML=notes.map(n=>`
+      <div class="pick-note">
+        <div class="pn-title">《${esc(n.src.t)}》</div>
+        <div class="pn-body">${esc(n.text)}</div>
+        <div class="pn-ops">
+          <button class="note-mini" type="button" onclick="shareMyNote(${n.id})">分享到广场</button>
+          <button class="note-mini" type="button" onclick="shareNoteFromList(${n.id})">朋友圈</button>
+          <button class="note-mini" type="button" onclick="shareXhsFromList(${n.id})">小红书</button>
+          <button class="note-mini" type="button" onclick="shareLinkFromList(${n.id})">链接</button>
+        </div>
+      </div>`).join("");
+  }
+  $("#sharePickModal").classList.add("open");
+}
+function closeSharePick(){$("#sharePickModal").classList.remove("open");}
+function shareXhsFromList(id){
+  const n=notes.find(x=>x.id===id);if(!n)return;
+  copyText(n.text+"\n——体育家园 "+user.name+" 的笔记\n\n#运动科学 #训练 #体育家园 #运动");
+  toast("已复制，去小红书粘贴");
+}
+function openShare(){
+  $("#viewHome").classList.remove("show");
+  $("#viewNotes").classList.remove("show");
+  $("#viewShare").classList.add("show");
+  scrollTo({top:0,behavior:"auto"});
+  renderShare();
+}
+function renderShare(){
+  const list=allShares();
+  $("#shareCount").textContent=list.length;
+  const wrap=$("#shareList");
+  if(!list.length){
+    wrap.innerHTML=`<div class="notes-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg>
+      <h3>广场还没有人分享</h3>
+      <p>来发布第一则笔记吧。</p>
+    </div>`;
+    return;
+  }
+  wrap.innerHTML=list.map(s=>`
+    <article class="share-card">
+      <div class="sh-head">
+        <span class="sh-avatar" aria-hidden="true">${SHARE_AVATAR[s.author]||"👤"}</span>
+        <div class="sh-who">
+          <span class="sh-name">${esc(s.author)}${s.mine?'<span class="mine-badge">我</span>':""}</span>
+          <span class="sh-meta">${esc(s.tag)} · ${esc(s.time)}</span>
+        </div>
+        <button class="sh-like${likedShares.has(s.id)?" on":""}" data-like="${s.id}" onclick="toggleLike('${s.id}')" aria-label="按赞">♥ ${s.likes+(likedShares.has(s.id)?1:0)}</button>
+      </div>
+      <div class="sh-text">${esc(s.text)}</div>
+      ${s.src?`<div class="sh-src">出自《<b>${esc(s.src.t)}</b>》 · ${esc(s.src.j)} ${s.src.y}</div>`:""}
+    </article>`).join("");
+  requestAnimationFrame(()=>document.querySelectorAll(".share-card").forEach((c,i)=>setTimeout(()=>c.classList.add("in"),50+i*55)));
+}
+function shareMyNote(id){
+  const n=notes.find(x=>x.id===id);
+  if(!n)return;
+  sharedNotes.unshift({id:Date.now(),author:"我",tag:"运动家",time:"刚刚",likes:0,text:n.text,src:{j:n.src.j,y:n.src.y,t:n.src.t},mine:true});
+  localStorage.setItem("sportlens_shared",JSON.stringify(sharedNotes));
+  toast("已分享到分享广场 ✓");
+}
+function toggleLike(id){
+  if(likedShares.has(id))likedShares.delete(id);
+  else likedShares.add(id);
+  localStorage.setItem("sportlens_liked",JSON.stringify([...likedShares]));
+  renderShare();
+}
+
+/* ============ 处方页动画 ============ */
+function typeText(el,text,onDone,key,extraHl){
+  if(reduced){el.innerHTML=hlText(text,key,extraHl);onDone&&onDone();return;}
+  el.textContent="";
+  const tn=document.createTextNode("");
+  const caret=document.createElement("span");
+  caret.className="caret2";
+  el.appendChild(tn);
+  el.appendChild(caret);
+  let i=0;
+  const speed=18;
+  function tick(){
+    tn.data=text.slice(0,i);
+    i++;
+    if(i<=text.length)setTimeout(tick,speed);
+    else{
+      caret.remove();
+      el.innerHTML=hlText(text,key,extraHl);
+      el.querySelectorAll(".hl").forEach(h=>h.classList.add("hl-in"));
+      onDone&&onDone();
+    }
+  }
+  tick();
+}
+
+function renderResults(rx,dt,engine){
+  lastAdvice=rx.advice||[];
+  lastQuery=rx.q||"";
+  const papers=lastPapers&&lastPapers.length?lastPapers:[];
+  const srcs=(papers.length?papers:(rx.sources||[]));
+  const miss=papers.length?"":(engine?(engine==="llm"?`<div class="db-miss">以下内容由 AI 结合数据库与公开信息综合分析（来源为 AI 知识库）</div>`:`<div class="db-miss">数据库暂未匹配到相关内容，请换个问法试试</div>`):`<div class="db-miss">资料库暂无直接匹配文献，以下为综合处方与既有来源</div>`);
+  const engChip=engine?`<span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>${engine==="llm"?"AI 综合分析":engine==="rule"?"期刊数据库":engine==="crossref"?"期刊数据库 · 浏览器直连":"AI 分析"}</span>`:"";
+  const html=`
+    <div class="rx-head">
+      <div class="rx-eyebrow">${icon("spark","")}AI 分析 · 结合数据库与互联网</div>
+      <h1>“<span>${esc(rx.q)}</span>”的<br>文献精华处方</h1>
+      <div class="rx-goal">${icon("tag","")}你的目标：${esc(rx.goal)}</div>
+    </div>
+
+    <div class="rx-meta" style="margin-bottom:20px">
+      <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>数据库文献 <b>${srcs.length}</b> 篇</span>
+      <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>耗时 <b>${dt}</b> 秒</span>
+      <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z"/></svg>证据等级 ${papers.length&&papers[0].ev?esc(papers[0].ev):"高"}</span>
+      ${engChip}
+    </div>
+
+    <div class="rx-essence" id="essenceCard">
+      <div class="tag">${icon("spark","")}核心分析</div>
+      <div id="essenceText"></div>
+      <button class="note-add-btn ess-note" type="button" onclick="openEssenceNote()">${icon("note","")}记笔记</button>
+    </div>
+
+    <div class="rx-sub">分析建议 · 标红即关键信息</div>
+    <div class="advice-list">
+      ${(rx.advice||[]).slice(0,4).map((a,i)=>{
+        const long=(a.t||"").length>70;
+        return `<article class="advice">
+          <div class="num n${i+1}">0${i+1}</div>
+          <div>
+            <div class="at${long?" clamped":""}">${hlText(a.t,rx.q,lastHl)}</div>
+            ${long?`<button class="more-btn" type="button" onclick="toggleMore(this)">展开</button>`:""}
+            <span class="src">${icon("book","")}出自 · ${esc(papers.length?(papers[i%papers.length].j+" · "+papers[i%papers.length].y):a.s)}</span>
+            <button class="note-add-btn advice-note" type="button" onclick="openAdviceNote(${i})">${icon("note","")}记笔记</button>
+          </div>
+        </article>`;
+      }).join("")}
+    </div>
+
+    ${miss}
+    <div class="rx-sub">${engine?(papers.length?"数据库内容 · 来源标注":"数据库内容"):(papers.length?"数据库内容 · 示例资料":"数据库来源")}</div>
+    <div class="src-list">
+      ${srcs.map((s,i)=>{
+        const absTxt=(s.az||s.abs||"");
+        const absLong=absTxt.length>110;
+        return `<article class="src-card">
+          <div class="src-top">
+            <span class="jtag">${esc(s.j)}</span>
+            <span class="src-year">${s.y}</span>
+            ${s.oa!==undefined&&s.oa!==null?`<span class="${s.oa?"oa-badge":"pay-badge"}">${s.oa?"开放获取":"付费文献"}</span>`:""}
+            ${s.ev?`<span class="ev-badge">证据 ${esc(s.ev)}</span>`:""}
+          </div>
+          <div class="src-title">${s.tz?esc(s.tz):esc(s.t)}</div>
+          ${s.tz?`<div class="src-en">原文：${esc(s.t)}</div>`:""}
+          ${s.authors?`<div class="src-authors">作者 · <b>${esc(s.authors)}</b></div>`:""}
+          ${absTxt?`<div class="src-abs${absLong?" clamped":""}">${esc(absTxt)}</div>`:""}
+          ${absLong?`<button class="more-btn" type="button" onclick="toggleSrc(this)">展开全文</button>`:""}
+          ${(s.az&&s.abs)?`<div class="src-en" data-en hidden>原文摘要：${esc(s.abs)}</div>`:""}
+          <div class="src-doi">${esc(s.doi)}</div>
+          <div class="src-for">${icon("tag","")}提供：${esc(s.for||"相关证据")}</div>
+          <button class="note-add-btn" onclick="openNoteEditor(${i})">${icon("note","")}记笔记</button>
+        </article>`;
+      }).join("")}
+    </div>
+    ${engine&&papers.length?`<div class="src-note">以上内容由 AI 结合数据库与公开信息整理，仅供参考。</div>`:""}
+
+    <div class="rx-actions">
+      <button class="act-btn primary" onclick="copyRx(${JSON.stringify(rx).replace(/"/g,"&quot;")})">${icon("copy","")}复制处方</button>
+      <button class="act-btn" onclick="closeRxModal();setTimeout(()=>document.getElementById('searchInput').focus(),180);">再搜一题</button>
+    </div>
+
+    <div class="rx-foot">
+      <div class="rx-tip">
+        <span class="tip-text">📤 把体育家园分享给朋友，一起用前沿运动科学</span>
+        <button class="tip-btn" type="button" onclick="shareSite()">一键分享网站</button>
+      </div>
+      <div class="rx-dis">AI 生成内容仅供参考，不构成医疗或训练处方；期刊内容仅涉及免费内容与摘要，请以原文与专业人士意见为准。</div>
+    </div>`;
+  $("#rxModalBody").innerHTML=html;
+  requestAnimationFrame(initMoreBtns);
+}
+
+function shareSite(){
+  const url=location.href.split("#")[0]||location.href;
+  const text="我在用「体育家园」查运动科学文献——全球顶级期刊数据库 × AI 综合分析，推荐给你试试："+url;
+  copyText(text);
+  toast("网站链接已复制，去粘贴给朋友吧");
+}
+function toggleMore(btn){
+  const at=btn.closest(".advice").querySelector(".at");
+  if(!at)return;
+  at.classList.toggle("clamped");
+  btn.textContent=at.classList.contains("clamped")?"展开":"收起";
+}
+function initMoreBtns(){
+  document.querySelectorAll("#rxModal .at.clamped").forEach(el=>{
+    if(el.scrollHeight<=el.clientHeight+1){
+      el.classList.remove("clamped");
+      const btn=el.parentElement.querySelector(".more-btn");
+      if(btn)btn.remove();
+    }
+  });
+  document.querySelectorAll("#rxModal .src-card").forEach(card=>{
+    const abs=card.querySelector(".src-abs");
+    const en=card.querySelector("[data-en]");
+    const btn=card.querySelector(".more-btn");
+    if(!btn)return;
+    const overflows=abs?abs.scrollHeight>abs.clientHeight+1:false;
+    if(abs&&abs.classList.contains("clamped")&&!overflows)abs.classList.remove("clamped");
+    if(!en&&(!abs||!abs.classList.contains("clamped")))btn.remove();
+  });
+}
+function maybeClampEssence(){
+  const p=document.getElementById("essenceText");
+  const card=document.getElementById("essenceCard");
+  if(!p||!card)return;
+  let btn=card.querySelector(".essence-more");
+  p.classList.add("clamped");
+  requestAnimationFrame(()=>{
+    if(p.scrollHeight<=p.clientHeight+1){
+      p.classList.remove("clamped");
+      if(btn)btn.remove();
+      return;
+    }
+    if(!btn){
+      btn=document.createElement("button");
+      btn.className="more-btn essence-more";
+      btn.type="button";
+      btn.textContent="展开全文";
+      btn.onclick=()=>{
+        p.classList.toggle("clamped");
+        btn.textContent=p.classList.contains("clamped")?"展开全文":"收起";
+      };
+      card.appendChild(btn);
+    }
+  });
+}
+function formatEssence(){
+  const p=document.getElementById("essenceText");
+  if(!p)return;
+  const raw=p.textContent||"";
+  const key=lastRx?lastRx.q:null;
+  const hl=lastHl||null;
+  const lines=raw.split(/\n/).map(s=>s.trim()).filter(Boolean);
+  let head="";
+  let planTxt="";
+  for(const ln of lines){
+    if(planTxt){planTxt+="\n"+ln;continue;}
+    if(ln.includes("处理方案")||/^\d+\.\s/.test(ln)){planTxt=ln;}
+    else{head+=(head?"\n":"")+ln;}
+  }
+  if(!planTxt&&head.includes("处理方案")){
+    const idx=head.indexOf("处理方案");
+    planTxt=head.slice(idx);
+    head=head.slice(0,idx).replace(/[。；;：:\s]+$/,"");
+  }
+  let html="";
+  if(head)html+=hlText(head,key,hl);
+  if(planTxt){
+    const chunks=planTxt.split(/(?=\d+\.\s)/).map(s=>s.trim()).filter(Boolean);
+    let itemsHtml="";
+    let extraHtml="";
+    let label="处理方案";
+    chunks.forEach(ch=>{
+      const m=ch.match(/^(\d+)\.\s*([\s\S]*)$/);
+      if(m){
+        const num=m[1];
+        itemsHtml+=`<div class="ess-plan-item"><span class="ess-num n${num}">${num}</span><span>${hlText(m[2],key,hl)}</span></div>`;
+      }else if(ch.includes("处理方案")){
+        label=ch.replace(/[：:]/g,"");
+      }else{
+        extraHtml+=`<div class="ess-plan-item" style="display:block">${hlText(ch,key,hl)}</div>`;
+      }
+    });
+    html+=`<div class="ess-plan"><div class="ess-plan-label">${esc(label)}</div>${itemsHtml}${extraHtml}</div>`;
+  }
+  p.innerHTML=html;
+  p.classList.remove("clamped");
+  const card=document.getElementById("essenceCard");
+  const btn=card?card.querySelector(".essence-more"):null;
+  if(btn)btn.remove();
+}
+function toggleSrc(btn){
+  const card=btn.closest(".src-card");
+  if(!card)return;
+  const abs=card.querySelector(".src-abs");
+  const en=card.querySelector("[data-en]");
+  if(abs)abs.classList.toggle("clamped");
+  if(en)en.hidden=!en.hidden;
+  const expanded=en?!en.hidden:(abs&&!abs.classList.contains("clamped"));
+  btn.textContent=expanded?"收起":"展开全文";
+}
+
+window.copyRx=function(data){
+  const rx=typeof data==="string"?JSON.parse(data):data;
+  const srcList=lastPapers&&lastPapers.length?lastPapers:rx.sources;
+  const text="【"+rx.q+"】AI 处方\n\n精华："+rx.essence+"\n\n建议：\n"+rx.advice.map((a,i)=>(i+1)+". "+a.t+"（出自 "+(lastPapers.length?lastPapers[i%lastPapers.length].j+" · "+lastPapers[i%lastPapers.length].y:a.s)+"）").join("\n")+"\n\n数据库文献：\n"+srcList.map(s=>"• "+s.t+" — "+s.j+" "+s.y+" ("+s.doi+")").join("\n");
+  if(navigator.clipboard)navigator.clipboard.writeText(text).then(()=>toast("处方已复制到剪贴簿"));
+  else toast("已复制（请在支援的浏览器使用）");
+};
+
+let toastTimer;
+window.toast=function(msg){
+  $("#toastText").textContent=msg;
+  $("#toast").classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>$("#toast").classList.remove("show"),2400);
+};
+
+/* ============ 搜寻流程（UI 示范） ============ */
+const steps=["正在结合数据库分析…","正在综合分析…","正在生成对症处方…"];
+const aiSteps=["正在连接 AI 分析服务…","正在检索全球顶级期刊数据库…","正在综合分析…"];
+let searching=false;
+
+function loadingHTML(){
+  return `<div class="loading-card" id="loadingCard">
+    <div class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h3>AI 正在为你分析</h3>
+    <div class="ai-steps">
+      ${steps.map((s,i)=>`<div class="ai-step" data-step="${i}"><span class="st-dot"></span>${s}</div>`).join("")}
+    </div>
+  </div>`;
+}
+
+function aiLoadingHTML(){
+  return `<div class="loading-card" id="loadingCard">
+    <div class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h3>AI 正在为你综合分析</h3>
+    <div class="ai-steps">
+      ${aiSteps.map((s,i)=>`<div class="ai-step" data-ai-step="${i}"><span class="st-dot"></span>${s}</div>`).join("")}
+    </div>
+  </div>`;
+}
+
+const crossSteps=["正在连接期刊数据库…","正在分析相关文献…","正在整理分析结果…"];
+function crossLoadingHTML(){
+  return `<div class="loading-card" id="loadingCard">
+    <div class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h3>正在综合分析</h3>
+    <div class="ai-steps">
+      ${crossSteps.map((s,i)=>`<div class="ai-step" data-cross-step="${i}"><span class="st-dot"></span>${s}</div>`).join("")}
+    </div>
+  </div>`;
+}
+
+function doSearch(){
+  const q=input.value.trim();
+  if(!q){$(".search-box").classList.remove("shake");void $(".search-box").offsetWidth;$(".search-box").classList.add("shake");input.focus();return;}
+  pushHistory(q);
+  const btn=$("#searchBtn");
+  btn.classList.add("loading");
+  btn.querySelector("svg").innerHTML='<circle cx="12" cy="12" r="8" opacity=".35"/><path d="M12 4a8 8 0 0 1 8 8" stroke-linecap="round"/>';
+  $("#suggestBox").classList.remove("open");
+  const doneBtn=()=>{
+    btn.classList.remove("loading");
+    btn.querySelector("svg").innerHTML='<path d="M4 19V5"/><path d="M4 19h16"/><path d="M4 13.5 20 6"/>';
+  };
+  (async()=>{
+    if(!STATIC_MODE&&await aiServerOk(true)){
+      if(await tryAiSearch(q)){doneBtn();return;}
+    }
+    if(await tryCrossrefSearch(q)){doneBtn();return;}
+    runRx(q,doneBtn);
+  })();
+}
+
+/* ============ AI 综合分析（双轨并行） ============ */
+const STATIC_MODE=false; // 默认 AI 优先；纯静态版改为 true
+const IS_LOCAL=location.protocol==="file:"||location.hostname==="127.0.0.1"||location.hostname==="localhost";
+const AI_BASE=IS_LOCAL?"http://127.0.0.1:8001":"/api";
+const AI_SERVER=AI_BASE;
+const AI_URL=AI_BASE+(IS_LOCAL?"/api/search":"/search");
+const AI_HEALTH=AI_BASE+"/health";
+let aiWarned=false;
+async function aiServerOk(silent){
+  try{
+    const ctrl=new AbortController();
+    const t=setTimeout(()=>ctrl.abort(),6000);
+    const r=await fetch(AI_HEALTH,{signal:ctrl.signal});
+    clearTimeout(t);
+    if(r.ok){
+      $("#aiBanner").hidden=true;
+      aiWarned=false;
+      return true;
+    }
+    if(!silent&&!aiWarned){toast("未侦测到本机 AI 服务，改用浏览器直连分析");aiWarned=true;}
+    return false;
+  }catch(e){
+    if(!silent&&!aiWarned){toast("未侦测到本机 AI 服务，改用浏览器直连分析");aiWarned=true;}
+    return false;
+  }
+}
+async function tryAiSearch(q){
+  if(searching)return false;
+  searching=true;
+  lastRx=findRx(q);
+  openRxModal();
+  $("#rxModalBody").innerHTML=aiLoadingHTML();
+  aiSteps.forEach((s,i)=>{
+    setTimeout(()=>{
+      const stepEl=document.querySelector(`[data-ai-step="${i}"]`);
+      if(!stepEl)return;
+      if(i>0)document.querySelector(`[data-ai-step="${i-1}"]`)?.classList.replace("active","done");
+      stepEl.classList.add("active");
+      stepEl.querySelector(".st-dot").textContent="✓";
+    },450+i*1000);
+  });
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),30000);
+  const t0=performance.now();
+  try{
+    const res=await fetch(AI_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({q}),signal:ctrl.signal});
+    clearTimeout(timer);
+    searching=false;
+    const dt=((performance.now()-t0)/1000).toFixed(1);
+    if(!res.ok){closeRxModal();toast("AI 分析服务异常，改用示例资料库");return false;}
+    const ai=await res.json();
+    if(ai.engine==="error"){closeRxModal();toast("AI 分析失败，改用示范资料库");return false;}
+    renderAiResults(ai,dt);
+    requestAnimationFrame(()=>{
+      document.querySelectorAll("#rxModal .advice,#rxModal .src-card").forEach((c,i)=>setTimeout(()=>c.classList.add("in"),120+i*90));
+      const ess=document.getElementById("essenceText");
+      typeText(ess,ai.essence||"",formatEssence,null,lastHl);
+    });
+    return true;
+  }catch(e){
+    clearTimeout(timer);
+    searching=false;
+    closeRxModal();
+    toast("未连上 AI 分析服务，改用示例资料库");
+    return false;
+  }
+}
+
+/* ============ 浏览器直连 Crossref（免启动、免费） ============ */
+async function translateZh(text){
+  if(!text)return "";
+  try{
+    const ctrl=new AbortController();
+    const t=setTimeout(()=>ctrl.abort(),5000);
+    const r=await fetch("https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&dt=t&q="+encodeURIComponent(text),{signal:ctrl.signal});
+    clearTimeout(t);
+    if(!r.ok)return "";
+    const d=await r.json();
+    return ((d[0]||[]).map(s=>s&&s[0]||"")).join("");
+  }catch(e){return "";}
+}
+async function translateQueryEn(text){
+  if(!text)return "";
+  try{
+    const ctrl=new AbortController();
+    const t=setTimeout(()=>ctrl.abort(),8000);
+    const r=await fetch("https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=en&dt=t&q="+encodeURIComponent(text),{signal:ctrl.signal});
+    clearTimeout(t);
+    if(!r.ok)return "";
+    const d=await r.json();
+    return ((d[0]||[]).map(s=>s&&s[0]||"")).join("").trim();
+  }catch(e){return "";}
+}
+async function searchCrossrefDirect(q){
+  const enQ=await translateQueryEn(q)||q;
+  const url="https://api.crossref.org/works?rows=10&query="+encodeURIComponent(enQ)+"&select=title,author,container-title,published,DOI,abstract";
+  const ctrl=new AbortController();
+  const t=setTimeout(()=>ctrl.abort(),10000);
+  try{
+    const r=await fetch(url,{signal:ctrl.signal});
+    clearTimeout(t);
+    if(!r.ok)return null;
+    const data=await r.json();
+    const items=(data.message&&data.message.items)||[];
+    if(!items.length)return null;
+    const papers=items.map(it=>{
+      const title=(it.title&&it.title[0])||"";
+      const journal=(it["container-title"]&&it["container-title"][0])||"";
+      let year="";
+      for(const k of ["published-print","published-online","published"]){
+        if(it[k]&&it[k]["date-parts"]&&it[k]["date-parts"][0]&&it[k]["date-parts"][0][0]){year=String(it[k]["date-parts"][0][0]);break;}
+      }
+      const authors=((it.author||[]).slice(0,4).map(a=>((a.given||"")+" "+(a.family||"")).trim()).filter(Boolean)).join(", ");
+      const abs=(it.abstract||"").replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim().slice(0,900);
+      return {title,journal,year,authors,doi:it.DOI||"",abstract:abs,evidence:"",oa:null};
+    }).filter(p=>p.title);
+    if(!papers.length)return null;
+    const SPORT_FRAGS=["british journal of sports medicine","sports medicine","medicine and science in sports","strength and conditioning","journal of applied physiology","journal of sports sciences","european journal of sport science","scandinavian journal of medicine","sports physiology","sport and health science","biology of sport","human kinetics","athletic training","science and medicine in sport","sports and active living","applied physiology","kinesiology","biomechanics","sports (basel","pediatric exercise","sports nutrition","journal of sport rehabilitation","sport sciences for health","sports health","physical activity and health"];
+    const isSport=p=>{const j=(p.journal||"").toLowerCase();return SPORT_FRAGS.some(f=>j.includes(f));};
+    papers.sort((a,b)=>(isSport(b)?1:0)-(isSport(a)?1:0));
+    const tzList=await Promise.all(papers.map(p=>translateZh(p.title)));
+    const azList=await Promise.all(papers.map(p=>translateZh(p.abstract)));
+    papers.forEach((p,i)=>{p.title_zh=tzList[i];p.abstract_zh=azList[i];});
+    const journals=[...new Set(papers.map(p=>p.journal).filter(Boolean))].join("、")||"多本期刊";
+    const essence="已结合期刊数据库与互联网信息，检索到 "+papers.length+"  篇数据库文献，主要来自 "+journals+"。";
+    const advice=papers.slice(0,3).map(p=>{
+      const zh=p.abstract_zh||p.abstract||"";
+      const sent=zh.split(/(?<=[.!?。！？])\s+/)[0];
+      const first=sent&&sent.length>110?sent.slice(0,110)+"…":(sent||"");
+      const text=first?(p.journal||"文献")+" "+p.year+" 的发现："+first:"《"+(p.title.slice(0,36))+"》值得一读。";
+      return {text,source:(p.journal+" · "+p.year).replace(/^ · | · $/g,"")};
+    });
+    return {engine:"crossref",query:q,papers,essence,advice,mode_note:"浏览器直连 Crossref（免费）"};
+  }catch(e){
+    clearTimeout(t);
+    return null;
+  }
+}
+async function tryCrossrefSearch(q){
+  if(searching)return false;
+  searching=true;
+  lastRx=findRx(q);
+  openRxModal();
+  $("#rxModalBody").innerHTML=crossLoadingHTML();
+  crossSteps.forEach((s,i)=>{
+    setTimeout(()=>{
+      const stepEl=document.querySelector(`[data-cross-step="${i}"]`);
+      if(!stepEl)return;
+      if(i>0)document.querySelector(`[data-cross-step="${i-1}"]`)?.classList.replace("active","done");
+      stepEl.classList.add("active");
+      stepEl.querySelector(".st-dot").textContent="✓";
+    },300+i*650);
+  });
+  const t0=performance.now();
+  const cr=await searchCrossrefDirect(q);
+  searching=false;
+  if(!cr){closeRxModal();toast("分析服务连线失败，使用示例资料库");return false;}
+  const dt=((performance.now()-t0)/1000).toFixed(1);
+  renderAiResults(cr,dt);
+  requestAnimationFrame(()=>{
+      document.querySelectorAll("#rxModal .advice,#rxModal .src-card").forEach((c,i)=>setTimeout(()=>c.classList.add("in"),120+i*90));
+      const ess=document.getElementById("essenceText");
+      typeText(ess,cr.essence||"",formatEssence,null,lastHl);
+  });
+  return true;
+}
+function renderAiResults(ai,dt){
+  lastHl=ai.hl||null;
+  const papers=(ai.papers||[]).map(p=>({
+    j:p.journal||"",y:p.year||"",t:p.title||"",doi:p.doi||"",
+    tz:p.title_zh||"",az:p.abstract_zh||"",
+    authors:p.authors||"",abs:p.abstract||"",ev:p.evidence||"",
+    oa:p.oa===true,for:ai.query||""
+  }));
+  lastPapers=papers;
+  const rx={
+    q:ai.query||"",
+    goal:"结合数据库与互联网综合分析 · 依你的问题",
+    essence:ai.essence||"",
+    advice:(ai.advice||[]).map(a=>({t:a.text,s:a.source}))
+  };
+  renderResults(rx,dt,ai.engine||"rule");
+}
+
+function runRx(key,onDone){
+  if(searching)return;
+  searching=true;
+  const qk=typeof key==="string"?key:(key.q||"");
+  lastRx=typeof key==="string"?findRx(key):key;
+  lastPapers=matchPapers(qk);
+  openRxModal();
+  $("#rxModalBody").innerHTML=loadingHTML();
+  const t0=performance.now();
+  steps.forEach((s,i)=>{
+    setTimeout(()=>{
+      const stepEl=document.querySelector(`[data-step="${i}"]`);
+      if(!stepEl)return;
+      if(i>0)document.querySelector(`[data-step="${i-1}"]`)?.classList.replace("active","done");
+      stepEl.classList.add("active");
+      stepEl.querySelector(".st-dot").textContent="✓";
+    },520+i*620);
+  });
+  setTimeout(()=>{
+    searching=false;
+    onDone&&onDone();
+    const dt=((performance.now()-t0)/1000).toFixed(1);
+    renderResults(lastRx,dt);
+    requestAnimationFrame(()=>{
+      document.querySelectorAll("#rxModal .advice,#rxModal .src-card").forEach((c,i)=>{
+        setTimeout(()=>c.classList.add("in"),120+i*90);
+      });
+      const ess=document.getElementById("essenceText");
+      typeText(ess,lastRx.essence,formatEssence,lastRx.q,lastHl);
+    });
+  },520+steps.length*620+400);
+}
+
+const input=$("#searchInput");
+$("#searchForm").addEventListener("submit",e=>{e.preventDefault();doSearch();});
+$("#checkinBtn").addEventListener("click",doCheckin);
+$("#noteSaveBtn").addEventListener("click",saveNote);
+$("#aiRetryBtn").addEventListener("click",async()=>{
+  if(STATIC_MODE){toast("当前为静态版，搜索直连期刊数据库");return;}
+  const ok=await aiServerOk(true);
+  if(ok){toast("AI 分析服务已连线 ✓");}
+  else{$("#aiBanner").hidden=false;toast("仍未侦测到 AI 分析服务");}
+});
+$("#aiBannerClose").addEventListener("click",()=>{$("#aiBanner").hidden=true;});
+$("#avatarFile").addEventListener("change",function(){
+  const f=this.files&&this.files[0];
+  if(!f)return;
+  const rd=new FileReader();
+  rd.onload=()=>{
+    user.avatar=rd.result;
+    localStorage.setItem("sportlens_user_avatar",user.avatar);
+    renderUser();
+    openUserModal();
+    toast("头像已更新");
+  };
+  rd.readAsDataURL(f);
+  this.value="";
+});
+input.addEventListener("focus",()=>renderSuggest(input.value));
+input.addEventListener("input",()=>renderSuggest(input.value));
+document.addEventListener("click",e=>{if(!e.target.closest(".suggest-wrap"))$("#suggestBox").classList.remove("open");});
+new MutationObserver(()=>document.body.classList.toggle("searching",$("#suggestBox").classList.contains("open"))).observe($("#suggestBox"),{attributes:true,attributeFilter:["class"]});
+$("#suggestBox").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  input.value=b.textContent.trim();
+  $("#suggestBox").classList.remove("open");
+  doSearch();
+});
+document.querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{
+  input.value=c.textContent;
+  $("#suggestBox").classList.remove("open");
+  doSearch();
+}));
+
+/* ============ 启动 ============ */
+initWelcome();
+initShareLink();
+addEventListener("hashchange",initShareLink);
+initDaily();
+renderDaily();
+if(!STATIC_MODE)aiServerOk(true).then(ok=>{if(!ok)$("#aiBanner").hidden=false;});
+renderUser();
+renderUsage();
+initCounters();
+initQuote();
+renderSig();
+renderTasks();
+renderHistory();
+renderNotesBadge();
+
+/* ============ PWA：可离线、可加到主画面 ============ */
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{
+    const ok=location.protocol==="https:"||["localhost","127.0.0.1"].includes(location.hostname);
+    if(ok)navigator.serviceWorker.register("./sw.js").catch(()=>{});
+  });
+}
+</script>
+</body>
+</html>

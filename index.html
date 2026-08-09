@@ -1940,7 +1940,7 @@ function matchPapers(q){
 }
 
 /* ============ 视图切换 ============ */
-function staggerReveal(container, selector, stepMs, move){
+function staggerReveal(container, selector, stepMs, move, startDelay){
   const els=container.querySelectorAll(selector);
   if(!els.length)return;
   const useMove=move!==false;
@@ -1950,11 +1950,11 @@ function staggerReveal(container, selector, stepMs, move){
         useMove
           ? [{opacity:0,transform:"scale(.9) translateY(8px)"},{opacity:1,transform:"none"}]
           : [{opacity:0},{opacity:1}],
-        {duration:420,delay:i*(stepMs||55),easing:useMove?"cubic-bezier(.2,1.6,.4,1)":"ease",fill:"both"}
+        {duration:420,delay:(startDelay||0)+i*(stepMs||55),easing:useMove?"cubic-bezier(.2,1.6,.4,1)":"ease",fill:"both"}
       );
     }else{
       el.style.transition="opacity .4s ease"+(useMove?", transform .4s cubic-bezier(.2,1.6,.4,1)":"");
-      el.style.transitionDelay=(i*(stepMs||55))+"ms";
+      el.style.transitionDelay=((startDelay||0)+i*(stepMs||55))+"ms";
       el.style.opacity="0";
       if(useMove)el.style.transform="scale(.9) translateY(8px)";
       requestAnimationFrame(()=>requestAnimationFrame(()=>{
@@ -1977,7 +1977,10 @@ function goHome(){
   void $("#viewHome").offsetWidth;
   $("#viewHome").classList.add("show");
   scrollTo({top:0,behavior:reduced?"auto":"smooth"});
-  staggerReveal($("#viewHome"), ".hero-head, .hero-quote, .search-card, .usage, .daily-block", 55);
+  staggerReveal($("#viewHome"), ".hero-head, .hero-quote", 45);
+  staggerReveal($("#viewHome"), ".search-card", 40, true, 60);
+  staggerReveal($("#viewHome"), ".usage", 40, true, 60);
+  staggerReveal($("#viewHome"), ".daily-block", 40, true, 130);
 }
 
 /* ============ 打卡：本月使用概况 ============ */

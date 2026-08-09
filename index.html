@@ -2,7 +2,7 @@
 <html lang="zh-Hans">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>体育家园 ｜ 全球顶级期刊运动数据库</title>
 <meta name="description" content="结合全球顶级期刊建立的运动科学数据库，为您带来世界先进的运动理念。">
 <meta name="keywords" content="体育家园,运动科学,体育,期刊,Nature,Science,HIIT,肌肥大,恢复策略,AI 分析,教练,运动员">
@@ -487,6 +487,7 @@ display:grid;grid-template-columns:1fr 460px;gap:30px;
 }
 .sources b{color:var(--accent-deep);font-weight:700}
 .sources span{color:var(--faint);padding:0 3px;white-space:nowrap}
+.sources .more-jr{white-space:normal;padding:0}
 
 /* footer */
 footer{padding:22px 0 12px;background:rgba(255,255,255,.45);margin-top:140px}
@@ -691,7 +692,8 @@ body.searching #toTop{
 @keyframes backIn{from{opacity:0}to{opacity:1}}
 .modal-panel{
   position:absolute;left:50%;top:50%;width:min(780px,94vw);
-  max-height:88vh;display:flex;flex-direction:column;
+  max-height:calc(88vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;
   background:var(--bg);border:1px solid var(--border);
   border-radius:24px;
   box-shadow:0 24px 70px -22px rgba(46,58,49,.4);
@@ -1061,7 +1063,7 @@ body.searching #toTop{
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
   max-width:min(720px,92vw);padding:10px 14px;border-radius:14px;
   background:var(--surface);border:1px solid #e3b6b1;box-shadow:var(--shadow);
-  font-size:12.5px;color:var(--text);
+  font-size:12.5px;color:var(--text);pointer-events:none;
   animation:bannerIn .5s cubic-bezier(.2,1.1,.3,1);
 }
 .ai-banner[hidden]{display:none}
@@ -1071,13 +1073,15 @@ body.searching #toTop{
 .ai-banner-btn{
   border:1px solid var(--border-strong);background:var(--surface);color:var(--accent-deep);
   font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:9px;cursor:pointer;font-family:inherit;
+  pointer-events:auto;min-height:30px;
 }
 .ai-banner-btn:hover{background:var(--accent-soft)}
-.ai-banner-x{background:none;border:none;color:var(--faint);cursor:pointer;font-size:13px;padding:2px}
+.ai-banner-x{background:none;border:none;color:var(--faint);cursor:pointer;font-size:13px;padding:2px;pointer-events:auto;min-width:28px;min-height:28px}
 @keyframes bannerIn{from{opacity:0;transform:translate(-50%,-8px)}to{opacity:1;transform:translate(-50%,0)}}
 
 #toast{
-  position:fixed;left:50%;bottom:28px;transform:translate(-50%,80px);z-index:100;
+  position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom));
+  transform:translate(-50%,80px);z-index:100;
   background:var(--text);color:#f6f7f2;
   padding:11px 22px;border-radius:999px;font-size:13.5px;font-weight:500;
   box-shadow:var(--shadow);opacity:0;transition:all .4s cubic-bezier(.2,.9,.3,1.2);
@@ -1086,7 +1090,8 @@ body.searching #toTop{
 #toast.show{transform:translate(-50%,0);opacity:1}
 #toast svg{width:14px;height:14px;color:#9fc7a7}
 #toTop{
-  position:fixed;right:22px;bottom:22px;z-index:60;width:42px;height:42px;border-radius:12px;
+  position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));
+  z-index:60;width:42px;height:42px;border-radius:12px;
   border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;
   display:grid;place-items:center;opacity:0;pointer-events:none;transition:all .3s;
   box-shadow:var(--shadow-sm);
@@ -1108,28 +1113,32 @@ body.searching #toTop{
   .brand-name{font-size:21px}
 }
 @media (max-width:720px){
-  nav{position:static;border-bottom:1px solid var(--border)}
-  .nav-inner{width:100%;height:auto;flex-direction:column;align-items:stretch;gap:6px;padding:6px 10px 8px}
+  nav{position:static;border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
+  .nav-inner{width:100%;height:auto;flex-direction:column;align-items:stretch;gap:2px;padding:3px 10px 4px}
   .brand{justify-content:flex-start}
-  .brand-name{font-size:20px}
+  .brand-name{font-size:19px}
+  .brand-tag{display:inline-block}
   .nav-right{width:100%}
   .nav-links{
-    position:static;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;align-items:stretch;
+    position:static;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;align-items:stretch;
     padding:0;background:none;border:none;box-shadow:none;opacity:1;transform:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;
   }
   .nav-links.open{display:grid}
-  .nav-links .nav-link{justify-content:center;padding:7px 2px;font-size:11.5px;min-height:30px;text-align:center}
+  .nav-links .nav-link{justify-content:center;padding:5px 2px;font-size:11px;min-height:32px;text-align:center}
   .nav-links .nav-link svg{width:13px;height:13px}
   .nav-links .nav-avatar{display:none}
   .nav-burger{display:none}
   .sources{display:none}
-  .hero{padding:0 0 4px}
+  .daily-block + .sources{display:block;margin:0;padding:1px 8px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(255,255,255,.35)}
+  .daily-block + .sources p{font-size:8px;line-height:1.35;letter-spacing:.1px}
+  .daily-block + .sources .more-jr{display:none}
+  .hero{padding:0 0 1px}
   #viewHome.show .hero-head,#viewHome.show .hero-quote{display:none}
-  .hero-grid{display:grid;grid-template-columns:1fr;gap:6px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:3px}
   .left-col{display:contents}
   .search-card{grid-row:1}
-  .usage{grid-row:2;position:static;padding:10px 12px;border-radius:14px}
+  .usage{grid-row:2;position:static;padding:8px 12px;border-radius:14px}
   .daily-block{grid-row:3;width:100%;margin-top:0}
   #viewHome.show .hero-head,#viewHome.show .hero-quote,#viewHome.show .search-card,
   #viewHome.show .usage,#viewHome.show .daily-block{animation:none}
@@ -1139,38 +1148,52 @@ body.searching #toTop{
   .usage-note{display:none}
   .checkin-grid{display:none}
   .usage > .usage-stat:not(.stat-progress){display:none}
-  footer{display:none}
+  footer{display:block;margin-top:2px;padding:2px 8px calc(3px + env(safe-area-inset-bottom));background:rgba(255,255,255,.35);border-top:1px solid var(--border)}
+  .foot-top{flex-direction:column;align-items:center;gap:1px;margin-bottom:0}
+  .foot-brand a{display:none}
+  .foot-brand p{max-width:none;font-size:9px;margin:0;line-height:1.4;text-align:center}
+  .foot-links{gap:12px;justify-content:center}
+  .foot-links a{font-size:10px;padding:5px 6px;min-height:28px;display:inline-flex;align-items:center}
+  .foot-bottom{flex-direction:column;align-items:center;justify-content:center;gap:1px;font-size:8px;padding-top:2px}
   .day-dots{display:none}
-  .task-slots{grid-template-columns:repeat(2,1fr);gap:6px}
-  .task-slot{padding:3px 6px;gap:2px}
+  .task-slots{grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:2px}
+  .task-slot{padding:4px 8px;gap:2px;min-height:30px}
   .task-slot .ts-text{font-size:12px}
-  .sig-line{font-size:12.5px;margin-bottom:2px}
-  .task-label{font-size:14px;margin-bottom:2px}
-  .task-foot .checkin-btn{padding:4px 9px}
-  .usage-title{font-size:13px}
+  .sig-line{display:block;width:100%;padding:7px 10px;border:1px solid var(--border);border-radius:10px;background:var(--surface-2);font-size:12px;min-height:32px;line-height:1.4;margin-bottom:2px}
+  .task-label{font-size:12.5px;margin-bottom:1px}
+  .task-card{padding:5px 12px;margin-bottom:3px}
+  .task-foot{margin-bottom:1px}
+  .task-foot .checkin-btn{padding:8px 16px;min-height:36px}
+  .usage-title{font-size:12.5px}
+  .usage-title{margin-bottom:2px;padding-bottom:2px}
   .usage-bar,.usage-bar-caption{display:none}
-  .stat-progress{padding:6px 10px}
+  .stat-progress{padding:2px 10px}
   .stat-progress .cal-open{margin-top:0}
   .suggest button{padding:12px 14px;font-size:14px}
-  .cal-open{font-size:12px}
+  .cal-open{font-size:12px;padding:5px 8px;min-height:28px;border-radius:8px}
   .tip-btn{padding:10px 18px}
-  .search-card{padding:12px}
+  .search-card{padding:10px}
   .search-card h2{display:none}
   .search-card .sc-sub{display:none}
-  .search-box{padding:6px 6px 6px 12px;border-radius:10px}
-  .search-box input{padding:6px 0;font-size:15px}
+  .search-box{padding:2px 5px 2px 10px;border-radius:10px}
+  .search-box input{padding:3px 0;font-size:16px}
   .search-btn{padding:7px 12px;font-size:13px}
-  .dl-label{font-size:12px;margin-bottom:3px}
-  .ditem{padding:6px 10px;gap:8px}
-  .di-title{font-size:12px}
+  .dl-label{font-size:12px;margin-bottom:0}
+  .ditem{padding:3px 10px;gap:8px;min-height:34px}
+  .di-title{font-size:11px}
   .di-src{display:none}
-  .daily-list{gap:4px}
+  .daily-list{gap:2px}
+  #noteText{font-size:16px}
+  .modal-head{padding:12px 16px;border-radius:18px 18px 0 0}
+  .modal-panel{border-radius:18px}
+  .modal-body{padding:18px 16px 26px}
+  .ai-banner{top:calc(6px + env(safe-area-inset-top));left:8px;right:8px;transform:none;max-width:none;padding:7px 10px;font-size:11px;border-radius:12px}
 }
 @media (max-width:560px){
   .hero{padding:0 0 4px}
   #calStrips{grid-template-columns:1fr}
   .search-box{flex-wrap:nowrap;padding:6px 6px 6px 12px;border-radius:10px}
-  .search-box input{flex:1;width:auto;flex-basis:auto;padding:6px 0;font-size:15px}
+  .search-box input{flex:1;width:auto;flex-basis:auto;padding:6px 0;font-size:16px}
   .search-btn{width:auto;justify-content:center;flex:none}
   .foot-top{flex-direction:column;align-items:flex-start}
   .advice{grid-template-columns:34px 1fr;gap:10px;padding:12px 14px}
@@ -1252,7 +1275,7 @@ body.searching #toTop{
 </nav>
 
 <div class="sources" aria-label="收录访问来源">
-  <p><b>收录访问来源</b><span>·</span>Nature<span>·</span>Science<span>·</span>Cell<span>·</span>PNAS<span>·</span>Lancet<span>·</span>NEJM<span>·</span>BMJ<span>·</span>BJSM<span>·</span>Sports Med<span>·</span>MSSE<span>·</span>JSCR<span>·</span>J Appl Physiol<span>·</span>Eur JAP<span>·</span>J Sports Sci<span>·</span>EJSS<span>·</span>IJSPP<span>·</span>Scand J MSS<span>·</span>J Health Sci<span>·</span>JSAMS<span>·</span>Biol Sport<span>·</span>Human Kinetics<span>·</span>Am J Sports Med<span>·</span>J Athl Train<span>·</span>Pediatr Exerc Sci<span>·</span>RQES<span>·</span>JSSM<span>·</span>Int J Exerc Sci<span>·</span>J Sport Rehabil<span>·</span>Phys Ther Sport<span>·</span>IJ Sports Med<span>·</span>J Sports Med Phys Fit<span>·</span>J Exerc Rehabil<span>·</span>J Aging Phys Act<span>·</span>J Phys Act Health<span>·</span>Kinesiology<span>·</span>Mov Sport Sci<span>·</span>Gait & Posture<span>·</span>APNM<span>·</span>J Biomech<span>·</span>Front Physiol<span>·</span>等 40+ 本全球顶级期刊</p>
+<p><b>收录访问来源</b><span>·</span>Nature<span>·</span>Science<span>·</span>Cell<span>·</span>PNAS<span>·</span>Lancet<span>·</span>NEJM<span>·</span>BMJ<span>·</span>BJSM<span>·</span>Sports Med<span>·</span>MSSE<span>·</span>JSCR<span>·</span>J Appl Physiol<span>·</span>Eur JAP<span class="more-jr"><span>·</span>J Sports Sci<span>·</span>EJSS<span>·</span>IJSPP<span>·</span>Scand J MSS<span>·</span>J Health Sci<span>·</span>JSAMS<span>·</span>Biol Sport<span>·</span>Human Kinetics<span>·</span>Am J Sports Med<span>·</span>J Athl Train<span>·</span>Pediatr Exerc Sci<span>·</span>RQES<span>·</span>JSSM<span>·</span>Int J Exerc Sci<span>·</span>J Sport Rehabil<span>·</span>Phys Ther Sport<span>·</span>IJ Sports Med<span>·</span>J Sports Med Phys Fit<span>·</span>J Exerc Rehabil<span>·</span>J Aging Phys Act<span>·</span>J Phys Act Health<span>·</span>Kinesiology<span>·</span>Mov Sport Sci<span>·</span>Gait & Posture<span>·</span>APNM<span>·</span>J Biomech<span>·</span>Front Physiol</span><span>·</span>等 40+ 本全球顶级期刊</p>
 </div>
 
 <!-- ============ HOME VIEW ============ -->
@@ -1272,7 +1295,6 @@ body.searching #toTop{
         <!-- 左侧：搜寻 -->
         <div class="search-card reveal" data-delay="240">
           <h2>你想解决什么问题？</h2>
-          <p class="sc-sub">选一个热门主题，或直接输入你的训练疑问</p>
           <div class="suggest-wrap">
             <form class="search-box" id="searchForm" role="search" aria-label="文献搜寻">
               <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
@@ -1283,15 +1305,6 @@ body.searching #toTop{
               </button>
             </form>
             <div class="suggest" id="suggestBox" role="listbox" aria-label="搜索建议"></div>
-          </div>
-          <div class="chips-label">热门话题</div>
-          <div class="chips" aria-label="热门话题">
-            <button class="chip" type="button">HIIT 训练</button>
-            <button class="chip" type="button">肌肥大</button>
-            <button class="chip" type="button">恢复策略</button>
-            <button class="chip" type="button">跑步经济性</button>
-            <button class="chip" type="button">睡眠与表现</button>
-            <button class="chip" type="button">运动营养</button>
           </div>
         </div>
 
@@ -1935,7 +1948,8 @@ function slotClick(i){
   if(checkinMode){
     const slot=document.querySelectorAll("#taskSlots .task-slot")[i];
     if(!slot)return;
-    slot.classList.toggle("done");
+    const nowDone=slot.classList.toggle("done");
+    if(nowDone)playTick();
     const total=document.querySelectorAll("#taskSlots .task-slot").length;
     const done=document.querySelectorAll("#taskSlots .task-slot.done").length;
     $("#chkProgress").textContent="已完成 "+done+" / "+total+" 项任务";
@@ -1944,6 +1958,7 @@ function slotClick(i){
   editTaskSlot(i);
 }
 function confirmCheckin(){
+  playConfirm();
   const done=[...document.querySelectorAll("#taskSlots .task-slot.done .ts-text")].map(e=>e.textContent);
   localStorage.setItem("sportlens_checkin_tasks",JSON.stringify(done));
   checkinMode=false;
@@ -1984,21 +1999,53 @@ function completeCheckin(done){
   showSignPopup();
 }
 let audioCtx=null;
-function playChime(){
+function ensureAudio(){
   try{
     if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();
     if(audioCtx.state==="suspended")audioCtx.resume();
-    const t=audioCtx.currentTime;
-    [523.25,659.25,783.99].forEach((f,i)=>{
-      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
-      o.type="sine";o.frequency.value=f;
-      o.connect(g);g.connect(audioCtx.destination);
-      g.gain.setValueAtTime(0.0001,t+i*0.12);
-      g.gain.exponentialRampToValueAtTime(0.25,t+i*0.12+0.03);
-      g.gain.exponentialRampToValueAtTime(0.0001,t+i*0.12+0.5);
-      o.start(t+i*0.12);o.stop(t+i*0.12+0.55);
-    });
   }catch(e){}
+  return audioCtx;
+}
+function tone(freq,start,vol,dur,type){
+  const c=ensureAudio();if(!c)return;
+  try{
+    const o=c.createOscillator(),g=c.createGain();
+    o.type=type||"sine";o.frequency.value=freq;
+    o.connect(g);g.connect(c.destination);
+    g.gain.setValueAtTime(0.0001,start);
+    g.gain.exponentialRampToValueAtTime(vol||0.2,start+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001,start+(dur||0.4));
+    o.start(start);o.stop(start+(dur||0.4)+0.05);
+  }catch(e){}
+}
+function playTick(){
+  const c=ensureAudio();if(!c)return;
+  tone(740,c.currentTime,0.1,0.09,"triangle");
+}
+function playConfirm(){
+  const c=ensureAudio();if(!c)return;
+  const t=c.currentTime;
+  tone(523.25,t,0.16,0.12,"sine");
+  tone(659.25,t+0.09,0.16,0.14,"sine");
+}
+function playChime(){
+  const c=ensureAudio();if(!c)return;
+  const t=c.currentTime;
+  [523.25,659.25,783.99].forEach((f,i)=>{
+    tone(f,t+i*0.12,0.25,0.5);
+  });
+}
+document.addEventListener("pointerdown",function __unlockAudio(){ensureAudio();},{once:true});
+function layoutSources(){
+  const src=document.querySelector(".sources");
+  if(!src)return;
+  const daily=document.querySelector(".daily-block");
+  const nav=document.querySelector("nav");
+  if(window.innerWidth<=720){
+    if(daily&&src.previousElementSibling!==daily)daily.after(src);
+  }else{
+    if(nav&&src.previousElementSibling!==nav)nav.after(src);
+  }
 }
 function showSignPopup(){
   const pop=$("#signPopup");
@@ -2909,7 +2956,7 @@ function doSearch(){
 }
 
 /* ============ AI 综合分析（双轨并行） ============ */
-const STATIC_MODE=false; // 默认 AI 优先；纯静态版改为 true
+const STATIC_MODE=location.protocol==="file:"; // 本地 file:// 预览走示例库；线上 https 自动启用 AI
 const IS_LOCAL=location.protocol==="file:"||location.hostname==="127.0.0.1"||location.hostname==="localhost";
 const AI_BASE=IS_LOCAL?"http://127.0.0.1:8001":"/api";
 const AI_SERVER=AI_BASE;
@@ -3202,6 +3249,8 @@ renderSig();
 renderTasks();
 renderHistory();
 renderNotesBadge();
+layoutSources();
+window.addEventListener("resize",()=>{clearTimeout(window.__srcT);window.__srcT=setTimeout(layoutSources,150);});
 
 /* ============ PWA：可离线、可加到主画面 ============ */
 if("serviceWorker" in navigator){

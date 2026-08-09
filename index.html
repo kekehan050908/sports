@@ -148,11 +148,6 @@ nav.scrolled{border-bottom-color:var(--border);box-shadow:0 8px 24px -18px rgba(
 /* ---------- views ---------- */
 .view{display:none}
 .view.show{display:block;animation:viewIn .2s ease both}
-#viewHome.show .hero-head{animation:riseIn .26s ease .03s both}
-#viewHome.show .hero-quote{animation:riseIn .26s ease .08s both}
-#viewHome.show .search-card{animation:riseIn .26s ease .13s both}
-#viewHome.show .usage{animation:riseIn .26s ease .18s both}
-#viewHome.show .daily-block{animation:riseIn .26s ease .23s both}
 @keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
@@ -1978,8 +1973,11 @@ function staggerReveal(container, selector, stepMs){
 function goHome(){
   $("#viewNotes").classList.remove("show");
   $("#viewShare").classList.remove("show");
+  $("#viewHome").classList.remove("show");
+  void $("#viewHome").offsetWidth;
   $("#viewHome").classList.add("show");
   scrollTo({top:0,behavior:reduced?"auto":"smooth"});
+  staggerReveal($("#viewHome"), ".hero-head, .hero-quote, .search-card, .usage, .daily-block", 55);
 }
 
 /* ============ 打卡：本月使用概况 ============ */
@@ -3400,6 +3398,8 @@ function toggleLang(){
   LANG=LANG==="zh"?"en":"zh";
   localStorage.setItem("sportlens_lang",LANG);
   applyLang();
+  $("#userModal").classList.remove("open");
+  goHome();
   toast(LANG==="zh"?"已切换为简体中文":"Switched to English");
 }
 const SEARCH_DAILY_LIMIT=30; // 正式：每个用户每天 30 次
@@ -3773,6 +3773,7 @@ renderHistory();
 renderNotesBadge();
 renderQuota();
 applyLang();
+staggerReveal($("#viewHome"), ".hero-head, .hero-quote, .search-card, .usage, .daily-block", 55);
 layoutSources();
 window.addEventListener("resize",()=>{clearTimeout(window.__srcT);window.__srcT=setTimeout(layoutSources,150);});
 

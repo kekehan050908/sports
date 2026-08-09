@@ -1939,7 +1939,7 @@ function matchPapers(q){
 }
 
 /* ============ 视图切换 ============ */
-function staggerReveal(container, selector, stepMs){
+function staggerReveal(container, selector, stepMs, move){
   const els=container.querySelectorAll(selector);
   if(!els.length)return;
   els.forEach(el=>{
@@ -1951,7 +1951,7 @@ function staggerReveal(container, selector, stepMs){
   void container.offsetWidth;
   els.forEach((el,i)=>{
     el.style.opacity="0";
-    el.style.transform="scale(.9) translateY(8px)";
+    if(move!==false)el.style.transform="scale(.9) translateY(8px)";
     el.style.transition="opacity .4s ease, transform .4s cubic-bezier(.2,1.6,.4,1)";
     el.style.transitionDelay=(i*(stepMs||55))+"ms";
   });
@@ -2345,6 +2345,7 @@ function initWelcome(){
     setTimeout(()=>{
       document.body.style.overflow="";
       ov.style.display="none";
+      staggerReveal($("#viewHome"), ".hero-head, .hero-quote, .search-card, .usage, .daily-block", 55, false);
     },reduced?60:760);
   }
   const timer=setTimeout(dismiss,reduced?400:1400);
@@ -2376,6 +2377,26 @@ const QUOTES=[
   {q:"训练不会骗人，流过的汗都会算数。",en:"Training never lies; every drop of sweat counts.",n:"徐远征",nen:"Xu Yuanzheng"},
   {q:"哪里跌倒，哪里爬起来，亚洲人也能站上世界之巅。",en:"Fall, then rise. Asians can reach the top of the world too.",n:"刘翔",nen:"Liu Xiang"},
   {q:"我就是要证明，中国人也能跑进十秒。",en:"I want to prove that a Chinese can run under ten seconds.",n:"苏炳添",nen:"Su Bingtian"},
+  {q:"我可以接受失败，但我不能接受不去尝试。",en:"I can accept failure, but I can't accept not trying.",n:"乔丹",nen:"Michael Jordan"},
+  {q:"不要数日子，要让每一天都有意义。",en:"Don't count the days; make the days count.",n:"阿里",nen:"Muhammad Ali"},
+  {q:"天赋决定起点，努力决定终点。",en:"Talent gives you a start; hard work decides how far you go.",n:"博尔特",nen:"Usain Bolt"},
+  {q:"你无法为梦想设限，梦得越远，走得越远。",en:"You can't put a limit on anything. The more you dream, the farther you get.",n:"菲尔普斯",nen:"Michael Phelps"},
+  {q:"伟大没有捷径，这是一场马拉松。",en:"There is no way around the great work. It's a marathon.",n:"费德勒",nen:"Roger Federer"},
+  {q:"努力不一定成功，但放弃一定失败。",en:"Hard work may not always lead to success, but giving up always leads to failure.",n:"姚明",nen:"Yao Ming"},
+  {q:"没有捷径，只有一步一步地付出。",en:"There is no shortcut; it's all about paying your dues step by step.",n:"李娜",nen:"Li Na"},
+  {q:"只要还能拿起球拍，我就不会停下。",en:"As long as I can hold a racket, I won't stop.",n:"林丹",nen:"Lin Dan"},
+  {q:"不问终点，全力以赴。",en:"Never ask where the finish line is; just give it everything.",n:"马龙",nen:"Ma Long"},
+  {q:"水下的世界很安静，只有心跳和呼吸。",en:"Underwater is quiet; only my heartbeat and breath remain.",n:"孙杨",nen:"Sun Yang"},
+  {q:"女排精神不是赢得冠军，而是明知道不会赢，也竭尽全力。",en:"Volleyball spirit is not about winning titles; it's about giving everything even when you know you might lose.",n:"郎平",nen:"Lang Ping"},
+  {q:"最好的奖励，是看见自己突破极限。",en:"The best reward is watching yourself push past your limits.",n:"谷爱凌",nen:"Eileen Gu"},
+  {q:"有梦想就去追，万一实现了呢。",en:"Chase your dream—what if it comes true?",n:"张伟丽",nen:"Zhang Weili"},
+  {q:"我早早开始，迟迟离开，日复一日，年复一年。",en:"I start early and I stay late, day after day, year after year.",n:"梅西",nen:"Lionel Messi"},
+  {q:"你的爱让我强大，你的恨让我不可阻挡。",en:"Your love makes me strong, your hate makes me unstoppable.",n:"罗纳尔多",nen:"Cristiano Ronaldo"},
+  {q:"不要害怕失败，那是通往成功的路。",en:"Don't be afraid of failure. This is the way to succeed.",n:"詹姆斯",nen:"LeBron James"},
+  {q:"摔倒七次，就要站起来八次。",en:"Fall down seven times, get up eight.",n:"施瓦辛格",nen:"Arnold Schwarzenegger"},
+  {q:"每次加练的弧线，都是比赛中的底牌。",en:"Every extra curve in training becomes your trump card in a match.",n:"贝克汉姆",nen:"David Beckham"},
+  {q:"我不害怕失败，我只害怕没有全力以赴。",en:"I'm not afraid of losing; I'm afraid of not giving my all.",n:"威廉姆斯",nen:"Serena Williams"},
+  {q:"刻苦让一切变得轻松，这就是我的秘诀。",en:"Hard work has made it easy. That is my secret.",n:"科马内奇",nen:"Nadia Comaneci"},
 ];
 function initQuote(){
   const el=$("#heroQuoteText");if(!el)return;

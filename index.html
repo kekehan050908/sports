@@ -2112,7 +2112,7 @@ function renderSuggest(q){
   else hits=hotKeys.filter(k=>norm(k).includes(nq)||RX[k].kw.some(w=>norm(w).includes(nq)));
   let html="";
   if(history.length){
-    const hh=q?history.filter(x=>norm(x).includes(nq)):history;
+    const hh=(q?history.filter(x=>norm(x).includes(nq)):history).slice(0,3);
     if(hh.length){
       html+='<div class="suggest-title">最近搜索</div>'+
         hh.map(x=>`<button type="button"><svg class="sg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(x)}</button>`).join("");
@@ -2167,7 +2167,7 @@ function pushHistory(q){
   if(!nq)return;
   history=history.filter(x=>x!==nq);
   history.unshift(nq);
-  history=history.slice(0,6);
+  history=history.slice(0,3);
   saveHistory();
   renderHistory();
 }
@@ -2689,7 +2689,7 @@ function renderResults(rx,dt,engine){
   lastAdvice=rx.advice||[];
   lastQuery=rx.q||"";
   const papers=lastPapers&&lastPapers.length?lastPapers:[];
-  const srcs=(papers.length?papers:(rx.sources||[]));
+  const srcs=(papers.length?papers:(rx.sources||[])).slice(0,3);
   const miss=papers.length?"":(engine?(engine==="llm"?`<div class="db-miss">以下内容由 AI 结合数据库与公开信息综合分析（来源为 AI 知识库）</div>`:`<div class="db-miss">数据库暂未匹配到相关内容，请换个问法试试</div>`):`<div class="db-miss">资料库暂无直接匹配文献，以下为综合处方与既有来源</div>`);
   const engChip=engine?`<span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>${engine==="llm"?"AI 综合分析":engine==="rule"?"期刊数据库":engine==="crossref"?"期刊数据库 · 浏览器直连":"AI 分析"}</span>`:"";
   const html=`
@@ -2734,6 +2734,7 @@ function renderResults(rx,dt,engine){
       ${srcs.map((s,i)=>{
         const absTxt=(s.az||s.abs||"");
         const absLong=absTxt.length>110;
+        const hasEn=!!(s.az&&s.abs);
         return `<article class="src-card">
           <div class="src-top">
             <span class="jtag">${esc(s.j)}</span>
@@ -2744,8 +2745,8 @@ function renderResults(rx,dt,engine){
           <div class="src-title">${s.tz?esc(s.tz):esc(s.t)}</div>
           ${s.tz?`<div class="src-en">原文：${esc(s.t)}</div>`:""}
           ${s.authors?`<div class="src-authors">作者 · <b>${esc(s.authors)}</b></div>`:""}
-          ${absTxt?`<div class="src-abs${absLong?" clamped":""}">${esc(absTxt)}</div>`:""}
-          ${absLong?`<button class="more-btn" type="button" onclick="toggleSrc(this)">展开全文</button>`:""}
+          ${absTxt?`<div class="src-abs${absLong?" clamped":""}" data-clamp="${absLong?1:0}">${esc(absTxt)}</div>`:""}
+          ${(hasEn||absLong)?`<button class="more-btn" type="button" onclick="toggleSrc(this)">${hasEn?"查看中英摘要":"展开全文"}</button>`:""}
           ${(s.az&&s.abs)?`<div class="src-en" data-en hidden>原文摘要：${esc(s.abs)}</div>`:""}
           <div class="src-doi">${esc(s.doi)}</div>
           <div class="src-for">${icon("tag","")}提供：${esc(s.for||"相关证据")}</div>
@@ -2797,7 +2798,7 @@ function initMoreBtns(){
     const btn=card.querySelector(".more-btn");
     if(!btn)return;
     const overflows=abs?abs.scrollHeight>abs.clientHeight+1:false;
-    if(abs&&abs.classList.contains("clamped")&&!overflows)abs.classList.remove("clamped");
+    if(abs&&abs.classList.contains("clamped")&&!overflows){abs.classList.remove("clamped");abs.dataset.clamp="0";}
     if(!en&&(!abs||!abs.classList.contains("clamped")))btn.remove();
   });
 }
@@ -2876,10 +2877,10 @@ function toggleSrc(btn){
   if(!card)return;
   const abs=card.querySelector(".src-abs");
   const en=card.querySelector("[data-en]");
-  if(abs)abs.classList.toggle("clamped");
+  if(abs&&abs.dataset.clamp==="1")abs.classList.toggle("clamped");
   if(en)en.hidden=!en.hidden;
   const expanded=en?!en.hidden:(abs&&!abs.classList.contains("clamped"));
-  btn.textContent=expanded?"收起":"展开全文";
+  btn.textContent=expanded?"收起":(en?"查看中英摘要":"展开全文");
 }
 
 window.copyRx=function(data){

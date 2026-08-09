@@ -141,6 +141,7 @@ nav.scrolled{border-bottom-color:var(--border);box-shadow:0 8px 24px -18px rgba(
 }
 .nav-avatar:hover{border-color:var(--accent);box-shadow:0 4px 14px -8px rgba(92,138,106,.5)}
 .nav-avatar .av{width:27px;height:27px;border-radius:50%;background:var(--accent-soft);border:1px solid rgba(92,138,106,.22);display:grid;place-items:center;font-size:14px}
+.nav-avatar .av{overflow:hidden}
 .nav-avatar .nm{font-size:13px;font-weight:700;color:var(--text);max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .m-avatar{display:none}
 
@@ -870,6 +871,7 @@ body.searching #toTop{
 .sh-name{font-size:13.5px;font-weight:700;color:var(--text)}
 .sh-meta{font-size:11px;color:var(--faint);display:block;margin-top:1px}
 .mine-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;color:#fff;background:var(--accent);border-radius:99px;padding:2px 7px;margin-left:6px;vertical-align:2px}
+.sh-pend{font-size:11px;font-weight:700;color:#a0622f;background:#f8efe3;border:1px solid rgba(160,98,47,.25);padding:4px 10px;border-radius:999px;flex:none;white-space:nowrap}
 
 /* 分享网站面板 */
 .share-hero{text-align:center;margin-bottom:14px}
@@ -1141,6 +1143,7 @@ body.searching #toTop{
   .brand-tag{display:inline-block;font-size:9px;padding:2px 8px}
   .m-avatar{display:flex;flex:none;margin-left:auto;padding:3px 6px 3px 4px}
   .m-avatar .av{width:24px;height:24px;font-size:13px}
+  .m-avatar .av img{width:100%!important;height:100%!important;object-fit:cover!important;border-radius:50%!important;display:block}
   .m-avatar .nm{font-size:12px;max-width:60px}
   .nav-right{width:100%}
   .nav-right{width:100%}
@@ -2655,8 +2658,9 @@ const SHARE_SEED=[
 ];
 const SHARE_AVATAR={"阿杰教练":"🏋️","小陈":"🏃","Lily":"🥗","明哥":"🏀","我":"👤"};
 let sharedNotes=JSON.parse(localStorage.getItem("sportlens_shared")||"[]");
+let pendingShares=JSON.parse(localStorage.getItem("sportlens_pending_shares")||"[]");
 let likedShares=new Set(JSON.parse(localStorage.getItem("sportlens_liked")||"[]"));
-function allShares(){return sharedNotes.concat(SHARE_SEED);}
+function allShares(){return pendingShares.concat(sharedNotes).concat(SHARE_SEED);}
 function openContact(){$("#contactModal").classList.add("open");}
 function openSharePicker(){
   const wrap=$("#sharePickList");
@@ -2714,7 +2718,9 @@ function renderShare(){
           <span class="sh-name">${esc(s.author)}${s.mine?'<span class="mine-badge">我</span>':""}</span>
           <span class="sh-meta">${esc(s.tag)} · ${esc(s.time)}</span>
         </div>
-        <button class="sh-like${likedShares.has(s.id)?" on":""}" data-like="${s.id}" onclick="toggleLike('${s.id}')" aria-label="按赞">♥ ${s.likes+(likedShares.has(s.id)?1:0)}</button>
+        ${s.status==="pending"
+          ? `<span class="sh-pend">⏳ 待审核</span>`
+          : `<button class="sh-like${likedShares.has(s.id)?" on":""}" data-like="${s.id}" onclick="toggleLike('${s.id}')" aria-label="按赞">♥ ${s.likes+(likedShares.has(s.id)?1:0)}</button>`}
       </div>
       <div class="sh-text">${esc(s.text)}</div>
       ${s.src?`<div class="sh-src">出自《<b>${esc(s.src.t)}</b>》 · ${esc(s.src.j)} ${s.src.y}</div>`:""}
@@ -2724,9 +2730,9 @@ function renderShare(){
 function shareMyNote(id){
   const n=notes.find(x=>x.id===id);
   if(!n)return;
-  sharedNotes.unshift({id:Date.now(),author:"我",tag:"运动家",time:"刚刚",likes:0,text:n.text,src:{j:n.src.j,y:n.src.y,t:n.src.t},mine:true});
-  localStorage.setItem("sportlens_shared",JSON.stringify(sharedNotes));
-  toast("已分享到分享广场 ✓");
+  pendingShares.unshift({id:Date.now(),author:"我",tag:"运动家",time:"刚刚",likes:0,text:n.text,src:{j:n.src.j,y:n.src.y,t:n.src.t},mine:true,status:"pending"});
+  localStorage.setItem("sportlens_pending_shares",JSON.stringify(pendingShares));
+  toast("已提交广场，等待审核上架 ⏳");
 }
 function toggleLike(id){
   if(likedShares.has(id))likedShares.delete(id);

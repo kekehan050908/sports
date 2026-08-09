@@ -47,7 +47,10 @@ async function dsChat(messages) {
     body: JSON.stringify({ model: DS_MODEL, messages, temperature: 0.3, max_tokens: 1800 })
   });
   if (!d || !d.choices || !d.choices[0]) return null;
-  return (d.choices[0].message && d.choices[0].message.content) || null;
+  return {
+    content: (d.choices[0].message && d.choices[0].message.content) || null,
+    usage: d.usage || null
+  };
 }
 
 async function crossrefPapers(enQ) {
@@ -115,7 +118,8 @@ export default async function handler(req, res) {
       "\n\n请严格只返回 JSON（不要任何多余文字）：\n" +
       '{"essence":"2-3句话直接回答并给出证据结论","advice":[{"text":"具体可执行建议","source":"期刊名 · 年份"}，共3-5条]}';
 
-    const llmText = await dsChat([{ role: "system", content: sys }, { role: "user", content: userMsg }]);
+    const ds = await dsChat([{ role: "system", content: sys }, { role: "user", content: userMsg }]);
+    const llmText = ds ? ds.content : null;
     const parsed = parseLLMJson(llmText);
     if (!parsed) return res.status(200).json({ engine: "error", query });
 
@@ -125,7 +129,8 @@ export default async function handler(req, res) {
       essence: parsed.essence || "已结合全球顶级期刊数据库与 AI 综合分析完成。",
       advice: (parsed.advice || []).map(a => ({ text: a.text || "", source: a.source || "" })),
       papers,
-      mode_note: "DeepSeek AI · 期刊数据库综合分析"
+      mode_note: "DeepSeek AI · 期刊数据库综合分析",
+      usage: ds ? ds.usage : null
     });
   } catch (e) {
     return res.status(200).json({ engine: "error", query });

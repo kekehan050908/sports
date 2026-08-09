@@ -1263,7 +1263,7 @@ body.searching #toTop{
 <div id="welcomeOverlay" aria-hidden="true">
   <div class="welcome-card">
     <div class="welcome-greet" id="welcomeGreet"></div>
-    <div class="welcome-sub" id="welcomeSub">今天也把世界前沿的运动理念，带进你的训练</div>
+    <div class="welcome-sub" id="welcomeSub" data-i18n="welcomeSub">今天也把世界前沿的运动理念，带进你的训练</div>
   </div>
   <div class="welcome-skip">点击跳过</div>
 </div>
@@ -1283,7 +1283,7 @@ body.searching #toTop{
 <div id="signPopup" class="sign-pop" hidden aria-hidden="true">
   <div class="sign-pop-card">
     <div class="sign-brand"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 4.5 13.5h5L8 22l9-11.5h-5L13.5 2z"/></svg>体育家园</div>
-    <div class="sign-pop-badge">✓ 今日打卡成功</div>
+    <div class="sign-pop-badge" data-i18n="signOk">✓ 今日打卡成功</div>
     <div class="sign-pop-text" id="signPopupText"></div>
   </div>
 </div>
@@ -1298,7 +1298,7 @@ body.searching #toTop{
       <span class="brand-text">
         <span class="brand-name">体育家园</span>
       </span>
-      <span class="brand-tag">全球顶级期刊数据库 × AI 综合分析</span>
+      <span class="brand-tag" data-i18n="brandTag">全球顶级期刊数据库 × AI 综合分析</span>
     </span>
     <button class="nav-avatar m-avatar" id="navAvatarBtnM" type="button" onclick="openUserModal()">
       <span class="av" id="navAvatarIconM">🏃</span><span class="nm" id="navUserNameM">运动家</span>
@@ -1307,11 +1307,11 @@ body.searching #toTop{
       <div class="nav-links" id="navLinks">
         <button class="nav-link" id="navSearchBtn" onclick="goHome()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-          开始搜索
+          <span data-i18n="navSearch">开始搜索</span>
         </button>
-        <button class="nav-link" id="navShareBtn" onclick="openShare()">分享广场</button>
-        <button class="nav-link" id="navNotesBtn" onclick="openNotes()">我的笔记<span class="nav-badge" id="notesBadge">0</span></button>
-        <button class="nav-link" id="navContactBtn" onclick="openContact()">联系我们</button>
+        <button class="nav-link" id="navShareBtn" onclick="openShare()"><span data-i18n="navShare">分享广场</span></button>
+        <button class="nav-link" id="navNotesBtn" onclick="openNotes()"><span data-i18n="navNotes">我的笔记</span><span class="nav-badge" id="notesBadge">0</span></button>
+        <button class="nav-link" id="navContactBtn" onclick="openContact()"><span data-i18n="navContact">联系我们</span></button>
         <button class="nav-avatar" id="navAvatarBtn" type="button" onclick="openUserModal()">
           <span class="av" id="navAvatarIcon">🏃</span><span class="nm" id="navUserName">运动家</span>
         </button>
@@ -1322,7 +1322,7 @@ body.searching #toTop{
 </nav>
 
 <div class="sources" aria-label="收录访问来源">
-<p><b>收录访问来源</b><span>·</span>Nature<span>·</span>Science<span>·</span>Cell<span>·</span>PNAS<span>·</span>Lancet<span>·</span>NEJM<span>·</span>BMJ<span>·</span>BJSM<span>·</span>Sports Med<span>·</span>MSSE<span>·</span>JSCR<span>·</span>J Appl Physiol<span>·</span>Eur JAP<span class="more-jr"><span>·</span>J Sports Sci<span>·</span>EJSS<span>·</span>IJSPP<span>·</span>Scand J MSS<span>·</span>J Health Sci<span>·</span>JSAMS<span>·</span>Biol Sport<span>·</span>Human Kinetics<span>·</span>Am J Sports Med<span>·</span>J Athl Train<span>·</span>Pediatr Exerc Sci<span>·</span>RQES<span>·</span>JSSM<span>·</span>Int J Exerc Sci<span>·</span>J Sport Rehabil<span>·</span>Phys Ther Sport<span>·</span>IJ Sports Med<span>·</span>J Sports Med Phys Fit<span>·</span>J Exerc Rehabil<span>·</span>J Aging Phys Act<span>·</span>J Phys Act Health<span>·</span>Kinesiology<span>·</span>Mov Sport Sci<span>·</span>Gait & Posture<span>·</span>APNM<span>·</span>J Biomech<span>·</span>Front Physiol</span><span>·</span>等 40+ 本全球顶级期刊</p>
+<p><b data-i18n="sourcesLabel">收录访问来源</b><span>·</span>Nature<span>·</span>Science<span>·</span>Cell<span>·</span>PNAS<span>·</span>Lancet<span>·</span>NEJM<span>·</span>BMJ<span>·</span>BJSM<span>·</span>Sports Med<span>·</span>MSSE<span>·</span>JSCR<span>·</span>J Appl Physiol<span>·</span>Eur JAP<span class="more-jr"><span>·</span>J Sports Sci<span>·</span>EJSS<span>·</span>IJSPP<span>·</span>Scand J MSS<span>·</span>J Health Sci<span>·</span>JSAMS<span>·</span>Biol Sport<span>·</span>Human Kinetics<span>·</span>Am J Sports Med<span>·</span>J Athl Train<span>·</span>Pediatr Exerc Sci<span>·</span>RQES<span>·</span>JSSM<span>·</span>Int J Exerc Sci<span>·</span>J Sport Rehabil<span>·</span>Phys Ther Sport<span>·</span>IJ Sports Med<span>·</span>J Sports Med Phys Fit<span>·</span>J Exerc Rehabil<span>·</span>J Aging Phys Act<span>·</span>J Phys Act Health<span>·</span>Kinesiology<span>·</span>Mov Sport Sci<span>·</span>Gait & Posture<span>·</span>APNM<span>·</span>J Biomech<span>·</span>Front Physiol</span><span>·</span>等 40+ 本全球顶级期刊</p>
 </div>
 
 <!-- ============ HOME VIEW ============ -->
@@ -1330,7 +1330,7 @@ body.searching #toTop{
   <header class="hero" id="top">
     <div class="container hero-inner">
       <div class="hero-head">
-        <h1 class="reveal" data-delay="60">全球顶级期刊数据库 × AI 综合分析，<br>为您分析</h1>
+        <h1 class="reveal" data-delay="60" data-i18n-html="heroHead">全球顶级期刊数据库 × AI 综合分析，<br>为您分析</h1>
       <div class="hero-quote reveal" data-delay="180">
         <p class="hq-text" id="heroQuoteText"></p>
         <p class="hq-name" id="heroQuoteName"></p>
@@ -1341,7 +1341,7 @@ body.searching #toTop{
         <div class="left-col">
         <!-- 左侧：搜寻 -->
         <div class="search-card reveal" data-delay="240">
-          <h2>你想解决什么问题？</h2>
+          <h2 data-i18n="h2">你想解决什么问题？</h2>
           <div class="suggest-wrap">
             <form class="search-box" id="searchForm" role="search" aria-label="文献搜寻">
               <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
@@ -1359,7 +1359,7 @@ body.searching #toTop{
 
         <!-- 今日精选（紧贴搜索框） -->
         <div class="daily-block reveal" data-delay="360">
-          <div class="dl-label">今日精选</div>
+          <div class="dl-label" data-i18n="dailyLabel">今日精选</div>
           <div class="daily-list" id="dailyList"></div>
         </div>
         </div>
@@ -1368,12 +1368,12 @@ body.searching #toTop{
         <aside class="usage reveal" data-delay="300" aria-label="本月打卡与使用概况">
           <div class="usage-title">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/></svg>
-            本月打卡
+            <span data-i18n="usageTitle">本月打卡</span>
           </div>
           <button class="sig-line" id="sigLine" type="button" onclick="toast('请点击右上角头像修改个性签名')" title="在右上角头像中修改个性签名">个性签名：坚持，就是最好的天赋</button>
 
           <div class="task-card">
-            <div class="task-label">今日任务</div>
+            <div class="task-label" data-i18n="taskLabel">今日任务</div>
             <div class="task-slots" id="taskSlots"></div>
           </div>
           <div class="chk-progress" id="chkProgress" hidden></div>
@@ -1401,7 +1401,7 @@ body.searching #toTop{
             <div class="usage-bar" role="img" aria-label="本月进度"><i id="usageBarFill"></i></div>
             <div class="usage-bar-caption"><span id="daysCaption">已使用 12 天</span><span>共 31 天</span></div>
             <div class="day-dots" id="dayDots" aria-hidden="true"></div>
-            <button class="cal-open" type="button" onclick="openCalendar()">查看打卡记录 ▸</button>
+            <button class="cal-open" type="button" onclick="openCalendar()" data-i18n="calOpen">查看打卡记录 ▸</button>
           </div>
 
           <div class="usage-stat">
@@ -1426,18 +1426,18 @@ body.searching #toTop{
             </span>
             体育家园
           </a>
-          <p>结合全球顶级期刊建立的运动科学数据库，把世界先进的运动理念带给每一位教练与运动员。</p>
+          <p data-i18n="footTagline">结合全球顶级期刊建立的运动科学数据库，把世界先进的运动理念带给每一位教练与运动员。</p>
         </div>
         <div class="foot-links">
-          <a href="#top" onclick="goHome();return false;">AI 搜索</a>
-          <a href="#top" onclick="goHome();return false;">热门主题</a>
-          <a href="#top" onclick="goHome();return false;">证据等级说明</a>
+          <a href="#top" onclick="goHome();return false;" data-i18n="footLinks1">AI 搜索</a>
+          <a href="#top" onclick="goHome();return false;" data-i18n="footLinks2">热门主题</a>
+          <a href="#top" onclick="goHome();return false;" data-i18n="footLinks3">证据等级说明</a>
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 体育家园. 保留所有权利。</span>
-        <span>期刊内容仅涉及免费期刊内容和摘要，不涉及侵权内容。</span>
-        <span>内容由 AI 结合数据库与公开信息整理，仅供参考。</span>
+        <span data-i18n="footCopy">© 2026 体育家园. 保留所有权利。</span>
+        <span data-i18n="footDisc">期刊内容仅涉及免费期刊内容和摘要，不涉及侵权内容。</span>
+        <span data-i18n="footAi">内容由 AI 结合数据库与公开信息整理，仅供参考。</span>
       </div>
     </div>
   </footer>
@@ -1566,12 +1566,12 @@ body.searching #toTop{
     <div class="modal-head">
       <div class="modal-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        联系我们
+        <span data-i18n="contactTitle">联系我们</span>
       </div>
       <button class="modal-close" data-close aria-label="关闭">✕</button>
     </div>
     <div class="modal-body">
-      <p class="ct-text">把遇到的问题或需要改进的地方发给我们，我们会认真聆听。</p>
+      <p class="ct-text" data-i18n="contactText">把遇到的问题或需要改进的地方发给我们，我们会认真聆听。</p>
       <a class="ct-mail" href="mailto:1718711761@qq.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
         1718711761@qq.com
@@ -1587,7 +1587,7 @@ body.searching #toTop{
     <div class="modal-head">
       <div class="modal-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
-        分享体育家园
+        <span data-i18n="shareTitle">分享体育家园</span>
       </div>
       <button class="modal-close" data-close aria-label="关闭">✕</button>
     </div>
@@ -1599,10 +1599,10 @@ body.searching #toTop{
       <img class="share-qr" id="shareQr" alt="网站二维码" onerror="this.style.display='none';document.getElementById('shareQrFallback').style.display='block'">
       <div class="share-qr-fallback" id="shareQrFallback" hidden>二维码加载失败，请用「复制链接」分享</div>
       <div class="share-grid">
-        <button class="share-sq" type="button" onclick="shareToWechat()"><span class="si">💬</span>微信好友</button>
-        <button class="share-sq" type="button" onclick="shareToMoments()"><span class="si">🟢</span>朋友圈</button>
-        <button class="share-sq" type="button" onclick="shareSystem()"><span class="si">📤</span>系统分享</button>
-        <button class="share-sq" type="button" onclick="copyShareLink()"><span class="si">🔗</span>复制链接</button>
+        <button class="share-sq" type="button" onclick="shareToWechat()"><span class="si">💬</span><span data-i18n="wechat">微信好友</span></button>
+        <button class="share-sq" type="button" onclick="shareToMoments()"><span class="si">🟢</span><span data-i18n="moments">朋友圈</span></button>
+        <button class="share-sq" type="button" onclick="shareSystem()"><span class="si">📤</span><span data-i18n="systemShare">系统分享</span></button>
+        <button class="share-sq" type="button" onclick="copyShareLink()"><span class="si">🔗</span><span data-i18n="copyLink">复制链接</span></button>
       </div>
       <div class="share-wechat-hint" id="shareWechatHint" hidden>提示：在微信里打开时，也可以点右上角「···」直接分享给朋友或朋友圈</div>
     </div>
@@ -1616,7 +1616,7 @@ body.searching #toTop{
     <div class="modal-head">
       <div class="modal-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        账户与设置
+        <span data-i18n="account">账户与设置</span>
       </div>
       <button class="modal-close" data-close aria-label="关闭">✕</button>
     </div>
@@ -1626,25 +1626,25 @@ body.searching #toTop{
         <div class="user-name" id="userName">运动家</div>
         <div class="user-tag">体育家园 · 运动者</div>
       </div>
-      <div class="rx-sub">选择头像</div>
+      <div class="rx-sub" data-i18n="chooseAvatar">选择头像</div>
       <div class="avatar-row" id="avatarRow"></div>
       <input type="file" id="avatarFile" accept="image/*" hidden>
-      <div class="rx-sub">账户设置</div>
+      <div class="rx-sub" data-i18n="accountSub">账户设置</div>
       <div class="set-list">
         <button class="set-item" type="button" onclick="editName()">
-          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>昵称</span>
+          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg><span data-i18n="nickname">昵称</span></span>
           <span class="si-r" id="userNameVal">运动家</span>
         </button>
         <button class="set-item" type="button" onclick="editSigSettings()">
-          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>个性签名</span>
+          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span data-i18n="sigLabel">个性签名</span></span>
           <span class="si-r" id="sigVal">坚持，就是最好的天赋</span>
         </button>
-        <button class="set-item" type="button" onclick="pickLang()">
-          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>语言</span>
+        <button class="set-item" type="button" onclick="toggleLang()">
+          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span data-i18n="lang">语言</span></span>
           <span class="si-r" id="langVal">简体中文</span>
         </button>
         <button class="set-item" type="button" onclick="document.getElementById('userModal').classList.remove('open');openContact()">
-          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>联系我们</span>
+          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span data-i18n="contactTitle">联系我们</span></span>
           <span class="si-r">1718711761@qq.com</span>
         </button>
       </div>
@@ -1659,7 +1659,7 @@ body.searching #toTop{
     <div class="modal-head">
       <div class="modal-title">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 4.5 13.5h5L8 22l9-11.5h-5L13.5 2z"/></svg>
-        体育家园 · 打卡记录
+        <span data-i18n="calTitle">体育家园 · 打卡记录</span>
       </div>
       <button class="modal-close" data-close aria-label="关闭">✕</button>
     </div>
@@ -1917,7 +1917,7 @@ function renderUsage(){
     html+=`<span class="day-dot${i<=used?" on":""}" style="transition-delay:${i*18}ms"></span>`;
   }
   $("#dayDots").innerHTML=html;
-  $("#daysCaption").textContent="已使用 "+used+" 天";
+  $("#daysCaption").textContent=t("usedDays").replace("{{n}}",used);
   requestAnimationFrame(()=>{
     setTimeout(()=>{
       document.querySelectorAll(".day-dot").forEach(d=>d.style.transform="scale(1)");
@@ -1943,7 +1943,7 @@ function renderSig(){
     el.onclick=editSig;
     host.parentNode.insertBefore(el,host.nextSibling);
   }
-  el.textContent="个性签名："+sig;
+  el.textContent=t("sigLabel")+": "+sig;
   const sv=document.getElementById("sigVal");
   if(sv)sv.textContent=sig;
 }
@@ -2025,10 +2025,10 @@ function enterCheckinMode(){
   playConfirm();
   document.querySelector(".task-card").classList.add("checking");
   renderTasks();
-  $("#checkinLabel").textContent="确认打卡";
+  $("#checkinLabel").textContent=t("checkinConfirm");
   const pr=$("#chkProgress");
   pr.hidden=false;
-  pr.textContent="点击任务标记完成，再确认打卡";
+  pr.textContent=t("checkinModeHint");
 }
 function slotClick(i){
   if(checkinMode){
@@ -2050,7 +2050,7 @@ function confirmCheckin(){
   checkinMode=false;
   document.querySelector(".task-card").classList.remove("checking");
   renderTasks();
-  $("#checkinLabel").textContent="今日打卡";
+  $("#checkinLabel").textContent=t("checkinBtn");
   $("#chkProgress").hidden=true;
   completeCheckin(done);
 }
@@ -2065,7 +2065,7 @@ function completeCheckin(done){
   logTodayCheckin(done||[]);
   const btn=$("#checkinBtn");
   btn.classList.add("pop","done");
-  $("#checkinLabel").textContent="今日已打卡";
+  $("#checkinLabel").textContent=t("checkinDone");
   const dots=$("#dayDots");
   const used=dots.querySelectorAll(".day-dot.on").length;
   if(used<31){
@@ -2081,7 +2081,7 @@ function completeCheckin(done){
   const monthUsed=Object.keys(log).filter(k=>k.startsWith(prefix)).length;
   const days=$("#checkinDays");
   days.textContent=monthUsed;
-  $("#daysCaption").textContent="已使用 "+monthUsed+" 天";
+  $("#daysCaption").textContent=t("usedDays").replace("{{n}}",monthUsed);
   $("#usageBarFill").style.width=(monthUsed/31*100)+"%";
   toast("今日打卡成功，继续保持 💪");
   showSignPopup();
@@ -3072,6 +3072,89 @@ function crossLoadingHTML(){
 }
 
 /* ============ 每日搜索限额 + 真实用量/违规记录 ============ */
+const I18N={
+  zh:{
+    brandTag:"全球顶级期刊数据库 × AI 综合分析",
+    heroHead:"全球顶级期刊数据库 × AI 综合分析，<br>为您分析",
+    navSearch:"开始搜索",navShare:"分享广场",navNotes:"我的笔记",navContact:"联系我们",
+    h2:"你想解决什么问题？",
+    quota:"今日剩余 {{n}} 次",quotaLeft:"剩余 {{n}} 次",
+    usageTitle:"本月打卡",sigLabel:"个性签名",taskLabel:"今日任务",
+    checkinBtn:"今日打卡",checkinConfirm:"确认打卡",checkinDone:"今日已打卡",checkinModeHint:"点击任务标记完成，再确认打卡",
+    calOpen:"查看打卡记录 ▸",usedDays:"已使用 {{n}} 天",monthPlan:"本月进度",planDays:"共 31 天",
+    dailyLabel:"今日精选",sourcesLabel:"收录访问来源",
+    lang:"语言",nickname:"昵称",account:"账户设置",chooseAvatar:"选择头像",userTag:"体育家园 · 运动者",
+    accountSub:"账户设置",
+    contactTitle:"联系我们",contactText:"把遇到的问题或需要改进的地方发给我们，我们会认真聆听。",
+    shareTitle:"分享体育家园",wechat:"微信好友",moments:"朋友圈",systemShare:"系统分享",copyLink:"复制链接",
+    calTitle:"体育家园 · 打卡记录",signOk:"✓ 今日打卡成功",
+    welcomeSub:"今天也把世界前沿的运动理念，带进你的训练",
+    footTagline:"结合全球顶级期刊建立的运动科学数据库，把世界先进的运动理念带给每一位教练与运动员。",
+    footLinks1:"AI 搜索",footLinks2:"热门主题",footLinks3:"证据等级说明",
+    footCopy:"© 2026 体育家园. 保留所有权利。",
+    footDisc:"期刊内容仅涉及免费期刊内容和摘要，不涉及侵权内容。",
+    footAi:"内容由 AI 结合数据库与公开信息整理，仅供参考。"
+  },
+  en:{
+    brandTag:"Global Top Journals × AI Analysis",
+    heroHead:"Global Top Journals Database × AI Analysis,<br>for you",
+    navSearch:"Search",navShare:"Community",navNotes:"My Notes",navContact:"Contact",
+    h2:"What do you want to solve?",
+    quota:"{{n}} left today",quotaLeft:"{{n}} left",
+    usageTitle:"This Month",sigLabel:"Signature",taskLabel:"Today's Tasks",
+    checkinBtn:"Check In",checkinConfirm:"Confirm",checkinDone:"Checked In",checkinModeHint:"Tap tasks to complete, then confirm",
+    calOpen:"View Check-in Record ▸",usedDays:"{{n}} days used",monthPlan:"Monthly Progress",planDays:"31 days",
+    dailyLabel:"Today's Picks",sourcesLabel:"Sources",
+    lang:"Language",nickname:"Nickname",account:"Account Settings",chooseAvatar:"Choose Avatar",userTag:"Sports Home · Athlete",
+    accountSub:"Account",
+    contactTitle:"Contact Us",contactText:"Tell us your problems or suggestions, we will listen carefully.",
+    shareTitle:"Share Sports Home",wechat:"WeChat",moments:"Moments",systemShare:"System Share",copyLink:"Copy Link",
+    calTitle:"Sports Home · Check-in Record",signOk:"✓ Checked in today",
+    welcomeSub:"Bring the world's cutting-edge sports science into your training today",
+    footTagline:"A sports science database built on global top journals, bringing world-leading training ideas to every coach and athlete.",
+    footLinks1:"AI Search",footLinks2:"Topics",footLinks3:"Evidence Levels",
+    footCopy:"© 2026 Sports Home. All rights reserved.",
+    footDisc:"Journal content covers free articles and abstracts only.",
+    footAi:"Content is AI-generated from databases and public information for reference."
+  }
+};
+let LANG=localStorage.getItem("sportlens_lang")||"zh";
+function t(key){
+  const m=(I18N[LANG]&&I18N[LANG][key])||I18N.zh[key]||key;
+  return m;
+}
+function applyLang(){
+  document.documentElement.lang=LANG==="zh"?"zh-CN":"en";
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k=el.getAttribute("data-i18n");
+    if(k&&t(k))el.textContent=t(k);
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
+    const k=el.getAttribute("data-i18n-ph");
+    if(k&&t(k))el.setAttribute("placeholder",t(k));
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const k=el.getAttribute("data-i18n-html");
+    if(k&&t(k))el.innerHTML=t(k);
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach(el=>{
+    const k=el.getAttribute("data-i18n-title");
+    if(k&&t(k))el.setAttribute("title",t(k));
+  });
+  const lv=document.getElementById("langVal");
+  if(lv)lv.textContent=LANG==="zh"?"简体中文":"English";
+  renderQuota();
+  renderSig();
+  renderUsage();
+  const cb=document.getElementById("checkinLabel");
+  if(cb)cb.textContent=checkedIn?t("checkinDone"):t("checkinBtn");
+}
+function toggleLang(){
+  LANG=LANG==="zh"?"en":"zh";
+  localStorage.setItem("sportlens_lang",LANG);
+  applyLang();
+  toast(LANG==="zh"?"已切换为简体中文":"Switched to English");
+}
 const SEARCH_DAILY_LIMIT=30; // 正式：每个用户每天 30 次
 function usageToday(){const u=JSON.parse(localStorage.getItem("sportlens_usage")||"{}");return u[todayKey()]||0;}
 function saveUsage(n){const u=JSON.parse(localStorage.getItem("sportlens_usage")||"{}");u[todayKey()]=n;localStorage.setItem("sportlens_usage",JSON.stringify(u));}
@@ -3103,9 +3186,9 @@ function checkViolation(q){
 function renderQuota(){
   const left=Math.max(0,SEARCH_DAILY_LIMIT-usageToday());
   const b=document.getElementById("quotaBadge");
-  if(b){b.textContent="今日剩余 "+left+" 次";b.classList.toggle("low",left<=10);}
+  if(b){b.textContent=t("quota").replace("{{n}}",left);b.classList.toggle("low",left<=10);}
   const q=document.getElementById("quotaLeft");
-  if(q){q.textContent="剩余 "+left+" 次";q.classList.toggle("low",left<=10);}
+  if(q){q.textContent=t("quotaLeft").replace("{{n}}",left);q.classList.toggle("low",left<=10);}
 }
 function doSearch(){
   const q=input.value.trim();
@@ -3433,7 +3516,7 @@ renderUser();
 renderUsage();
 if(checkedIn){
   const cb=$("#checkinBtn");
-  if(cb){cb.classList.add("done");$("#checkinLabel").textContent="今日已打卡";}
+  if(cb){cb.classList.add("done");$("#checkinLabel").textContent=t("checkinDone");}
 }
 initCounters();
 initQuote();
@@ -3442,6 +3525,7 @@ renderTasks();
 renderHistory();
 renderNotesBadge();
 renderQuota();
+applyLang();
 layoutSources();
 window.addEventListener("resize",()=>{clearTimeout(window.__srcT);window.__srcT=setTimeout(layoutSources,150);});
 

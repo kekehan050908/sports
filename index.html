@@ -2461,12 +2461,14 @@ function inputModalConfirm(){
   const v=(f.value||"").trim();
   if(!v){f.focus();return;}
   $("#inputModal").classList.remove("open");
+  $("#userModal").classList.remove("open");
   document.body.style.overflow="";
   const cb=__inputOk;__inputOk=null;
   if(cb)cb(v);
 }
 function inputModalCancel(){
   $("#inputModal").classList.remove("open");
+  $("#userModal").classList.remove("open");
   document.body.style.overflow="";
   __inputOk=null;
 }

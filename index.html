@@ -1265,7 +1265,7 @@ body.searching #toTop{
     <div class="welcome-greet" id="welcomeGreet"></div>
     <div class="welcome-sub" id="welcomeSub" data-i18n="welcomeSub">今天也把世界前沿的运动理念，带进你的训练</div>
   </div>
-  <div class="welcome-skip">点击跳过</div>
+  <div class="welcome-skip" data-i18n="welcomeSkip">点击跳过</div>
 </div>
 
 <div id="cursorGlow" aria-hidden="true"></div>
@@ -1273,9 +1273,9 @@ body.searching #toTop{
 <!-- ============ AI 服务状态 ============ -->
 <div id="aiBanner" class="ai-banner" hidden>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M12 20h.01"/></svg>
-  <span><b>本机 AI 分析服务未启动</b>，搜索将改用浏览器直连期刊数据库（免费）</span>
-  <span class="ai-banner-hint">双击 <b>start-ai-server.cmd</b> 可启用期刊数据库深度检索</span>
-  <button class="ai-banner-btn" id="aiRetryBtn" type="button">重新检查</button>
+  <span><b data-i18n="aiBannerT">本机 AI 分析服务未启动</b><span data-i18n="aiBannerSub">，搜索将改用浏览器直连期刊数据库（免费）</span></span>
+  <span class="ai-banner-hint"><span data-i18n="aiBannerHint">双击</span> <b>start-ai-server.cmd</b> <span data-i18n="aiBannerHint2">可启用期刊数据库深度检索</span></span>
+  <button class="ai-banner-btn" id="aiRetryBtn" type="button" data-i18n="aiRetry">重新检查</button>
   <button class="ai-banner-x" id="aiBannerClose" type="button" aria-label="关闭提示">✕</button>
 </div>
 
@@ -1322,7 +1322,7 @@ body.searching #toTop{
 </nav>
 
 <div class="sources" aria-label="收录访问来源">
-<p><b data-i18n="sourcesLabel">收录访问来源</b><span>·</span>Nature<span>·</span>Science<span>·</span>Cell<span>·</span>PNAS<span>·</span>Lancet<span>·</span>NEJM<span>·</span>BMJ<span>·</span>BJSM<span>·</span>Sports Med<span>·</span>MSSE<span>·</span>JSCR<span>·</span>J Appl Physiol<span>·</span>Eur JAP<span class="more-jr"><span>·</span>J Sports Sci<span>·</span>EJSS<span>·</span>IJSPP<span>·</span>Scand J MSS<span>·</span>J Health Sci<span>·</span>JSAMS<span>·</span>Biol Sport<span>·</span>Human Kinetics<span>·</span>Am J Sports Med<span>·</span>J Athl Train<span>·</span>Pediatr Exerc Sci<span>·</span>RQES<span>·</span>JSSM<span>·</span>Int J Exerc Sci<span>·</span>J Sport Rehabil<span>·</span>Phys Ther Sport<span>·</span>IJ Sports Med<span>·</span>J Sports Med Phys Fit<span>·</span>J Exerc Rehabil<span>·</span>J Aging Phys Act<span>·</span>J Phys Act Health<span>·</span>Kinesiology<span>·</span>Mov Sport Sci<span>·</span>Gait & Posture<span>·</span>APNM<span>·</span>J Biomech<span>·</span>Front Physiol</span><span>·</span>等 40+ 本全球顶级期刊</p>
+<p><b data-i18n="sourcesLabel">收录访问来源</b><span>·</span>Nature<span>·</span>Science<span>·</span>Cell<span>·</span>PNAS<span>·</span>Lancet<span>·</span>NEJM<span>·</span>BMJ<span>·</span>BJSM<span>·</span>Sports Med<span>·</span>MSSE<span>·</span>JSCR<span>·</span>J Appl Physiol<span>·</span>Eur JAP<span class="more-jr"><span>·</span>J Sports Sci<span>·</span>EJSS<span>·</span>IJSPP<span>·</span>Scand J MSS<span>·</span>J Health Sci<span>·</span>JSAMS<span>·</span>Biol Sport<span>·</span>Human Kinetics<span>·</span>Am J Sports Med<span>·</span>J Athl Train<span>·</span>Pediatr Exerc Sci<span>·</span>RQES<span>·</span>JSSM<span>·</span>Int J Exerc Sci<span>·</span>J Sport Rehabil<span>·</span>Phys Ther Sport<span>·</span>IJ Sports Med<span>·</span>J Sports Med Phys Fit<span>·</span>J Exerc Rehabil<span>·</span>J Aging Phys Act<span>·</span>J Phys Act Health<span>·</span>Kinesiology<span>·</span>Mov Sport Sci<span>·</span>Gait & Posture<span>·</span>APNM<span>·</span>J Biomech<span>·</span>Front Physiol</span><span>·</span><span data-i18n="sourcesMore">等 40+ 本全球顶级期刊</span></p>
 </div>
 
 <!-- ============ HOME VIEW ============ -->
@@ -1349,7 +1349,7 @@ body.searching #toTop{
               <span class="quota-left" id="quotaLeft">剩余 30 次</span>
               <button class="search-btn" type="submit" id="searchBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M4 13.5 20 6"/></svg>
-                生成处方
+                <span data-i18n="genBtn">生成处方</span>
               </button>
             </form>
             <span class="quota-badge" id="quotaBadge">今日剩余 30 次</span>
@@ -1387,29 +1387,29 @@ body.searching #toTop{
 
           <div class="checkin-grid">
             <div class="usage-stat">
-              <div class="label">本月使用</div>
-              <div class="value"><span class="count" id="checkinDays" data-target="12">0</span><small>天</small></div>
+              <div class="label" data-i18n="usageDays">本月使用</div>
+              <div class="value"><span class="count" id="checkinDays" data-target="12">0</span><small data-i18n="dayUnit">天</small></div>
             </div>
             <div class="usage-stat">
-              <div class="label">查阅文献</div>
-              <div class="value"><span class="count" data-target="128">0</span><small>篇</small></div>
+              <div class="label" data-i18n="usagePapers">查阅文献</div>
+              <div class="value"><span class="count" data-target="128">0</span><small data-i18n="paperUnit">篇</small></div>
             </div>
           </div>
 
           <div class="usage-stat stat-progress">
-            <div class="label">本月进度</div>
+            <div class="label" data-i18n="monthProgress">本月进度</div>
             <div class="usage-bar" role="img" aria-label="本月进度"><i id="usageBarFill"></i></div>
-            <div class="usage-bar-caption"><span id="daysCaption">已使用 12 天</span><span>共 31 天</span></div>
+            <div class="usage-bar-caption"><span id="daysCaption">已使用 12 天</span><span data-i18n="days31">共 31 天</span></div>
             <div class="day-dots" id="dayDots" aria-hidden="true"></div>
             <button class="cal-open" type="button" onclick="openCalendar()" data-i18n="calOpen">查看打卡记录 ▸</button>
           </div>
 
           <div class="usage-stat">
-            <div class="label">连续阅读</div>
-            <div class="value" style="font-size:1.15rem"><span class="count" data-target="6">0</span><small>周</small></div>
+            <div class="label" data-i18n="streak">连续阅读</div>
+            <div class="value" style="font-size:1.15rem"><span class="count" data-target="6">0</span><small data-i18n="weekUnit">周</small></div>
           </div>
 
-          <div class="usage-note">较上月多 <b>18 篇</b> · 持续保持阅读习惯</div>
+          <div class="usage-note" data-i18n-html="usageNoteHtml">较上月多 <b>18 篇</b> · 持续保持阅读习惯</div>
         </aside>
       </div>
 
@@ -1450,16 +1450,16 @@ body.searching #toTop{
       <div class="rx-top">
         <button class="back-btn" onclick="goHome()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-          返回首页
+          <span data-i18n="backHome">返回首页</span>
         </button>
         <div class="rx-meta">
-          <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>我的笔记 <b id="notesCount">0</b> 则</span>
+          <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span data-i18n="notesTitle">我的笔记</span> <b id="notesCount">0</b> <span data-i18n="noteUnit">则</span></span>
         </div>
       </div>
       <div class="rx-head">
-        <div class="rx-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>个人笔记</div>
-        <h1>把灵感与出处<br>一起留住</h1>
-        <div class="rx-goal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>每一则笔记都会标明出自哪篇文献，方便日后回查。</div>
+        <div class="rx-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span data-i18n="notesEyebrow">个人笔记</span></div>
+        <h1 data-i18n-html="notesSub">把灵感与出处<br>一起留住</h1>
+        <div class="rx-goal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="notesGoal">每一则笔记都会标明出自哪篇文献，方便日后回查。</span></div>
       </div>
       <div id="notesList" class="notes-list"></div>
     </div>
@@ -1473,24 +1473,24 @@ body.searching #toTop{
       <div class="rx-top">
         <button class="back-btn" onclick="goHome()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-          返回首页
+          <span data-i18n="backHome">返回首页</span>
         </button>
         <div class="rx-meta">
-          <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg>分享广场 <b id="shareCount">0</b> 则</span>
+          <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg><span data-i18n="shareViewTitle">分享广场</span> <b id="shareCount">0</b> <span data-i18n="noteUnit">则</span></span>
         </div>
       </div>
       <div class="rx-head">
-        <div class="rx-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg>运动员 × 教练 × 你</div>
-        <h1>把有用的笔记<br>分享给同路人</h1>
-        <div class="rx-goal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>看看别人的训练笔记，也把你的心得发布出去。</div>
+        <div class="rx-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg><span data-i18n="shareEyebrow">运动员 × 教练 × 你</span></div>
+        <h1 data-i18n-html="shareSub">把有用的笔记<br>分享给同路人</h1>
+        <div class="rx-goal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-i18n="shareGoal">看看别人的训练笔记，也把你的心得发布出去。</span></div>
       </div>
 
       <div class="share-post">
-        <div class="sp-hint">选择一条笔记分享到广场，或先查看大家的分享</div>
-        <button class="act-btn primary" type="button" onclick="openSharePicker()">选择笔记分享 ▸</button>
+        <div class="sp-hint" data-i18n="shareHint">选择一条笔记分享到广场，或先查看大家的分享</div>
+        <button class="act-btn primary" type="button" onclick="openSharePicker()" data-i18n="pickNote">选择笔记分享 ▸</button>
       </div>
 
-      <div class="rx-sub">推荐笔记 · 来自其他运动员与教练</div>
+      <div class="rx-sub" data-i18n="recommended">推荐笔记 · 来自其他运动员与教练</div>
       <div id="shareList" class="share-list"></div>
     </div>
   </section>
@@ -1503,7 +1503,7 @@ body.searching #toTop{
     <div class="modal-head">
       <div class="modal-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
-        AI 文献处方
+        <span data-i18n="rxModalTitle">AI 文献处方</span>
       </div>
       <button class="modal-close" data-close aria-label="关闭">✕</button>
     </div>
@@ -1518,24 +1518,24 @@ body.searching #toTop{
     <div class="modal-head">
       <div class="modal-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        记笔记
+        <span data-i18n="noteModalTitle">记笔记</span>
       </div>
       <button class="modal-close" data-close aria-label="关闭">✕</button>
     </div>
     <div class="modal-body">
       <div class="note-src" id="noteSrcInfo"></div>
       <div class="note-preview" id="notePreview"></div>
-<textarea id="noteText" placeholder="写下你的想法、应用计划或提醒…"></textarea>
+<textarea id="noteText" placeholder="写下你的想法、应用计划或提醒…" data-i18n-ph="notePlaceholder"></textarea>
       <div class="share-ops">
-        <button class="share-op primary" type="button" onclick="shareOneClick()">一键分享</button>
-        <button class="share-op" type="button" onclick="shareNote('moments')">分享到朋友圈</button>
-        <button class="share-op" type="button" onclick="shareNote('xhs')">分享到小红书</button>
-        <button class="share-op" type="button" onclick="shareLinkFromNote()">生成分享链接</button>
-        <button class="share-op primary" type="button" onclick="copyNotePreview()">复制内容</button>
+        <button class="share-op primary" type="button" onclick="shareOneClick()" data-i18n="shareOneClick">一键分享</button>
+        <button class="share-op" type="button" onclick="shareNote('moments')" data-i18n="shareMoments">分享到朋友圈</button>
+        <button class="share-op" type="button" onclick="shareNote('xhs')" data-i18n="shareXhs">分享到小红书</button>
+        <button class="share-op" type="button" onclick="shareLinkFromNote()" data-i18n="shareLink">生成分享链接</button>
+        <button class="share-op primary" type="button" onclick="copyNotePreview()" data-i18n="copyContent">复制内容</button>
       </div>
       <div class="note-actions">
-        <button class="act-btn" data-close>取消</button>
-        <button class="act-btn primary" id="noteSaveBtn">储存笔记</button>
+        <button class="act-btn" data-close data-i18n="cancel">取消</button>
+        <button class="act-btn primary" id="noteSaveBtn" data-i18n="saveNote">储存笔记</button>
       </div>
     </div>
   </div>
@@ -1548,12 +1548,12 @@ body.searching #toTop{
     <div class="modal-head">
       <div class="modal-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg>
-        选择要分享的笔记
+        <span data-i18n="chooseNote">选择要分享的笔记</span>
       </div>
       <button class="modal-close" data-close aria-label="关闭">✕</button>
     </div>
     <div class="modal-body">
-      <button class="share-board-link" type="button" onclick="closeSharePick();openShare()">查看分享广场 ▸</button>
+      <button class="share-board-link" type="button" onclick="closeSharePick();openShare()" data-i18n="viewSquare">查看分享广场 ▸</button>
       <div id="sharePickList"></div>
     </div>
   </div>
@@ -1593,18 +1593,18 @@ body.searching #toTop{
     </div>
     <div class="modal-body">
       <div class="share-hero">
-        <div class="sh-title">全球顶级期刊数据库 × AI 综合分析</div>
+        <div class="sh-title" data-i18n="brandTag">全球顶级期刊数据库 × AI 综合分析</div>
         <div class="sh-url" id="shareUrlText"></div>
       </div>
       <img class="share-qr" id="shareQr" alt="网站二维码" onerror="this.style.display='none';document.getElementById('shareQrFallback').style.display='block'">
-      <div class="share-qr-fallback" id="shareQrFallback" hidden>二维码加载失败，请用「复制链接」分享</div>
+      <div class="share-qr-fallback" id="shareQrFallback" hidden data-i18n="qrFail">二维码加载失败，请用「复制链接」分享</div>
       <div class="share-grid">
         <button class="share-sq" type="button" onclick="shareToWechat()"><span class="si">💬</span><span data-i18n="wechat">微信好友</span></button>
         <button class="share-sq" type="button" onclick="shareToMoments()"><span class="si">🟢</span><span data-i18n="moments">朋友圈</span></button>
         <button class="share-sq" type="button" onclick="shareSystem()"><span class="si">📤</span><span data-i18n="systemShare">系统分享</span></button>
         <button class="share-sq" type="button" onclick="copyShareLink()"><span class="si">🔗</span><span data-i18n="copyLink">复制链接</span></button>
       </div>
-      <div class="share-wechat-hint" id="shareWechatHint" hidden>提示：在微信里打开时，也可以点右上角「···」直接分享给朋友或朋友圈</div>
+      <div class="share-wechat-hint" id="shareWechatHint" hidden data-i18n="wechatHint">提示：在微信里打开时，也可以点右上角「···」直接分享给朋友或朋友圈</div>
     </div>
   </div>
 </div>
@@ -1624,7 +1624,7 @@ body.searching #toTop{
       <div class="user-card">
         <div class="user-avatar" id="userAvatar">🏃</div>
         <div class="user-name" id="userName">运动家</div>
-        <div class="user-tag">体育家园 · 运动者</div>
+        <div class="user-tag" data-i18n="userTag">体育家园 · 运动者</div>
       </div>
       <div class="rx-sub" data-i18n="chooseAvatar">选择头像</div>
       <div class="avatar-row" id="avatarRow"></div>
@@ -1665,13 +1665,13 @@ body.searching #toTop{
     </div>
     <div class="modal-body">
       <div class="cal-head"><b id="calMonth"></b><span id="calStats"></span></div>
-      <div class="cal-week">
+      <div class="cal-week" id="calWeek">
         <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
       </div>
       <div class="cal-grid" id="calGrid"></div>
       <div class="cal-tasks" id="calTasks"></div>
       <div id="calStrips"></div>
-      <div class="cal-note">方格绿色 = 当天完成该任务 · 圈出 = 今天</div>
+      <div class="cal-note" data-i18n="calNote">方格绿色 = 当天完成该任务 · 圈出 = 今天</div>
     </div>
   </div>
 </div>
@@ -1683,7 +1683,7 @@ body.searching #toTop{
     <div class="modal-head">
       <div class="modal-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        笔记详情
+        <span data-i18n="noteDetail">笔记详情</span>
       </div>
       <button class="modal-close" data-close aria-label="关闭">✕</button>
     </div>
@@ -1691,8 +1691,8 @@ body.searching #toTop{
       <div class="note-src" id="viewNoteSrc"></div>
       <div class="note-preview" id="viewNoteBody"></div>
       <div class="note-actions">
-        <button class="act-btn primary" type="button" id="viewNoteSaveBtn" onclick="saveSharedNote()" hidden>保存到我的笔记</button>
-        <button class="act-btn primary" type="button" onclick="copyViewNote()">复制内容</button>
+        <button class="act-btn primary" type="button" id="viewNoteSaveBtn" onclick="saveSharedNote()" hidden data-i18n="saveToMine">保存到我的笔记</button>
+        <button class="act-btn primary" type="button" onclick="copyViewNote()" data-i18n="copyContent">复制内容</button>
       </div>
     </div>
   </div>
@@ -1961,7 +1961,7 @@ function editSig(){
   const commit=()=>{
     if(done)return;done=true;
     const v=input.value.trim();
-    if(v){sig=v;localStorage.setItem("sportlens_sign",sig);toast("个性签名已更新");}
+    if(v){sig=v;localStorage.setItem("sportlens_sign",sig);toast(t("sigUpdated"));}
     renderSig();
   };
   input.addEventListener("blur",commit);
@@ -2083,7 +2083,7 @@ function completeCheckin(done){
   days.textContent=monthUsed;
   $("#daysCaption").textContent=t("usedDays").replace("{{n}}",monthUsed);
   $("#usageBarFill").style.width=(monthUsed/31*100)+"%";
-  toast("今日打卡成功，继续保持 💪");
+  toast(t("checkinToast"));
   showSignPopup();
 }
 let audioCtx=null;
@@ -2149,11 +2149,17 @@ function openCalendar(){
 }
 function renderCalendar(){
   const now=new Date();
-  $("#calMonth").textContent=now.getFullYear()+" 年 "+(now.getMonth()+1)+" 月";
+  $("#calMonth").textContent=LANG==="en"
+    ? now.toLocaleString("en-US",{month:"long",year:"numeric"})
+    : now.getFullYear()+" 年 "+(now.getMonth()+1)+" 月";
+  const cw=document.getElementById("calWeek");
+  if(cw)cw.innerHTML=LANG==="en"
+    ? ["M","T","W","T","F","S","S"].map(d=>`<span>${d}</span>`).join("")
+    : ["一","二","三","四","五","六","日"].map(d=>`<span>${d}</span>`).join("");
   const prefix=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
   const log=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{}");
   const used=Object.keys(log).filter(k=>k.startsWith(prefix)).length;
-  $("#calStats").textContent="已打卡 "+used+" 天";
+  $("#calStats").textContent=t("calChecked").replace("{{n}}",used);
   const daysInMonth=new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
   let html="";
   for(let d=1;d<=daysInMonth;d++){
@@ -2166,14 +2172,14 @@ function renderCalendar(){
   const calT=$("#calTasks");
   const allTasks=JSON.parse(localStorage.getItem("sportlens_tasks")||"[]");
   const todayLog=Array.isArray(log[todayKey()])?log[todayKey()]:[];
-  let th="<div class=\"ct-label\">今日任务打卡</div>";
+  let th="<div class=\"ct-label\">"+t("calTaskLabel")+"</div>";
   if(allTasks.length){
     allTasks.forEach((t,ti)=>{
       const ok=todayLog.includes(t);
       th+=`<div class="cal-task-row${ok?"":" miss"}"><span class="${ok?"ok":"no"}">${ok?"✓":"✗"}</span><span class="ct-num">任务${ti+1}</span><span>${esc(t)}</span></div>`;
     });
   }else{
-    th+=`<div class="cal-task-row"><span class="no">—</span><span>暂无安排任务</span></div>`;
+    th+=`<div class="cal-task-row"><span class="no">—</span><span>${t("calNoTask")}</span></div>`;
   }
   calT.innerHTML=th;
   // 每项任务的本月打卡方格（7 格一组）
@@ -2204,24 +2210,24 @@ function renderSuggest(q){
   if(history.length){
     const hh=(q?history.filter(x=>norm(x).includes(nq)):history).slice(0,3);
     if(hh.length){
-      html+='<div class="suggest-title">最近搜索</div>'+
+      html+='<div class="suggest-title">'+t("recentSearch")+'</div>'+
         hh.map(x=>`<button type="button"><svg class="sg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(x)}</button>`).join("");
     }
   }
   if(q&&hits.length){
-    html+='<div class="suggest-title">相关主题</div>'+
+    html+='<div class="suggest-title">'+t("relatedTopic")+'</div>'+
       hits.map(k=>`<button type="button"><svg class="sg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>${esc(k)}</button>`).join("");
   }
-  if(!html)html=`<div class="no-hit">直接搜索“${esc(q)}”，让 AI 试试看</div>`;
+  if(!html)html=`<div class="no-hit">${t("noHit").replace("{{q}}",esc(q))}</div>`;
   box.innerHTML=html;
   box.classList.add("open");
 }
 
 /* ============ 每日精选 ============ */
 const DAILY=[
-  {rx:"睡眠与表现",t:"睡眠少于 6 小时，受伤风险近乎翻倍",s:"J Appl Physiol · 2024"},
-  {rx:"跑步经济性",t:"每周 2 次肌力训练，免费提升 2–4% 最大摄氧量",s:"MSSE · 2023"},
-  {rx:"恢复策略",t:"冷水浸泡 10–15 分钟，快速缓解赛事期酸痛",s:"Sports Med · 2024"},
+  {rx:"睡眠与表现",t:"睡眠少于 6 小时，受伤风险近乎翻倍",en:"Less than 6h of sleep nearly doubles injury risk",s:"J Appl Physiol · 2024"},
+  {rx:"跑步经济性",t:"每周 2 次肌力训练，免费提升 2–4% 最大摄氧量",en:"2 strength sessions/week can boost VO2max by 2–4%",s:"MSSE · 2023"},
+  {rx:"恢复策略",t:"冷水浸泡 10–15 分钟，快速缓解赛事期酸痛",en:"10–15 min cold water immersion eases race soreness",s:"Sports Med · 2024"},
 ];
 function initDaily(){
   let idx=parseInt(localStorage.getItem("sportlens_daily_idx")||"0",10);
@@ -2234,10 +2240,10 @@ function renderDaily(){
   const idx=parseInt(localStorage.getItem("sportlens_daily_idx")||"0",10)%DAILY.length;
   const arr=[...DAILY.slice(idx),...DAILY.slice(0,idx)];
   wrap.innerHTML=arr.map(d=>`
-    <div class="ditem" onclick="openDailyItem('${d.rx}')" title="点击查看">
+    <div class="ditem" onclick="openDailyItem('${d.rx}')" title="${LANG==="en"?"View":"点击查看"}">
       <span class="di-star" aria-hidden="true">✦</span>
       <div class="di-info">
-        <div class="di-title">${esc(d.t)}</div>
+        <div class="di-title">${esc(LANG==="en"?(d.en||d.t):d.t)}</div>
         <div class="di-src">${esc(d.s)}</div>
       </div>
     </div>`).join("");
@@ -2271,7 +2277,7 @@ function openDailyItem(rx){pushHistory(rx);runRx(rx);}
 /* ============ 进站欢迎动画 ============ */
 function initWelcome(){
   const ov=$("#welcomeOverlay");if(!ov)return;
-  const greet="欢迎回家，"+(user.name||"运动家");
+  const greet=t("welcomeGreet").replace("{{n}}",user.name||(LANG==="en"?"Athlete":"运动家"));
   const g=$("#welcomeGreet");
   g.innerHTML=greet.split("").map((ch,i)=>`<span class="wc" style="animation-delay:${i*28}ms">${ch===" "?"&nbsp;":ch}</span>`).join("");
   document.body.style.overflow="hidden";
@@ -2282,8 +2288,8 @@ function initWelcome(){
     document.body.style.overflow="";
     setTimeout(()=>{ov.style.display="none";},reduced?60:400);
   }
-  const t=setTimeout(dismiss,reduced?400:1400);
-  ov.addEventListener("click",()=>{clearTimeout(t);dismiss();});
+  const timer=setTimeout(dismiss,reduced?400:1400);
+  ov.addEventListener("click",()=>{clearTimeout(timer);dismiss();});
 }
 
 /* ============ 计数器 ============ */
@@ -2307,18 +2313,18 @@ function initCounters(){
 
 /* ============ 运动员名言（静态） ============ */
 const QUOTES=[
-  {q:"总有人要赢，为什么不能是我？",n:"科比"},
-  {q:"训练不会骗人，流过的汗都会算数。",n:"徐远征"},
-  {q:"哪里跌倒，哪里爬起来，亚洲人也能站上世界之巅。",n:"刘翔"},
-  {q:"我就是要证明，中国人也能跑进十秒。",n:"苏炳添"},
+  {q:"总有人要赢，为什么不能是我？",en:"Somebody has to win, so why not me?",n:"科比",nen:"Kobe Bryant"},
+  {q:"训练不会骗人，流过的汗都会算数。",en:"Training never lies; every drop of sweat counts.",n:"徐远征",nen:"Xu Yuanzheng"},
+  {q:"哪里跌倒，哪里爬起来，亚洲人也能站上世界之巅。",en:"Fall, then rise. Asians can reach the top of the world too.",n:"刘翔",nen:"Liu Xiang"},
+  {q:"我就是要证明，中国人也能跑进十秒。",en:"I want to prove that a Chinese can run under ten seconds.",n:"苏炳添",nen:"Su Bingtian"},
 ];
 function initQuote(){
   const el=$("#heroQuoteText");if(!el)return;
   const now=new Date();
   const idx=(now.getFullYear()*372+now.getMonth()*31+now.getDate())%QUOTES.length;
   const q=QUOTES[idx];
-  el.textContent="“"+q.q+"”";
-  $("#heroQuoteName").textContent="— "+q.n;
+  el.textContent=LANG==="en"?"“"+q.en+"”":"“"+q.q+"”";
+  $("#heroQuoteName").textContent="— "+(LANG==="en"?q.nen:q.n);
 }
 
 /* ============ 卷动效果 ============ */
@@ -2380,9 +2386,9 @@ function openNoteEditor(i){
   editingNoteId=null;
   const s=noteTarget;
   $("#noteSrcInfo").innerHTML=`<span class="jtag">${esc(s.j)}</span>
-    <p>出自《<b>${esc(s.t)}</b>》<br>${esc(s.j)} · ${s.y}${s.authors?" · 作者 "+esc(s.authors):""} · ${esc(s.doi)}</p>`;
+    <p>${t("fromBook")}<b>${esc(s.t)}</b>》<br>${esc(s.j)} · ${s.y}${s.authors?t("authorsIn")+esc(s.authors):""} · ${esc(s.doi)}</p>`;
   notePreviewText=(s.abs||s.t||"");
-  $("#notePreview").innerHTML="<b>内容：</b>"+esc((s.abs||s.t||"").slice(0,180));
+  $("#notePreview").innerHTML="<b>"+t("contentLabel")+"</b>"+esc((s.abs||s.t||"").slice(0,180));
   $("#notePreview").style.display="";
   $("#noteText").value="";
   $("#noteModal").classList.add("open");
@@ -2390,12 +2396,12 @@ function openNoteEditor(i){
 }
 function openEssenceNote(){
   editingNoteId=null;
-  noteTarget={j:"核心分析",y:"",t:"核心分析 · "+lastQuery,doi:""};
+  noteTarget={j:t("coreAnalysis"),y:"",t:t("coreAnalysis")+" · "+lastQuery,doi:""};
   const ess=document.getElementById("essenceText");
   notePreviewText=(ess?ess.textContent:"")||"";
-  $("#noteSrcInfo").innerHTML=`<span class="jtag">核心分析</span>
-    <p>关于「<b>${esc(lastQuery)}</b>」的核心分析笔记</p>`;
-  $("#notePreview").innerHTML="<b>核心分析：</b>"+esc(notePreviewText.slice(0,200));
+  $("#noteSrcInfo").innerHTML=`<span class="jtag">${t("coreAnalysis")}</span>
+    <p>${t("essenceNoteDesc").replace("{{q}}",esc(lastQuery))}</p>`;
+  $("#notePreview").innerHTML="<b>"+t("coreAnalysis")+"：</b>"+esc(notePreviewText.slice(0,200));
   $("#notePreview").style.display="";
   $("#noteText").value="";
   $("#noteModal").classList.add("open");
@@ -2404,11 +2410,11 @@ function openEssenceNote(){
 function openAdviceNote(i){
   const a=lastAdvice[i]||{t:"",s:""};
   editingNoteId=null;
-  noteTarget={j:(a.s||"分析建议"),y:"",t:a.t||"",doi:""};
+  noteTarget={j:(a.s||t("adviceTag")),y:"",t:a.t||"",doi:""};
   notePreviewText=a.t||"";
-  $("#noteSrcInfo").innerHTML=`<span class="jtag">${esc(a.s||"分析建议")}</span>
-    <p>关于建议「<b>${esc((a.t||"").slice(0,30))}</b>」的笔记</p>`;
-  $("#notePreview").innerHTML="<b>建议内容：</b>"+esc(notePreviewText.slice(0,160));
+  $("#noteSrcInfo").innerHTML=`<span class="jtag">${esc(a.s||t("adviceTag"))}</span>
+    <p>${t("adviceNoteDesc").replace("{{a}}",esc((a.t||"").slice(0,30)))}</p>`;
+  $("#notePreview").innerHTML="<b>"+t("adviceLabel")+"</b>"+esc(notePreviewText.slice(0,160));
   $("#notePreview").style.display="";
   $("#noteText").value="";
   $("#noteModal").classList.add("open");
@@ -2446,9 +2452,9 @@ function shareNote(platform){
     text=(myText||base)+"\n——体育家园 "+user.name+" 的笔记\n\n#运动科学 #训练 #体育家园 #运动";
   }
   copyText(text);
-  toast(platform==="moments"?"已复制，去微信朋友圈粘贴":"已复制，去小红书粘贴");
+  toast(platform==="moments"?t("momentsCopied"):t("xhsCopied"));
 }
-function copyNotePreview(){copyText(notePreviewText||"");toast("内容已复制");}
+function copyNotePreview(){copyText(notePreviewText||"");toast(t("copied"));}
 function wrapCtxText(ctx,text,maxW){
   const lines=[];let line="";
   for(const ch of text){
@@ -2553,7 +2559,7 @@ function viewNote(id){
 function copyViewNote(){
   const n=notes.find(x=>x.id===currentViewNoteId);if(!n)return;
   copyText("【体育家园】"+n.src.t+"\n"+n.text+"\n——体育家园 "+user.name+" 的笔记");
-  toast("内容已复制");
+  toast(t("copied"));
 }
 function editNote(id){
   const n=notes.find(x=>x.id===id);if(!n)return;
@@ -2615,7 +2621,7 @@ function saveSharedNote(){
   localStorage.setItem("sportlens_notes",JSON.stringify(notes));
   renderNotesBadge();
   $("#viewNoteSaveBtn").hidden=true;
-  toast("已保存到我的笔记 ✓");
+  toast(t("savedNote"));
 }
 function initShareLink(){
   const m=location.hash.match(/#share=([A-Za-z0-9_-]+)/);
@@ -2657,11 +2663,11 @@ function pickAvatar(a){
 }
 function editName(){
   const n=prompt("输入你的昵称：",user.name);
-  if(n&&n.trim()){user.name=n.trim();localStorage.setItem("sportlens_user_name",user.name);renderUser();toast("昵称已更新");}
+  if(n&&n.trim()){user.name=n.trim();localStorage.setItem("sportlens_user_name",user.name);renderUser();toast(t("nameUpdated"));}
 }
 function editSigSettings(){
   const v=prompt("输入你的个性签名：",sig);
-  if(v!==null&&v.trim()){sig=v.trim();localStorage.setItem("sportlens_sign",sig);renderSig();toast("个性签名已更新");}
+  if(v!==null&&v.trim()){sig=v.trim();localStorage.setItem("sportlens_sign",sig);renderSig();toast(t("sigUpdated"));}
 }
 function pickLang(){toast("繁体/英语版即将上线，当前为简体中文");}
 function logoutUser(){toast("已退出登录（演示）");}
@@ -2683,9 +2689,9 @@ function openSharePicker(){
   const wrap=$("#sharePickList");
   if(!notes.length){
     wrap.innerHTML=`<div class="notes-empty">
-      <h3>还没有笔记</h3>
-      <p>先搜索文献并记笔记，就能从这里选择分享。</p>
-      <button class="act-btn primary" style="margin-top:12px" type="button" onclick="closeSharePick();openNotes()">去我的笔记</button>
+      <h3>${t("noteEmptyTitle")}</h3>
+      <p>${t("noteEmptySub")}</p>
+      <button class="act-btn primary" style="margin-top:12px" type="button" onclick="closeSharePick();openNotes()">${t("goNotes")}</button>
     </div>`;
   }else{
     wrap.innerHTML=notes.map(n=>`
@@ -2706,7 +2712,7 @@ function closeSharePick(){$("#sharePickModal").classList.remove("open");}
 function shareXhsFromList(id){
   const n=notes.find(x=>x.id===id);if(!n)return;
   copyText(n.text+"\n——体育家园 "+user.name+" 的笔记\n\n#运动科学 #训练 #体育家园 #运动");
-  toast("已复制，去小红书粘贴");
+  toast(t("xhsCopied"));
 }
 function openShare(){
   $("#viewHome").classList.remove("show");
@@ -2722,8 +2728,8 @@ function renderShare(){
   if(!list.length){
     wrap.innerHTML=`<div class="notes-empty">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></svg>
-      <h3>广场还没有人分享</h3>
-      <p>来发布第一则笔记吧。</p>
+      <h3>${t("shareEmptyTitle")}</h3>
+      <p>${t("shareEmptySub")}</p>
     </div>`;
     return;
   }
@@ -2732,11 +2738,11 @@ function renderShare(){
       <div class="sh-head">
         <span class="sh-avatar" aria-hidden="true">${SHARE_AVATAR[s.author]||"👤"}</span>
         <div class="sh-who">
-          <span class="sh-name">${esc(s.author)}${s.mine?'<span class="mine-badge">我</span>':""}</span>
+          <span class="sh-name">${esc(s.author)}${s.mine?'<span class="mine-badge">'+t("mineBadge")+'</span>':""}</span>
           <span class="sh-meta">${esc(s.tag)} · ${esc(s.time)}</span>
         </div>
         ${s.status==="pending"
-          ? `<span class="sh-pend">⏳ 待审核</span>`
+          ? `<span class="sh-pend">${t("pendBadge")}</span>`
           : `<button class="sh-like${likedShares.has(s.id)?" on":""}" data-like="${s.id}" onclick="toggleLike('${s.id}')" aria-label="按赞">♥ ${s.likes+(likedShares.has(s.id)?1:0)}</button>`}
       </div>
       <div class="sh-text">${esc(s.text)}</div>
@@ -2749,7 +2755,7 @@ function shareMyNote(id){
   if(!n)return;
   pendingShares.unshift({id:Date.now(),author:"我",tag:"运动家",time:"刚刚",likes:0,text:n.text,src:{j:n.src.j,y:n.src.y,t:n.src.t},mine:true,status:"pending"});
   localStorage.setItem("sportlens_pending_shares",JSON.stringify(pendingShares));
-  toast("已提交广场，等待审核上架 ⏳");
+  toast(t("pendingToast"));
 }
 function toggleLike(id){
   if(likedShares.has(id))likedShares.delete(id);
@@ -2788,29 +2794,29 @@ function renderResults(rx,dt,engine){
   lastQuery=rx.q||"";
   const papers=lastPapers&&lastPapers.length?lastPapers:[];
   const srcs=(papers.length?papers:(rx.sources||[])).slice(0,2);
-  const miss=papers.length?"":(engine?(engine==="llm"?`<div class="db-miss">以下内容由 AI 结合数据库与公开信息综合分析（来源为 AI 知识库）</div>`:`<div class="db-miss">数据库暂未匹配到相关内容，请换个问法试试</div>`):`<div class="db-miss">资料库暂无直接匹配文献，以下为综合处方与既有来源</div>`);
-  const engChip=engine?`<span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>${engine==="llm"?"AI 综合分析":engine==="rule"?"期刊数据库":engine==="crossref"?"期刊数据库 · 浏览器直连":"AI 分析"}</span>`:"";
+  const miss=papers.length?"":(engine?(engine==="llm"?`<div class="db-miss">${t("missLl")}</div>`:`<div class="db-miss">${t("missDb")}</div>`):`<div class="db-miss">${t("missDb")}</div>`);
+  const engChip=engine?`<span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>${engine==="llm"?t("engLl"):engine==="rule"?t("engDb"):engine==="crossref"?t("engCrossref"):"AI"}</span>`:"";
   const html=`
     <div class="rx-head">
-      <div class="rx-eyebrow">${icon("spark","")}AI 分析 · 结合数据库与互联网</div>
-      <h1>“<span>${esc(rx.q)}</span>”的<br>文献精华处方</h1>
-      <div class="rx-goal">${icon("tag","")}你的目标：${esc(rx.goal)}</div>
+      <div class="rx-eyebrow">${icon("spark","")}${t("rxEyebrow")}</div>
+      <h1>“<span>${esc(rx.q)}</span>”${LANG==="en"?"<br>":"的<br>"}${t("rxTitleSuffix")}</h1>
+      <div class="rx-goal">${icon("tag","")}${t("rxGoal")}${LANG==="en"?": ":"："}${esc(LANG==="en"?t("aiGoal"):rx.goal)}</div>
     </div>
 
     <div class="rx-meta" style="margin-bottom:20px">
-      <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>数据库文献 <b>${srcs.length}</b> 篇</span>
-      <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>耗时 <b>${dt}</b> 秒</span>
-      <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z"/></svg>证据等级 ${papers.length&&papers[0].ev?esc(papers[0].ev):"高"}</span>
+      <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>${t("dbPapers")} <b>${srcs.length}</b> ${t("papersUnit")}</span>
+      <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${t("costTime")} <b>${dt}</b> ${t("secUnit")}</span>
+      <span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z"/></svg>${t("evidence")} ${papers.length&&papers[0].ev?esc(LANG==="en"?evEn(papers[0].ev):papers[0].ev):(LANG==="en"?"High":"高")}</span>
       ${engChip}
     </div>
 
     <div class="rx-essence" id="essenceCard">
-      <div class="tag">${icon("spark","")}核心分析</div>
+      <div class="tag">${icon("spark","")}${t("coreAnalysis")}</div>
       <div id="essenceText"></div>
-      <button class="note-add-btn ess-note" type="button" onclick="openEssenceNote()">${icon("note","")}记笔记</button>
+      <button class="note-add-btn ess-note" type="button" onclick="openEssenceNote()">${icon("note","")}${t("note")}</button>
     </div>
 
-    <div class="rx-sub">分析建议 · 标红即关键信息</div>
+    <div class="rx-sub">${t("adviceSub")}</div>
     <div class="advice-list">
       ${(rx.advice||[]).slice(0,4).map((a,i)=>{
         const long=(a.t||"").length>70;
@@ -2818,53 +2824,55 @@ function renderResults(rx,dt,engine){
           <div class="num n${i+1}">0${i+1}</div>
           <div>
             <div class="at${long?" clamped":""}">${hlText(a.t,rx.q,lastHl)}</div>
-            ${long?`<button class="more-btn" type="button" onclick="toggleMore(this)">展开</button>`:""}
-            <span class="src">${icon("book","")}出自 · ${esc(papers.length?(papers[i%papers.length].j+" · "+papers[i%papers.length].y):a.s)}</span>
-            <button class="note-add-btn advice-note" type="button" onclick="openAdviceNote(${i})">${icon("note","")}记笔记</button>
+            ${long?`<button class="more-btn" type="button" onclick="toggleMore(this)">${t("expandMore")}</button>`:""}
+            <span class="src">${icon("book","")}${t("fromSource")} ${esc(papers.length?(papers[i%papers.length].j+" · "+papers[i%papers.length].y):a.s)}</span>
+            <button class="note-add-btn advice-note" type="button" onclick="openAdviceNote(${i})">${icon("note","")}${t("note")}</button>
           </div>
         </article>`;
       }).join("")}
     </div>
 
     ${miss}
-    <div class="rx-sub">${engine?(papers.length?"数据库内容 · 来源标注":"数据库内容"):(papers.length?"数据库内容 · 示例资料":"数据库来源")}</div>
+    <div class="rx-sub">${engine?t("dbSub"):(papers.length?t("demoSub"):t("dbSource"))}</div>
     <div class="src-list">
       ${srcs.map((s,i)=>{
-        const absTxt=(s.az||s.abs||"");
+        const absTxt=LANG==="en"?(s.abs||s.az||""):(s.az||s.abs||"");
         const absLong=absTxt.length>110;
-        const hasEn=!!(s.az&&s.abs);
+        const hasEn=!!(s.az&&s.abs)&&LANG!=="en";
+        const btnText=LANG==="en"?t("expandMore"):(hasEn?t("viewAbstract"):t("expandMore"));
+        const titleTxt=LANG==="en"?(s.t||s.tz):(s.tz||s.t);
         return `<article class="src-card">
           <div class="src-top">
             <span class="jtag">${esc(s.j)}</span>
             <span class="src-year">${s.y}</span>
-            ${s.oa!==undefined&&s.oa!==null?`<span class="${s.oa?"oa-badge":"pay-badge"}">${s.oa?"开放获取":"付费文献"}</span>`:""}
-            ${s.ev?`<span class="ev-badge">证据 ${esc(s.ev)}</span>`:""}
+            ${s.oa!==undefined&&s.oa!==null?`<span class="${s.oa?"oa-badge":"pay-badge"}">${s.oa?t("openAccess"):t("paid")}</span>`:""}
+            ${s.ev?`<span class="ev-badge">${t("evidence")} ${esc(LANG==="en"?evEn(s.ev):s.ev)}</span>`:""}
           </div>
-          <div class="src-title">${s.tz?esc(s.tz):esc(s.t)}</div>
-          ${s.tz?`<div class="src-en">原文：${esc(s.t)}</div>`:""}
-          ${s.authors?`<div class="src-authors">作者 · <b>${esc(s.authors)}</b></div>`:""}
+          <div class="src-title">${titleTxt?esc(titleTxt):""}</div>
+          ${(s.tz&&LANG!=="en")?`<div class="src-en">${t("original")}：${esc(s.t)}</div>`:""}
+          ${s.authors?`<div class="src-authors">${t("authorsLabel")} <b>${esc(s.authors)}</b></div>`:""}
           ${absTxt?`<div class="src-abs${absLong?" clamped":""}" data-clamp="${absLong?1:0}">${esc(absTxt)}</div>`:""}
-          ${(hasEn||absLong)?`<button class="more-btn" type="button" onclick="toggleSrc(this)">${hasEn?"查看中英摘要":"展开全文"}</button>`:""}
-          ${(s.az&&s.abs)?`<div class="src-en" data-en hidden>原文摘要：${esc(s.abs)}</div>`:""}
+          ${(hasEn||absLong)?`<button class="more-btn" type="button" onclick="toggleSrc(this)">${btnText}</button>`:""}
+          ${(s.az&&s.abs&&LANG!=="en")?`<div class="src-en" data-en hidden>${t("originalAbs")}：${esc(s.abs)}</div>`:""}
           <div class="src-doi">${esc(s.doi)}</div>
-          <div class="src-for">${icon("tag","")}提供：${esc(s.for||"相关证据")}</div>
-          <button class="note-add-btn" onclick="openNoteEditor(${i})">${icon("note","")}记笔记</button>
+          <div class="src-for">${icon("tag","")}${t("providedBy")}${LANG==="en"?": ":"："}${esc(LANG==="en"?(s.forEn||"Relevant evidence"):(s.for||"相关证据"))}</div>
+          <button class="note-add-btn" onclick="openNoteEditor(${i})">${icon("note","")}${t("note")}</button>
         </article>`;
       }).join("")}
     </div>
-    ${engine&&papers.length?`<div class="src-note">以上内容由 AI 结合数据库与公开信息整理，仅供参考。</div>`:""}
+    ${engine&&papers.length?`<div class="src-note">${t("srcNote")}</div>`:""}
 
     <div class="rx-actions">
-      <button class="act-btn primary" onclick="copyRx(${JSON.stringify(rx).replace(/"/g,"&quot;")})">${icon("copy","")}复制处方</button>
-      <button class="act-btn" onclick="closeRxModal();setTimeout(()=>document.getElementById('searchInput').focus(),180);">再搜一题</button>
+      <button class="act-btn primary" onclick="copyRx(${JSON.stringify(rx).replace(/"/g,"&quot;")})">${icon("copy","")}${t("copyRx")}</button>
+      <button class="act-btn" onclick="closeRxModal();setTimeout(()=>document.getElementById('searchInput').focus(),180);">${t("searchAgain")}</button>
     </div>
 
     <div class="rx-foot">
       <div class="rx-tip">
-        <span class="tip-text">📤 把体育家园分享给朋友，一起用前沿运动科学</span>
-        <button class="tip-btn" type="button" onclick="openShareSite()">一键分享网站</button>
+        <span class="tip-text">${t("shareTipText")}</span>
+        <button class="tip-btn" type="button" onclick="openShareSite()">${t("shareBtn")}</button>
       </div>
-      <div class="rx-dis">AI 生成内容仅供参考，不构成医疗或训练处方；期刊内容仅涉及免费内容与摘要，请以原文与专业人士意见为准。</div>
+      <div class="rx-dis">${t("rxDis")}</div>
     </div>`;
   $("#rxModalBody").innerHTML=html;
   requestAnimationFrame(initMoreBtns);
@@ -2892,13 +2900,13 @@ function shareToWechat(){
   const text="我在用「体育家园」查运动科学文献——"+shareDesc()+shareUrl();
   if(window.WeixinJSBridge){WeixinJSBridge.invoke("sendAppMessage",{title:"体育家园",desc:shareDesc(),link:shareUrl(),imgUrl:""},()=>{});return;}
   copyText(text);
-  toast("已复制，打开微信粘贴给好友");
+  toast(t("wechatCopied"));
 }
 function shareToMoments(){
   const text="【体育家园】"+shareDesc()+shareUrl();
   if(window.WeixinJSBridge){WeixinJSBridge.invoke("shareTimeline",{title:"体育家园",desc:shareDesc(),link:shareUrl(),imgUrl:""},()=>{});return;}
   copyText(text);
-  toast("已复制，去朋友圈粘贴");
+  toast(t("momentsCopied"));
 }
 function shareSystem(){
   const desc=shareDesc(),url=shareUrl();
@@ -2911,14 +2919,14 @@ function shareSystem(){
 }
 function copyShareLink(){
   copyText(shareUrl());
-  toast("网站链接已复制");
+  toast(t("linkCopied"));
 }
 function shareSite(){openShareSite();}
 function toggleMore(btn){
   const at=btn.closest(".advice").querySelector(".at");
   if(!at)return;
   at.classList.toggle("clamped");
-  btn.textContent=at.classList.contains("clamped")?"展开":"收起";
+  btn.textContent=at.classList.contains("clamped")?t("expandMore"):t("collapse");
 }
 function initMoreBtns(){
   document.querySelectorAll("#rxModal .at.clamped").forEach(el=>{
@@ -3016,7 +3024,7 @@ function toggleSrc(btn){
   if(abs&&abs.dataset.clamp==="1")abs.classList.toggle("clamped");
   if(en)en.hidden=!en.hidden;
   const expanded=en?!en.hidden:(abs&&!abs.classList.contains("clamped"));
-  btn.textContent=expanded?"收起":(en?"查看中英摘要":"展开全文");
+  btn.textContent=expanded?t("collapse"):(LANG==="en"?t("expandMore"):(en?t("viewAbstract"):t("expandMore")));
 }
 
 window.copyRx=function(data){
@@ -3043,9 +3051,9 @@ let searching=false;
 function loadingHTML(){
   return `<div class="loading-card" id="loadingCard">
     <div class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-    <h3>AI 正在为你分析</h3>
+    <h3>${t("loadingTitle")}</h3>
     <div class="ai-steps">
-      ${steps.map((s,i)=>`<div class="ai-step" data-step="${i}"><span class="st-dot"></span>${s}</div>`).join("")}
+      ${[t("demoStep0"),t("demoStep1"),t("demoStep2")].map((s,i)=>`<div class="ai-step" data-step="${i}"><span class="st-dot"></span>${s}</div>`).join("")}
     </div>
   </div>`;
 }
@@ -3053,9 +3061,9 @@ function loadingHTML(){
 function aiLoadingHTML(){
   return `<div class="loading-card" id="loadingCard">
     <div class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-    <h3>AI 正在为你综合分析</h3>
+    <h3>${t("loadingAiTitle")}</h3>
     <div class="ai-steps">
-      ${aiSteps.map((s,i)=>`<div class="ai-step" data-ai-step="${i}"><span class="st-dot"></span>${s}</div>`).join("")}
+      ${[t("aiStep0"),t("aiStep1"),t("aiStep2")].map((s,i)=>`<div class="ai-step" data-ai-step="${i}"><span class="st-dot"></span>${s}</div>`).join("")}
     </div>
   </div>`;
 }
@@ -3064,9 +3072,9 @@ const crossSteps=["正在连接期刊数据库…","正在分析相关文献…"
 function crossLoadingHTML(){
   return `<div class="loading-card" id="loadingCard">
     <div class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-    <h3>正在综合分析</h3>
+    <h3>${t("loadingCrossTitle")}</h3>
     <div class="ai-steps">
-      ${crossSteps.map((s,i)=>`<div class="ai-step" data-cross-step="${i}"><span class="st-dot"></span>${s}</div>`).join("")}
+      ${[t("csteps0"),t("csteps1"),t("csteps2")].map((s,i)=>`<div class="ai-step" data-cross-step="${i}"><span class="st-dot"></span>${s}</div>`).join("")}
     </div>
   </div>`;
 }
@@ -3093,7 +3101,56 @@ const I18N={
     footLinks1:"AI 搜索",footLinks2:"热门主题",footLinks3:"证据等级说明",
     footCopy:"© 2026 体育家园. 保留所有权利。",
     footDisc:"期刊内容仅涉及免费期刊内容和摘要，不涉及侵权内容。",
-    footAi:"内容由 AI 结合数据库与公开信息整理，仅供参考。"
+    footAi:"内容由 AI 结合数据库与公开信息整理，仅供参考。",
+    genBtn:"生成处方",welcomeSkip:"点击跳过",sourcesMore:"等 40+ 本全球顶级期刊",
+    usageDays:"本月使用",usagePapers:"查阅文献",monthProgress:"本月进度",streak:"连续阅读",
+    dayUnit:"天",paperUnit:"篇",weekUnit:"周",days31:"共 31 天",usageNote:"较上月多 {{n}} 篇 · 持续保持阅读习惯",
+    usageNoteHtml:"较上月多 <b>18 篇</b> · 持续保持阅读习惯",
+    calChecked:"已打卡 {{n}} 天",calTaskLabel:"今日任务打卡",calNoTask:"暂无安排任务",
+    calNote:"方格绿色 = 当天完成该任务 · 圈出 = 今天",
+    rxModalTitle:"AI 文献处方",rxEyebrow:"AI 分析 · 结合数据库与互联网",rxTitleSuffix:"文献精华处方",
+    rxGoal:"你的目标",dbPapers:"数据库文献",papersUnit:"篇",costTime:"耗时",secUnit:"秒",
+    evidence:"证据等级",coreAnalysis:"核心分析",note:"记笔记",
+    adviceSub:"分析建议 · 标红即关键信息",
+    expandMore:"展开",collapse:"收起",viewAbstract:"查看中英摘要",
+    copyRx:"复制处方",searchAgain:"再搜一题",
+    shareTipText:"📤 把体育家园分享给朋友，一起用前沿运动科学",shareBtn:"一键分享网站",
+    rxDis:"AI 生成内容仅供参考，不构成医疗或训练处方；期刊内容仅涉及免费内容与摘要，请以原文与专业人士意见为准。",
+    srcNote:"以上内容由 AI 结合数据库与公开信息整理，仅供参考。",
+    missDb:"数据库暂未匹配到相关内容，请换个问法试试",
+    missLl:"以下内容由 AI 结合数据库与公开信息综合分析（来源为 AI 知识库）",
+    dbSub:"数据库内容 · 来源标注",demoSub:"数据库内容 · 示例资料",dbSource:"数据库来源",
+    openAccess:"开放获取",paid:"付费文献",authorsLabel:"作者 ·",original:"原文",originalAbs:"原文摘要",providedBy:"提供",fromSource:"出自 ·",
+    welcomeGreet:"欢迎回家，{{n}}",
+    checkinToast:"今日打卡成功，继续保持 💪",pendingToast:"已提交广场，等待审核上架 ⏳",
+    quotaRemind:"提醒：今日搜索余额还剩 10 次",
+    quotaUsedUp:"今日 {{n}} 次搜索额度已用完，明天再来吧",
+    aiFail:"未连上 AI 分析服务，改用示例资料库",copied:"已复制",
+    recentSearch:"最近搜索",relatedTopic:"相关主题",
+    notesTitle:"我的笔记",notesSub:"把灵感与出处\n一起留住",
+    shareViewTitle:"分享广场",recommended:"推荐笔记 · 来自其他运动员与教练",backHome:"返回首页",
+    noteUnit:"则",notesEyebrow:"个人笔记",notesGoal:"每一则笔记都会标明出自哪篇文献，方便日后回查。",
+    shareEyebrow:"运动员 × 教练 × 你",shareSub:"把有用的笔记\n分享给同路人",
+    shareGoal:"看看别人的训练笔记，也把你的心得发布出去。",
+    shareHint:"选择一条笔记分享到广场，或先查看大家的分享",pickNote:"选择笔记分享 ▸",
+    noteModalTitle:"记笔记",notePlaceholder:"写下你的想法、应用计划或提醒…",
+    shareOneClick:"一键分享",shareMoments:"分享到朋友圈",shareXhs:"分享到小红书",shareLink:"生成分享链接",copyContent:"复制内容",
+    cancel:"取消",saveNote:"储存笔记",contentLabel:"内容：",chooseNote:"选择要分享的笔记",viewSquare:"查看分享广场 ▸"
+    ,engLl:"AI 综合分析",engDb:"期刊数据库",engCrossref:"期刊数据库 · 浏览器直连",aiGoal:"结合数据库与互联网综合分析 · 依你的问题"
+    ,steps0:"正在综合分析",steps1:"翻译问题",steps2:"检索期刊文献",steps3:"AI 生成处方"
+    ,csteps0:"连接期刊数据库",csteps1:"检索相关文献",csteps2:"整理摘要"
+    ,demoStep0:"正在结合数据库分析…",demoStep1:"正在综合分析…",demoStep2:"正在生成对症处方…"
+    ,aiStep0:"正在连接 AI 分析服务…",aiStep1:"正在检索全球顶级期刊数据库…",aiStep2:"正在综合分析…"
+    ,loadingTitle:"AI 正在为你分析",loadingAiTitle:"AI 正在为你综合分析",loadingCrossTitle:"正在综合分析"
+    ,noHit:"直接搜索“{{q}}”，让 AI 试试看"
+    ,wechatCopied:"已复制，打开微信粘贴给好友",momentsCopied:"已复制，去朋友圈粘贴",linkCopied:"网站链接已复制",xhsCopied:"已复制，去小红书粘贴"
+    ,savedNote:"已保存到我的笔记 ✓",sigUpdated:"个性签名已更新",nameUpdated:"昵称已更新",avatarUpdated:"头像已更新"
+    ,fromBook:"出自《",authorsIn:" · 作者 ",essenceNoteDesc:"关于「{{q}}」的核心分析笔记"
+    ,adviceNoteDesc:"关于建议「{{a}}」的笔记",adviceLabel:"建议内容：",adviceTag:"分析建议"
+    ,mineBadge:"我",pendBadge:"⏳ 待审核",shareEmptyTitle:"广场还没有人分享",shareEmptySub:"来发布第一则笔记吧。"
+    ,noteEmptyTitle:"还没有笔记",noteEmptySub:"先搜索文献并记笔记，就能从这里选择分享。",goNotes:"去我的笔记",saveToMine:"保存到我的笔记"
+    ,qrFail:"二维码加载失败，请用「复制链接」分享",wechatHint:"提示：在微信里打开时，也可以点右上角「···」直接分享给朋友或朋友圈",noteDetail:"笔记详情"
+    ,aiBannerT:"本机 AI 分析服务未启动",aiBannerSub:"，搜索将改用浏览器直连期刊数据库（免费）",aiBannerHint:"双击",aiBannerHint2:"可启用期刊数据库深度检索",aiRetry:"重新检查"
   },
   en:{
     brandTag:"Global Top Journals × AI Analysis",
@@ -3115,19 +3172,72 @@ const I18N={
     footLinks1:"AI Search",footLinks2:"Topics",footLinks3:"Evidence Levels",
     footCopy:"© 2026 Sports Home. All rights reserved.",
     footDisc:"Journal content covers free articles and abstracts only.",
-    footAi:"Content is AI-generated from databases and public information for reference."
+    footAi:"Content is AI-generated from databases and public information for reference.",
+    genBtn:"Generate",welcomeSkip:"Skip",sourcesMore:"and 40+ more top journals",
+    usageDays:"Used this month",usagePapers:"Papers read",monthProgress:"Progress",streak:"Reading streak",
+    dayUnit:"d",paperUnit:"papers",weekUnit:"w",days31:"31 days",usageNote:"{{n}} more than last month · keep reading",
+    usageNoteHtml:"Read more this month · keep the habit",
+    calChecked:"Checked in {{n}} days",calTaskLabel:"Today's Task Check-in",calNoTask:"No tasks scheduled",
+    calNote:"Green = task done that day · Circled = today",
+    rxModalTitle:"AI Literature Prescription",rxEyebrow:"AI Analysis · Database + Internet",rxTitleSuffix:"Literature Prescription",
+    rxGoal:"Your goal",dbPapers:"Papers",papersUnit:"",costTime:"Time",secUnit:"s",
+    evidence:"Evidence",coreAnalysis:"Core Analysis",note:"Note",
+    adviceSub:"Actionable advice · red = key info",
+    expandMore:"Expand",collapse:"Collapse",viewAbstract:"View Abstract",
+    copyRx:"Copy Prescription",searchAgain:"Ask another",
+    shareTipText:"📤 Share Sports Home with friends",shareBtn:"Share",
+    rxDis:"AI-generated content is for reference only and is not medical or training advice; journal content covers free articles and abstracts. Please refer to originals and professionals.",
+    srcNote:"Compiled by AI from databases and public information for reference.",
+    missDb:"No matching papers found, try a different question",
+    missLl:"The following is an AI analysis based on databases and public information",
+    dbSub:"Database content · Sources",demoSub:"Database content · Samples",dbSource:"Database sources",
+    openAccess:"Open Access",paid:"Paid",authorsLabel:"Authors ·",original:"Original",originalAbs:"Original Abstract",providedBy:"Provides",fromSource:"From ·",
+    welcomeGreet:"Welcome back, {{n}}",
+    checkinToast:"Checked in! Keep it up 💪",pendingToast:"Submitted for review ⏳",
+    quotaRemind:"Heads up: 10 searches left today",
+    quotaUsedUp:"Today's {{n}} searches are used up, come back tomorrow",
+    aiFail:"AI service unavailable, using database",copied:"Copied",
+    recentSearch:"Recent",relatedTopic:"Related",
+    notesTitle:"My Notes",notesSub:"Keep ideas\nand sources together",
+    shareViewTitle:"Community",recommended:"Recommended · from athletes and coaches",backHome:"Back Home",
+    noteUnit:"",notesEyebrow:"Personal Notes",notesGoal:"Every note shows its source paper for future reference.",
+    shareEyebrow:"Athletes × Coaches × You",shareSub:"Share useful notes\nwith fellow athletes",
+    shareGoal:"Browse others' training notes and publish yours.",
+    shareHint:"Pick a note to share, or browse the community",pickNote:"Pick a note ▸",
+    noteModalTitle:"Take a Note",notePlaceholder:"Write your thoughts, plan or reminder…",
+    shareOneClick:"Share",shareMoments:"Share to Moments",shareXhs:"Share to Xiaohongshu",shareLink:"Generate link",copyContent:"Copy",
+    cancel:"Cancel",saveNote:"Save Note",contentLabel:"Content:",chooseNote:"Choose a note to share",viewSquare:"View Community ▸"
+    ,engLl:"AI Analysis",engDb:"Journal Database",engCrossref:"Journal Database · Direct",aiGoal:"Comprehensive analysis based on databases and the internet"
+    ,steps0:"Analyzing",steps1:"Translating question",steps2:"Searching journals",steps3:"AI writing prescription"
+    ,csteps0:"Connecting journal database",csteps1:"Searching papers",csteps2:"Summarizing"
+    ,demoStep0:"Analyzing database…",demoStep1:"Synthesizing…",demoStep2:"Writing prescription…"
+    ,aiStep0:"Connecting AI service…",aiStep1:"Searching global top journals…",aiStep2:"Synthesizing…"
+    ,loadingTitle:"AI is analyzing for you",loadingAiTitle:"AI is synthesizing for you",loadingCrossTitle:"Analyzing"
+    ,noHit:"Search \"{{q}}\" and let AI try"
+    ,wechatCopied:"Copied. Open WeChat and paste",momentsCopied:"Copied. Paste it in Moments",linkCopied:"Website link copied",xhsCopied:"Copied. Paste it in Xiaohongshu"
+    ,savedNote:"Saved to my notes ✓",sigUpdated:"Signature updated",nameUpdated:"Nickname updated",avatarUpdated:"Avatar updated"
+    ,fromBook:"From 《",authorsIn:" · Authors ",essenceNoteDesc:"Core analysis notes on \"{{q}}\""
+    ,adviceNoteDesc:"Notes on advice \"{{a}}\"",adviceLabel:"Advice:",adviceTag:"Advice"
+    ,mineBadge:"Me",pendBadge:"⏳ Pending",shareEmptyTitle:"No shares yet",shareEmptySub:"Be the first to share a note."
+    ,noteEmptyTitle:"No notes yet",noteEmptySub:"Search and take notes first, then share them here.",goNotes:"Go to my notes",saveToMine:"Save to my notes"
+    ,qrFail:"QR code failed to load, use \"Copy Link\"",wechatHint:"Tip: inside WeChat, tap \"···\" at top right to share",noteDetail:"Note Details"
+    ,aiBannerT:"Local AI service is not running",aiBannerSub:". Search will use direct journal access (free)",aiBannerHint:"Double-click",aiBannerHint2:"to enable deep journal search",aiRetry:"Retry"
   }
 };
 let LANG=localStorage.getItem("sportlens_lang")||"zh";
 function t(key){
-  const m=(I18N[LANG]&&I18N[LANG][key])||I18N.zh[key]||key;
-  return m;
+  const d=I18N[LANG]||{};
+  if(key in d&&d[key]!==undefined&&d[key]!==null)return d[key];
+  const z=I18N.zh||{};
+  if(key in z)return z[key];
+  return key;
 }
+function evEn(v){return v==="高"?"High":v==="中"?"Medium":v==="低"?"Low":v;}
 function applyLang(){
   document.documentElement.lang=LANG==="zh"?"zh-CN":"en";
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const k=el.getAttribute("data-i18n");
-    if(k&&t(k))el.textContent=t(k);
+    if(k)el.textContent=t(k);
   });
   document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
     const k=el.getAttribute("data-i18n-ph");
@@ -3146,6 +3256,9 @@ function applyLang(){
   renderQuota();
   renderSig();
   renderUsage();
+  renderDaily();
+  initQuote();
+  if(document.getElementById("viewShare").classList.contains("show"))renderShare();
   const cb=document.getElementById("checkinLabel");
   if(cb)cb.textContent=checkedIn?t("checkinDone"):t("checkinBtn");
 }
@@ -3195,16 +3308,16 @@ function doSearch(){
   if(!q){$(".search-box").classList.remove("shake");void $(".search-box").offsetWidth;$(".search-box").classList.add("shake");input.focus();return;}
   const used=usageToday();
   if(used>=SEARCH_DAILY_LIMIT){
-    toast("今日 "+SEARCH_DAILY_LIMIT+" 次搜索额度已用完，明天再来吧");
+    toast(t("quotaUsedUp").replace("{{n}}",SEARCH_DAILY_LIMIT));
     return;
   }
   checkViolation(q);
   saveUsage(used+1);
   renderQuota();
   if(used+1>=SEARCH_DAILY_LIMIT){
-    toast("今日 "+SEARCH_DAILY_LIMIT+" 次搜索额度已用完");
+    toast(t("quotaUsedUp").replace("{{n}}",SEARCH_DAILY_LIMIT));
   }else if(used+1===SEARCH_DAILY_LIMIT-10){
-    toast("提醒：今日搜索余额还剩 10 次");
+    toast(t("quotaRemind"));
   }
   pushHistory(q);
   const btn=$("#searchBtn");
@@ -3269,7 +3382,7 @@ async function tryAiSearch(q){
   const timer=setTimeout(()=>ctrl.abort(),30000);
   const t0=performance.now();
   try{
-    const res=await fetch(AI_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({q}),signal:ctrl.signal});
+    const res=await fetch(AI_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({q,lang:LANG}),signal:ctrl.signal});
     clearTimeout(timer);
     searching=false;
     const dt=((performance.now()-t0)/1000).toFixed(1);
@@ -3289,7 +3402,7 @@ async function tryAiSearch(q){
     clearTimeout(timer);
     searching=false;
     closeRxModal();
-    toast("未连上 AI 分析服务，改用示例资料库");
+    toast(t("aiFail"));
     return false;
   }
 }
@@ -3403,7 +3516,7 @@ function renderAiResults(ai,dt){
   lastPapers=papers;
   const rx={
     q:ai.query||"",
-    goal:"结合数据库与互联网综合分析 · 依你的问题",
+    goal:t("aiGoal"),
     essence:ai.essence||"",
     advice:(ai.advice||[]).map(a=>({t:a.text,s:a.source}))
   };
@@ -3463,7 +3576,7 @@ $("#avatarFile").addEventListener("change",function(){
     localStorage.setItem("sportlens_user_avatar",user.avatar);
     renderUser();
     openUserModal();
-    toast("头像已更新");
+  toast(t("avatarUpdated"));
   };
   rd.readAsDataURL(f);
   this.value="";

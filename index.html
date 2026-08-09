@@ -2342,8 +2342,11 @@ function initWelcome(){
   function dismiss(){
     if(done)return;done=true;
     ov.classList.add("hide");
-    document.body.style.overflow="";
-    setTimeout(()=>{ov.style.display="none";},reduced?60:400);
+    setTimeout(()=>{
+      document.body.style.overflow="";
+      ov.style.display="none";
+      staggerReveal($("#viewHome"), ".hero-head, .hero-quote, .search-card, .usage, .daily-block", 55);
+    },reduced?60:760);
   }
   const timer=setTimeout(dismiss,reduced?400:1400);
   ov.addEventListener("click",()=>{clearTimeout(timer);dismiss();});
@@ -3773,7 +3776,6 @@ renderHistory();
 renderNotesBadge();
 renderQuota();
 applyLang();
-staggerReveal($("#viewHome"), ".hero-head, .hero-quote, .search-card, .usage, .daily-block", 55);
 layoutSources();
 window.addEventListener("resize",()=>{clearTimeout(window.__srcT);window.__srcT=setTimeout(layoutSources,150);});
 

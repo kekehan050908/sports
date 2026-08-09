@@ -762,6 +762,16 @@ body.searching #toTop{
 }
 #noteText:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(92,138,106,.12)}
 .note-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
+
+/* ============ 网站风格输入弹窗 ============ */
+.input-panel{width:min(420px,92vw)}
+.input-field{
+  width:100%;padding:14px 16px;border:1.5px solid var(--border-strong);border-radius:var(--radius-md);
+  background:var(--surface-2);font-family:inherit;font-size:15px;color:var(--text);line-height:1.5;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.input-field:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(92,138,106,.12)}
+.input-hint{font-size:11.5px;color:var(--faint);margin-top:8px}
 .notes-list{display:grid;gap:14px}
 .note-card{
   display:block;
@@ -1227,6 +1237,7 @@ body.searching #toTop{
   .di-src{display:none}
   .daily-list{gap:1px}
   #noteText{font-size:16px}
+  .input-field{font-size:16px}
   .modal-head{padding:12px 16px;border-radius:18px 18px 0 0}
   .modal-panel{border-radius:18px}
   .modal-body{padding:18px 16px 26px}
@@ -1345,7 +1356,7 @@ body.searching #toTop{
           <div class="suggest-wrap">
             <form class="search-box" id="searchForm" role="search" aria-label="文献搜寻">
               <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-              <input id="searchInput" type="search" placeholder="例如：HIIT 怎么练最有效？" autocomplete="off" aria-label="输入训练问题">
+              <input id="searchInput" type="search" placeholder="例如：HIIT 怎么练最有效？" autocomplete="off" aria-label="输入训练问题" data-i18n-ph="searchPh">
               <span class="quota-left" id="quotaLeft">剩余 30 次</span>
               <button class="search-btn" type="submit" id="searchBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M4 13.5 20 6"/></svg>
@@ -1370,7 +1381,7 @@ body.searching #toTop{
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/></svg>
             <span data-i18n="usageTitle">本月打卡</span>
           </div>
-          <button class="sig-line" id="sigLine" type="button" onclick="toast('请点击右上角头像修改个性签名')" title="在右上角头像中修改个性签名">个性签名：坚持，就是最好的天赋</button>
+          <button class="sig-line" id="sigLine" type="button" onclick="toast(t('sigHeadHint'))" title="个性化签名">个性签名：坚持，就是最好的天赋</button>
 
           <div class="task-card">
             <div class="task-label" data-i18n="taskLabel">今日任务</div>
@@ -1541,6 +1552,28 @@ body.searching #toTop{
   </div>
 </div>
 
+<!-- ============ 网站风格输入弹窗（昵称 / 签名 / 任务） ============ -->
+<div id="inputModal" class="modal" role="dialog" aria-modal="true" aria-label="编辑">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel note-panel input-panel" role="document">
+    <div class="modal-head">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+        <span id="inputModalTitle" data-i18n="editTitle">编辑</span>
+      </div>
+      <button class="modal-close" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <input id="inputModalField" class="input-field" type="text" autocomplete="off" maxlength="30" />
+      <div class="input-hint" id="inputModalHint"></div>
+      <div class="note-actions">
+        <button class="act-btn" data-close data-i18n="cancel">取消</button>
+        <button class="act-btn primary" id="inputModalOk" type="button" data-i18n="saveBtn">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ============ 选择笔记分享 ============ -->
 <div id="sharePickModal" class="modal" role="dialog" aria-modal="true" aria-label="选择要分享的笔记">
   <div class="modal-backdrop" data-close></div>
@@ -1704,7 +1737,7 @@ body.searching #toTop{
 
 <div id="toast" role="status">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
-  <span id="toastText">已复制</span>
+  <span id="toastText"></span>
 </div>
 
 <script src="./literature.js"></script>
@@ -1939,7 +1972,7 @@ function renderSig(){
     el.className="sig-line";
     el.id="sigLine";
     el.type="button";
-    el.title="点击修改个性签名";
+    el.title=t("sigClickHint");
     el.onclick=editSig;
     host.parentNode.insertBefore(el,host.nextSibling);
   }
@@ -1948,26 +1981,10 @@ function renderSig(){
   if(sv)sv.textContent=sig;
 }
 function editSig(){
-  const el=document.getElementById("sigLine");
-  if(!el)return;
-  const input=document.createElement("input");
-  input.className="sig-line-input";
-  input.value=sig;
-  input.maxLength=30;
-  el.replaceWith(input);
-  input.focus();
-  input.select();
-  let done=false;
-  const commit=()=>{
-    if(done)return;done=true;
-    const v=input.value.trim();
-    if(v){sig=v;localStorage.setItem("sportlens_sign",sig);toast(t("sigUpdated"));}
-    renderSig();
-  };
-  input.addEventListener("blur",commit);
-  input.addEventListener("keydown",e=>{
-    if(e.key==="Enter"){commit();}
-    else if(e.key==="Escape"){done=true;renderSig();}
+  openInputModal({
+    title:t("editSignature"),value:sig,maxLength:30,
+    placeholder:t("signaturePlaceholder"),hint:t("inputHint").replace("{{n}}","30"),
+    onOk:v=>{sig=v;localStorage.setItem("sportlens_sign",sig);renderSig();toast(t("sigUpdated"));}
   });
 }
 
@@ -1978,32 +1995,30 @@ function renderTasks(){
   const wrap=document.getElementById("taskSlots");
   if(!wrap)return;
   let html="";
-  tasks.forEach((t,i)=>{
-    html+=`<button class="task-slot${checkinMode?" chk":""}" type="button" onclick="slotClick(${i})" title="${checkinMode?"点击标记完成":"点击修改"}">
-      <span class="ts-num">${i+1}</span><span class="ts-text">${esc(t)}</span>
+  tasks.forEach((tk,i)=>{
+    html+=`<button class="task-slot${checkinMode?" chk":""}" type="button" onclick="slotClick(${i})" title="${checkinMode?t("taskClickDone"):t("taskClickEdit")}">
+      <span class="ts-num">${i+1}</span><span class="ts-text">${esc(tk)}</span>
       ${checkinMode?"":`<span class="ts-ops">
-        <span class="ts-op" onclick="event.stopPropagation();editTaskSlot(${i})">修改</span>
-        <span class="ts-op del" onclick="event.stopPropagation();delTask(${i})">删除</span>
+        <span class="ts-op" onclick="event.stopPropagation();editTaskSlot(${i})">${t("editBtn")}</span>
+        <span class="ts-op del" onclick="event.stopPropagation();delTask(${i})">${t("deleteBtn")}</span>
       </span>`}
     </button>`;
   });
-  html+=tasks.length>=4?"":`<button class="task-add${checkinMode?" hide":""}" type="button" onclick="addTask()" title="添加任务">＋</button>`;
+  html+=tasks.length>=4?"":`<button class="task-add${checkinMode?" hide":""}" type="button" onclick="addTask()" title="${t("taskAddTitle")}">＋</button>`;
   wrap.innerHTML=html;
 }
 function addTask(){
-  if(tasks.length>=4){toast("最多添加 4 个任务");return;}
-  const v=prompt("添加一个今日任务：","");
-  if(v&&v.trim()){tasks.push(v.trim());saveTasks();renderTasks();toast("任务已添加 ✓");}
+  if(tasks.length>=4){toast(t("taskMax"));return;}
+  openInputModal({title:t("addTaskTitle"),value:"",maxLength:40,placeholder:t("taskPlaceholder"),hint:t("inputHint").replace("{{n}}","40"),onOk:v=>{tasks.push(v);saveTasks();renderTasks();toast(t("taskAdded"));}});
 }
 function delTask(i){
   tasks.splice(i,1);
   saveTasks();
   renderTasks();
-  toast("任务已删除");
+  toast(t("taskDeleted"));
 }
 function editTaskSlot(i){
-  const v=prompt("修改任务：",tasks[i]||"");
-  if(v&&v.trim()){tasks[i]=v.trim();saveTasks();renderTasks();toast("任务已更新");}
+  openInputModal({title:t("editTaskTitle"),value:tasks[i]||"",maxLength:40,placeholder:t("taskPlaceholder"),hint:t("inputHint").replace("{{n}}","40"),onOk:v=>{tasks[i]=v;saveTasks();renderTasks();toast(t("taskUpdated"));}});
 }
 
 /* ============ 今日打卡 ============ */
@@ -2015,7 +2030,7 @@ const __checkinLog0=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{
 let checkedIn=Array.isArray(__checkinLog0[todayKey()]);
 let checkinMode=false;
 function doCheckin(){
-  if(checkedIn){toast("本次已打卡，重新登录可再打卡");return;}
+  if(checkedIn){toast(t("alreadyCheckedIn"));return;}
   if(checkinMode){confirmCheckin();return;}
   if(tasks.length){enterCheckinMode();}
   else{completeCheckin();}
@@ -2174,9 +2189,9 @@ function renderCalendar(){
   const todayLog=Array.isArray(log[todayKey()])?log[todayKey()]:[];
   let th="<div class=\"ct-label\">"+t("calTaskLabel")+"</div>";
   if(allTasks.length){
-    allTasks.forEach((t,ti)=>{
-      const ok=todayLog.includes(t);
-      th+=`<div class="cal-task-row${ok?"":" miss"}"><span class="${ok?"ok":"no"}">${ok?"✓":"✗"}</span><span class="ct-num">任务${ti+1}</span><span>${esc(t)}</span></div>`;
+    allTasks.forEach((tk,ti)=>{
+      const ok=todayLog.includes(tk);
+      th+=`<div class="cal-task-row${ok?"":" miss"}"><span class="${ok?"ok":"no"}">${ok?"✓":"✗"}</span><span class="ct-num">${t("taskN")}${ti+1}</span><span>${esc(t)}</span></div>`;
     });
   }else{
     th+=`<div class="cal-task-row"><span class="no">—</span><span>${t("calNoTask")}</span></div>`;
@@ -2184,16 +2199,16 @@ function renderCalendar(){
   calT.innerHTML=th;
   // 每项任务的本月打卡方格（7 格一组）
   let strips="";
-  allTasks.forEach((t,ti)=>{
+  allTasks.forEach((tk,ti)=>{
     let rows="",cells="";
     for(let d=1;d<=daysInMonth;d++){
       const key=prefix+"-"+String(d).padStart(2,"0");
-      const on=(log[key]||[]).includes(t);
+      const on=(log[key]||[]).includes(tk);
       const today=d===now.getDate();
       cells+=`<span class="day-cell${on?" on":" off"}${today?" today2":""}"></span>`;
       if(d%7===0||d===daysInMonth){rows+=`<div class="cs-row">${cells}</div>`;cells="";}
     }
-    strips+=`<div class="cal-strip"><div class="cs-label"><b class="cs-num">任务${ti+1}</b><span>${esc(t)}</span></div><div class="cs-rows">${rows}</div></div>`;
+    strips+=`<div class="cal-strip"><div class="cs-label"><b class="cs-num">${t("taskN")}${ti+1}</b><span>${esc(tk)}</span></div><div class="cs-rows">${rows}</div></div>`;
   });
   $("#calStrips").innerHTML=strips;
 }
@@ -2360,7 +2375,43 @@ $("#calModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))
 $("#sharePickModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#sharePickModal").classList.remove("open");});
 $("#contactModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#contactModal").classList.remove("open");});
 $("#shareModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#shareModal").classList.remove("open");});
-addEventListener("keydown",e=>{if(e.key==="Escape"){closeRxModal();closeNoteModal();$("#userModal").classList.remove("open");$("#viewNoteModal").classList.remove("open");$("#calModal").classList.remove("open");$("#sharePickModal").classList.remove("open");$("#contactModal").classList.remove("open");$("#suggestBox").classList.remove("open");}});
+
+/* ============ 网站风格输入弹窗 ============ */
+let __inputOk=null;
+function openInputModal(o){
+  const m=$("#inputModal");if(!m)return;
+  $("#inputModalTitle").textContent=o.title;
+  const f=$("#inputModalField");
+  f.value=o.value||"";
+  f.maxLength=o.maxLength||30;
+  f.placeholder=o.placeholder||"";
+  $("#inputModalHint").textContent=o.hint||"";
+  __inputOk=o.onOk||null;
+  m.classList.add("open");
+  document.body.style.overflow="hidden";
+  setTimeout(()=>{f.focus();f.select();},60);
+}
+function inputModalConfirm(){
+  const f=$("#inputModalField");
+  const v=(f.value||"").trim();
+  if(!v){f.focus();return;}
+  $("#inputModal").classList.remove("open");
+  document.body.style.overflow="";
+  const cb=__inputOk;__inputOk=null;
+  if(cb)cb(v);
+}
+function inputModalCancel(){
+  $("#inputModal").classList.remove("open");
+  document.body.style.overflow="";
+  __inputOk=null;
+}
+$("#inputModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))inputModalCancel();});
+$("#inputModalOk").addEventListener("click",inputModalConfirm);
+$("#inputModalField").addEventListener("keydown",e=>{
+  if(e.key==="Enter"){e.preventDefault();inputModalConfirm();}
+  else if(e.key==="Escape")inputModalCancel();
+});
+addEventListener("keydown",e=>{if(e.key==="Escape"){closeRxModal();closeNoteModal();$("#userModal").classList.remove("open");$("#viewNoteModal").classList.remove("open");$("#calModal").classList.remove("open");$("#sharePickModal").classList.remove("open");$("#contactModal").classList.remove("open");$("#inputModal").classList.remove("open");document.body.style.overflow="";$("#suggestBox").classList.remove("open");}});
 
 /* ============ 笔记 ============ */
 let notes=JSON.parse(localStorage.getItem("sportlens_notes")||"[]");
@@ -2423,7 +2474,7 @@ function openAdviceNote(i){
 function closeNoteModal(){$("#noteModal").classList.remove("open");editingNoteId=null;}
 function saveNote(){
   const text=$("#noteText").value.trim();
-  if(!text){toast("先写点内容再保存吧");return;}
+  if(!text){toast(t("noteEmptyContent"));return;}
   if(editingNoteId){
     const n=notes.find(x=>x.id===editingNoteId);
     if(n){n.text=text;n.time=new Date().toLocaleString("zh-CN")+"（已编辑）";}
@@ -2432,7 +2483,7 @@ function saveNote(){
     closeNoteModal();
     renderNotesBadge();
     renderNotesList();
-    toast("笔记已更新 ✓");
+    toast(t("noteUpdated"));
     return;
   }
   const s=noteTarget||{j:"",y:"",t:"",doi:""};
@@ -2440,7 +2491,7 @@ function saveNote(){
   localStorage.setItem("sportlens_notes",JSON.stringify(notes));
   closeNoteModal();
   renderNotesBadge();
-  toast("笔记已保存 ✓");
+  toast(t("noteSaved"));
 }
 function shareNote(platform){
   const myText=$("#noteText").value.trim();
@@ -2498,8 +2549,8 @@ function shareOneClick(){
   const myText=$("#noteText").value.trim();
   const base=notePreviewText||"";
   const shareText="【体育家园】"+base+"\n"+(myText?myText+"\n":"")+"——体育家园 "+user.name+" 的笔记\n#运动科学 #训练 #体育家园";
-  const fallback=()=>{makeShareCard(shareText);copyText(shareText);toast("已生成分享图并复制文字，去朋友圈保存/粘贴");};
-  if(navigator.share){navigator.share({title:"体育家园",text:shareText}).then(()=>toast("已唤起系统分享")).catch(fallback);return;}
+  const fallback=()=>{makeShareCard(shareText);copyText(shareText);toast(t("shareCardMadeM"));};
+  if(navigator.share){navigator.share({title:"体育家园",text:shareText}).then(()=>toast(t("shareLaunched"))).catch(fallback);return;}
   fallback();
 }
 function delNote(id){
@@ -2507,7 +2558,7 @@ function delNote(id){
   localStorage.setItem("sportlens_notes",JSON.stringify(notes));
   renderNotesBadge();
   renderNotesList();
-  toast("笔记已删除");
+  toast(t("noteDeleted"));
 }
 function openNotes(){
   $("#viewHome").classList.remove("show");
@@ -2521,8 +2572,8 @@ function renderNotesList(){
   if(!notes.length){
     wrap.innerHTML=`<div class="notes-empty">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-      <h3>还没有笔记</h3>
-      <p>搜索文献后，点来源卡片上的“记笔记”，灵感与出处就会一起存下来。</p>
+      <h3>${t("noteEmptyTitle")}</h3>
+      <p>${t("noteEmptySubMine")}</p>
     </div>`;
     return;
   }
@@ -2531,16 +2582,16 @@ function renderNotesList(){
       <div class="nc-src">
         <span class="jtag">${esc(n.src.j)}</span>
         <span class="src-year">${n.src.y}</span>
-        <span class="src-year" style="color:var(--accent-deep)">出自文献</span>
+        <span class="src-year" style="color:var(--accent-deep)">${t("fromPaper")}</span>
       </div>
       <div class="nc-title">《${esc(n.src.t)}》</div>
       <div class="nc-body">${esc(n.text)}</div>
       <div class="note-row">
-        <button class="note-mini" onclick="viewNote(${n.id})">查看</button>
-        <button class="note-mini" onclick="editNote(${n.id})">编辑</button>
-        <button class="note-mini" onclick="shareNoteFromList(${n.id})">分享</button>
-        <button class="note-mini" onclick="shareLinkFromList(${n.id})">链接</button>
-        <button class="note-mini danger" onclick="delNote(${n.id})">删除</button>
+        <button class="note-mini" onclick="viewNote(${n.id})">${t("viewBtn")}</button>
+        <button class="note-mini" onclick="editNote(${n.id})">${t("editBtn")}</button>
+        <button class="note-mini" onclick="shareNoteFromList(${n.id})">${t("shareAction")}</button>
+        <button class="note-mini" onclick="shareLinkFromList(${n.id})">${t("linkBtn")}</button>
+        <button class="note-mini danger" onclick="delNote(${n.id})">${t("deleteBtn")}</button>
       </div>
       <span class="nc-time">${n.time}</span>
     </article>`).join("");
@@ -2552,7 +2603,7 @@ function viewNote(id){
   currentViewNoteId=id;
   $("#viewNoteSaveBtn").hidden=true;
   $("#viewNoteSrc").innerHTML=`<span class="jtag">${esc(n.src.j)}</span>
-    <p>出自《<b>${esc(n.src.t)}</b>》<br>${esc(n.src.j)}${n.src.y?" · "+n.src.y:""}</p>`;
+    <p>${t("fromBook")}<b>${esc(n.src.t)}</b>》<br>${esc(n.src.j)}${n.src.y?" · "+n.src.y:""}</p>`;
   $("#viewNoteBody").textContent=n.text;
   $("#viewNoteModal").classList.add("open");
 }
@@ -2576,8 +2627,8 @@ function editNote(id){
 function shareNoteFromList(id){
   const n=notes.find(x=>x.id===id);if(!n)return;
   const text="【体育家园】"+n.src.t+"\n"+n.text+"\n——体育家园 "+user.name+" 的笔记\n#运动科学 #训练 #体育家园";
-  const fallback=()=>{makeShareCard(text);copyText(text);toast("已生成分享图并复制文字");};
-  if(navigator.share){navigator.share({title:"体育家园",text}).then(()=>toast("已唤起系统分享")).catch(fallback);return;}
+  const fallback=()=>{makeShareCard(text);copyText(text);toast(t("shareCardMade"));};
+  if(navigator.share){navigator.share({title:"体育家园",text}).then(()=>toast(t("shareLaunched"))).catch(fallback);return;}
   fallback();
 }
 function noteLinkBase(){
@@ -2594,22 +2645,22 @@ function shareLinkFromNote(){
   const srcT=(noteTarget&&noteTarget.t)||"核心分析";
   const srcJ=(noteTarget&&noteTarget.j)||"体育家园";
   const link=buildNoteLink({t:srcT,j:srcJ,y:(noteTarget&&noteTarget.y)||"",text:text||notePreviewText||""});
-  if(!link){toast("请先用局域网服务器打开网站，再生成分享链接");return;}
+  if(!link){toast(t("lanServerHint"));return;}
   copyText(link);
-  toast("分享链接已复制，打开即可查看笔记");
+  toast(t("shareLinkCopied"));
 }
 function shareLinkFromList(id){
   const n=notes.find(x=>x.id===id);if(!n)return;
   const link=buildNoteLink({t:n.src.t||"",j:n.src.j||"",y:n.src.y||"",text:n.text||""});
-  if(!link){toast("请先用局域网服务器打开网站，再生成分享链接");return;}
+  if(!link){toast(t("lanServerHint"));return;}
   copyText(link);
-  toast("分享链接已复制，打开即可查看笔记");
+  toast(t("shareLinkCopied"));
 }
 let currentSharedNote=null;
 function showSharedNote(d){
   currentSharedNote=d;
-  $("#viewNoteSrc").innerHTML=`<span class="jtag">${esc(d.j||"共享笔记")}</span>
-    <p>共享笔记 · 来自 体育家园<br>出自《<b>${esc(d.t||"")}</b>》${d.y?" · "+esc(d.y):""}</p>`;
+  $("#viewNoteSrc").innerHTML=`<span class="jtag">${esc(d.j||t("sharedFrom"))}</span>
+    <p>${t("sharedFrom")}<br>${t("fromBook")}<b>${esc(d.t||"")}</b>》${d.y?" · "+esc(d.y):""}</p>`;
   $("#viewNoteBody").textContent=d.text||"";
   $("#viewNoteSaveBtn").hidden=false;
   $("#viewNoteModal").classList.add("open");
@@ -2662,12 +2713,18 @@ function pickAvatar(a){
   openUserModal();
 }
 function editName(){
-  const n=prompt("输入你的昵称：",user.name);
-  if(n&&n.trim()){user.name=n.trim();localStorage.setItem("sportlens_user_name",user.name);renderUser();toast(t("nameUpdated"));}
+  openInputModal({
+    title:t("editNickname"),value:user.name,maxLength:16,
+    placeholder:t("nicknamePlaceholder"),hint:t("inputHint").replace("{{n}}","16"),
+    onOk:v=>{user.name=v;localStorage.setItem("sportlens_user_name",v);renderUser();toast(t("nameUpdated"));}
+  });
 }
 function editSigSettings(){
-  const v=prompt("输入你的个性签名：",sig);
-  if(v!==null&&v.trim()){sig=v.trim();localStorage.setItem("sportlens_sign",sig);renderSig();toast(t("sigUpdated"));}
+  openInputModal({
+    title:t("editSignature"),value:sig,maxLength:30,
+    placeholder:t("signaturePlaceholder"),hint:t("inputHint").replace("{{n}}","30"),
+    onOk:v=>{sig=v;localStorage.setItem("sportlens_sign",sig);renderSig();toast(t("sigUpdated"));}
+  });
 }
 function pickLang(){toast("繁体/英语版即将上线，当前为简体中文");}
 function logoutUser(){toast("已退出登录（演示）");}
@@ -2699,10 +2756,10 @@ function openSharePicker(){
         <div class="pn-title">《${esc(n.src.t)}》</div>
         <div class="pn-body">${esc(n.text)}</div>
         <div class="pn-ops">
-          <button class="note-mini" type="button" onclick="shareMyNote(${n.id})">分享到广场</button>
-          <button class="note-mini" type="button" onclick="shareNoteFromList(${n.id})">朋友圈</button>
-          <button class="note-mini" type="button" onclick="shareXhsFromList(${n.id})">小红书</button>
-          <button class="note-mini" type="button" onclick="shareLinkFromList(${n.id})">链接</button>
+          <button class="note-mini" type="button" onclick="shareMyNote(${n.id})">${t("shareToSquare")}</button>
+          <button class="note-mini" type="button" onclick="shareNoteFromList(${n.id})">${t("moments")}</button>
+          <button class="note-mini" type="button" onclick="shareXhsFromList(${n.id})">${t("xhs")}</button>
+          <button class="note-mini" type="button" onclick="shareLinkFromList(${n.id})">${t("linkBtn")}</button>
         </div>
       </div>`).join("");
   }
@@ -2746,7 +2803,7 @@ function renderShare(){
           : `<button class="sh-like${likedShares.has(s.id)?" on":""}" data-like="${s.id}" onclick="toggleLike('${s.id}')" aria-label="按赞">♥ ${s.likes+(likedShares.has(s.id)?1:0)}</button>`}
       </div>
       <div class="sh-text">${esc(s.text)}</div>
-      ${s.src?`<div class="sh-src">出自《<b>${esc(s.src.t)}</b>》 · ${esc(s.src.j)} ${s.src.y}</div>`:""}
+      ${s.src?`<div class="sh-src">${t("fromBook")}<b>${esc(s.src.t)}</b>》 · ${esc(s.src.j)} ${s.src.y}</div>`:""}
     </article>`).join("");
   requestAnimationFrame(()=>document.querySelectorAll(".share-card").forEach((c,i)=>setTimeout(()=>c.classList.add("in"),50+i*55)));
 }
@@ -2914,7 +2971,7 @@ function shareSystem(){
     navigator.share({title:"体育家园",text:desc,url:url}).catch(()=>{});
   }else{
     copyText(desc+url);
-    toast("已复制链接，去分享给朋友吧");
+    toast(t("copyLinkGo"));
   }
 }
 function copyShareLink(){
@@ -3031,8 +3088,8 @@ window.copyRx=function(data){
   const rx=typeof data==="string"?JSON.parse(data):data;
   const srcList=lastPapers&&lastPapers.length?lastPapers:rx.sources;
   const text="【"+rx.q+"】AI 处方\n\n精华："+rx.essence+"\n\n建议：\n"+rx.advice.map((a,i)=>(i+1)+". "+a.t+"（出自 "+(lastPapers.length?lastPapers[i%lastPapers.length].j+" · "+lastPapers[i%lastPapers.length].y:a.s)+"）").join("\n")+"\n\n数据库文献：\n"+srcList.map(s=>"• "+s.t+" — "+s.j+" "+s.y+" ("+s.doi+")").join("\n");
-  if(navigator.clipboard)navigator.clipboard.writeText(text).then(()=>toast("处方已复制到剪贴簿"));
-  else toast("已复制（请在支援的浏览器使用）");
+  if(navigator.clipboard)navigator.clipboard.writeText(text).then(()=>toast(t("rxCopied")));
+  else toast(t("copiedFallback"));
 };
 
 let toastTimer;
@@ -3151,6 +3208,16 @@ const I18N={
     ,noteEmptyTitle:"还没有笔记",noteEmptySub:"先搜索文献并记笔记，就能从这里选择分享。",goNotes:"去我的笔记",saveToMine:"保存到我的笔记"
     ,qrFail:"二维码加载失败，请用「复制链接」分享",wechatHint:"提示：在微信里打开时，也可以点右上角「···」直接分享给朋友或朋友圈",noteDetail:"笔记详情"
     ,aiBannerT:"本机 AI 分析服务未启动",aiBannerSub:"，搜索将改用浏览器直连期刊数据库（免费）",aiBannerHint:"双击",aiBannerHint2:"可启用期刊数据库深度检索",aiRetry:"重新检查"
+    ,searchPh:"例如：HIIT 怎么练最有效？",searchAria:"输入训练问题",sigClickHint:"点击修改个性签名",sigHeadHint:"请点击右上角头像修改个性签名"
+    ,fromPaper:"出自文献",viewBtn:"查看",editBtn:"编辑",shareAction:"分享",linkBtn:"链接",deleteBtn:"删除"
+    ,noteEmptySubMine:"搜索文献后，点来源卡片上的“记笔记”，灵感与出处就会一起存下来。"
+    ,shareToSquare:"分享到广场",xhs:"小红书",sharedFrom:"共享笔记 · 来自 体育家园"
+    ,shareLinkCopied:"分享链接已复制，打开即可查看笔记",lanServerHint:"请先用局域网服务器打开网站，再生成分享链接"
+    ,shareCardMade:"已生成分享图并复制文字",shareCardMadeM:"已生成分享图并复制文字，去朋友圈保存/粘贴",shareLaunched:"已唤起系统分享"
+    ,copyLinkGo:"已复制链接，去分享给朋友吧",rxCopied:"处方已复制到剪贴簿",copiedFallback:"已复制（请在支援的浏览器使用）"
+    ,noteEmptyContent:"先写点内容再保存吧",noteUpdated:"笔记已更新 ✓",noteSaved:"笔记已保存 ✓",noteDeleted:"笔记已删除",alreadyCheckedIn:"本次已打卡，重新登录可再打卡"
+    ,taskMax:"最多添加 4 个任务",taskAdded:"任务已添加 ✓",taskUpdated:"任务已更新",taskDeleted:"任务已删除",addTaskTitle:"添加今日任务",editTaskTitle:"修改任务",taskPlaceholder:"写下你的任务…",taskN:"任务",taskClickDone:"点击标记完成",taskClickEdit:"点击修改",taskAddTitle:"添加任务"
+    ,saveBtn:"保存",editTitle:"编辑",editNickname:"修改昵称",editSignature:"修改个性签名",nicknamePlaceholder:"输入你的昵称",signaturePlaceholder:"输入你的个性签名",inputHint:"最多 {{n}} 个字"
   },
   en:{
     brandTag:"Global Top Journals × AI Analysis",
@@ -3222,6 +3289,16 @@ const I18N={
     ,noteEmptyTitle:"No notes yet",noteEmptySub:"Search and take notes first, then share them here.",goNotes:"Go to my notes",saveToMine:"Save to my notes"
     ,qrFail:"QR code failed to load, use \"Copy Link\"",wechatHint:"Tip: inside WeChat, tap \"···\" at top right to share",noteDetail:"Note Details"
     ,aiBannerT:"Local AI service is not running",aiBannerSub:". Search will use direct journal access (free)",aiBannerHint:"Double-click",aiBannerHint2:"to enable deep journal search",aiRetry:"Retry"
+    ,searchPh:"e.g. How to train HIIT most effectively?",searchAria:"Ask a training question",sigClickHint:"Click to edit signature",sigHeadHint:"Click the avatar at top right to edit signature"
+    ,fromPaper:"From paper",viewBtn:"View",editBtn:"Edit",shareAction:"Share",linkBtn:"Link",deleteBtn:"Delete"
+    ,noteEmptySubMine:"Search a paper, tap \"Note\" on its source card, and the insight stays together with its source."
+    ,shareToSquare:"Share to Community",xhs:"Xiaohongshu",sharedFrom:"Shared note · from Sports Home"
+    ,shareLinkCopied:"Share link copied, open it to view the note",lanServerHint:"Open the site via a server first to generate a share link"
+    ,shareCardMade:"Share card created & text copied",shareCardMadeM:"Share card created & text copied, save/paste it in Moments",shareLaunched:"System share opened"
+    ,copyLinkGo:"Link copied, share it with friends",rxCopied:"Prescription copied to clipboard",copiedFallback:"Copied (use a supported browser)"
+    ,noteEmptyContent:"Write something first",noteUpdated:"Note updated ✓",noteSaved:"Note saved ✓",noteDeleted:"Note deleted",alreadyCheckedIn:"Already checked in. Log in again to check in"
+    ,taskMax:"Up to 4 tasks",taskAdded:"Task added ✓",taskUpdated:"Task updated",taskDeleted:"Task deleted",addTaskTitle:"Add a Task",editTaskTitle:"Edit Task",taskPlaceholder:"Write your task…",taskN:"Task ",taskClickDone:"Tap to mark done",taskClickEdit:"Tap to edit",taskAddTitle:"Add task"
+    ,saveBtn:"Save",editTitle:"Edit",editNickname:"Edit Nickname",editSignature:"Edit Signature",nicknamePlaceholder:"Enter your nickname",signaturePlaceholder:"Enter your signature",inputHint:"Up to {{n}} characters"
   }
 };
 let LANG=localStorage.getItem("sportlens_lang")||"zh";
@@ -3251,6 +3328,12 @@ function applyLang(){
     const k=el.getAttribute("data-i18n-title");
     if(k&&t(k))el.setAttribute("title",t(k));
   });
+  const si=document.getElementById("searchInput");
+  if(si)si.setAttribute("aria-label",t("searchAria"));
+  const cw=document.getElementById("calWeek");
+  if(cw)cw.innerHTML=LANG==="en"
+    ? ["M","T","W","T","F","S","S"].map(d=>`<span>${d}</span>`).join("")
+    : ["一","二","三","四","五","六","日"].map(d=>`<span>${d}</span>`).join("");
   const lv=document.getElementById("langVal");
   if(lv)lv.textContent=LANG==="zh"?"简体中文":"English";
   renderQuota();

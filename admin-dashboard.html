@@ -1043,7 +1043,7 @@ if(sessionStorage.getItem("sl_admin")==="1"){
 }
 
 /* ============ 真实数据层：覆盖模拟，数据来自本机 localStorage ============ */
-var QUOTA_LIMIT=12; // 与前端一致：演示 12；正式版 30（用 var 避免启动期暂存死区）
+var QUOTA_LIMIT=30; // 与前端一致：每个用户每天 30 次（用 var 避免启动期暂存死区）
 function adminTodayKey2(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
 function adminMonthPrefix2(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");}
 function readUsage2(){try{return JSON.parse(localStorage.getItem("sportlens_usage")||"{}");}catch(e){return {};}}

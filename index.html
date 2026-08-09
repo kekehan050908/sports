@@ -671,6 +671,11 @@ footer{padding:22px 0 12px;background:rgba(255,255,255,.45);margin-top:140px}
   background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:2px 9px;
 }
 .quota-badge.low{color:#c2574d;border-color:#e3b6b1;background:#fdf3f2}
+.quota-left{
+  flex:none;margin-right:8px;font-size:11px;font-weight:600;color:var(--muted);white-space:nowrap;
+}
+.quota-left.low{color:#c2574d}
+@media (min-width:721px){.quota-badge{display:none}}
 .suggest-title{font-size:10.5px;letter-spacing:1.5px;color:var(--faint);padding:6px 10px 4px}
 .suggest button{
   display:flex;align-items:center;gap:8px;width:100%;text-align:left;
@@ -1215,6 +1220,7 @@ body.searching #toTop{
   .search-box{padding:2px 5px 2px 10px;border-radius:10px}
   .search-box input{padding:3px 0;font-size:16px}
   .search-btn{padding:7px 12px;font-size:13px}
+  .quota-left{display:none}
   .dl-label{font-size:12px;margin-bottom:0}
   .ditem{padding:3px 10px;gap:8px;min-height:32px}
   .di-title{font-size:11px}
@@ -1340,12 +1346,13 @@ body.searching #toTop{
             <form class="search-box" id="searchForm" role="search" aria-label="文献搜寻">
               <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
               <input id="searchInput" type="search" placeholder="例如：HIIT 怎么练最有效？" autocomplete="off" aria-label="输入训练问题">
+              <span class="quota-left" id="quotaLeft">剩余 30 次</span>
               <button class="search-btn" type="submit" id="searchBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M4 13.5 20 6"/></svg>
                 生成处方
               </button>
             </form>
-            <span class="quota-badge" id="quotaBadge">今日剩余 12 次</span>
+            <span class="quota-badge" id="quotaBadge">今日剩余 30 次</span>
             <div class="suggest" id="suggestBox" role="listbox" aria-label="搜索建议"></div>
           </div>
         </div>
@@ -3065,7 +3072,7 @@ function crossLoadingHTML(){
 }
 
 /* ============ 每日搜索限额 + 真实用量/违规记录 ============ */
-const SEARCH_DAILY_LIMIT=12; // 演示：每天 12 次；正式版请改为 30
+const SEARCH_DAILY_LIMIT=30; // 正式：每个用户每天 30 次
 function usageToday(){const u=JSON.parse(localStorage.getItem("sportlens_usage")||"{}");return u[todayKey()]||0;}
 function saveUsage(n){const u=JSON.parse(localStorage.getItem("sportlens_usage")||"{}");u[todayKey()]=n;localStorage.setItem("sportlens_usage",JSON.stringify(u));}
 function addTokens(n){
@@ -3094,11 +3101,11 @@ function checkViolation(q){
   return null;
 }
 function renderQuota(){
-  const el=document.getElementById("quotaBadge");
-  if(!el)return;
   const left=Math.max(0,SEARCH_DAILY_LIMIT-usageToday());
-  el.textContent="今日剩余 "+left+" 次";
-  el.classList.toggle("low",left<=10);
+  const b=document.getElementById("quotaBadge");
+  if(b){b.textContent="今日剩余 "+left+" 次";b.classList.toggle("low",left<=10);}
+  const q=document.getElementById("quotaLeft");
+  if(q){q.textContent="剩余 "+left+" 次";q.classList.toggle("low",left<=10);}
 }
 function doSearch(){
   const q=input.value.trim();

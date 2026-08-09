@@ -101,22 +101,35 @@ export default async function handler(req, res) {
   const q = (req.method === "POST" && req.body && req.body.q) || (req.query && req.query.q) || "";
   if (!q || !String(q).trim()) return res.status(400).json({ engine: "error", query: "" });
   const query = String(q).trim();
+  const lang = (req.method === "POST" && req.body && req.body.lang) || (req.query && req.query.lang) || "zh";
+  const isEn = lang === "en";
 
   try {
     const enQ = (await translate(query, "zh-CN", "en")) || query;
     const papers = await crossrefPapers(enQ);
-    const tzList = await Promise.all(papers.map(p => translate(p.title, "auto", "zh-CN")));
-    const azList = await Promise.all(papers.map(p => translate(p.abstract.slice(0, 700), "auto", "zh-CN")));
-    papers.forEach((p, i) => { p.title_zh = tzList[i]; p.abstract_zh = azList[i]; });
+    if (!isEn) {
+      const tzList = await Promise.all(papers.map(p => translate(p.title, "auto", "zh-CN")));
+      const azList = await Promise.all(papers.map(p => translate(p.abstract.slice(0, 700), "auto", "zh-CN")));
+      papers.forEach((p, i) => { p.title_zh = tzList[i]; p.abstract_zh = azList[i]; });
+    }
 
     const paperBlock = papers.length
       ? papers.map((p, i) => (i + 1) + ". [" + (p.journal || "期刊") + " " + p.year + "] " + (p.title_zh || p.title)).join("\n")
       : "（未检索到相关期刊文献，请基于你的运动科学知识回答，并明确标注为一般性建议）";
 
-    const sys = "你是一位严谨的运动科学专家，熟悉全球顶级体育期刊（Nature、Science、BJSM、Sports Medicine、MSSE 等）的研究证据。回答必须：直接给出结论、有证据支撑、给出可执行建议、不虚构文献、不夸大效果。";
-    const userMsg = "用户问题：" + query + "\n\n检索到的相关期刊文献：\n" + paperBlock +
-      "\n\n请严格只返回 JSON（不要任何多余文字）：\n" +
-      '{"essence":"2-3句话直接回答并给出证据结论","advice":[{"text":"具体可执行建议","source":"期刊名 · 年份"}，共3-5条]}';
+    const noPapers = isEn ? "No matching papers found; answer based on sports science knowledge and mark as general advice." : "（未检索到相关期刊文献，请基于你的运动科学知识回答，并明确标注为一般性建议）";
+    const paperBlockFinal = papers.length ? paperBlock : noPapers;
+
+    const sys = isEn
+      ? "You are a rigorous sports science expert familiar with top global journals (Nature, Science, BJSM, Sports Medicine, MSSE, etc.). Answer in English: give a direct evidence-based conclusion, actionable advice, never fabricate papers, never exaggerate effects."
+      : "你是一位严谨的运动科学专家，熟悉全球顶级体育期刊（Nature、Science、BJSM、Sports Medicine、MSSE 等）的研究证据。回答必须：直接给出结论、有证据支撑、给出可执行建议、不虚构文献、不夸大效果。";
+    const userMsg = isEn
+      ? "User question: " + query + "\n\nRelated journal papers found:\n" + paperBlockFinal +
+        "\n\nStrictly return ONLY JSON (no extra text):\n" +
+        '{"essence":"2-3 sentences answering directly with an evidence-based conclusion (in English)","advice":[{"text":"specific actionable advice (in English)","source":"Journal · Year"},3-5 items]}'
+      : "用户问题：" + query + "\n\n检索到的相关期刊文献：\n" + paperBlockFinal +
+        "\n\n请严格只返回 JSON（不要任何多余文字）：\n" +
+        '{"essence":"2-3句话直接回答并给出证据结论","advice":[{"text":"具体可执行建议","source":"期刊名 · 年份"}，共3-5条]}';
 
     const ds = await dsChat([{ role: "system", content: sys }, { role: "user", content: userMsg }]);
     const llmText = ds ? ds.content : null;
@@ -126,7 +139,7 @@ export default async function handler(req, res) {
     return res.status(200).json({
       engine: "llm",
       query,
-      essence: parsed.essence || "已结合全球顶级期刊数据库与 AI 综合分析完成。",
+      essence: parsed.essence || (isEn ? "Analysis completed with global top journal database and AI." : "已结合全球顶级期刊数据库与 AI 综合分析完成。"),
       advice: (parsed.advice || []).map(a => ({ text: a.text || "", source: a.source || "" })),
       papers,
       mode_note: "DeepSeek AI · 期刊数据库综合分析",

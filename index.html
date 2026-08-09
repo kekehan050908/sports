@@ -2771,11 +2771,7 @@ function renderUser(){
   if(mIcon)mIcon.innerHTML=avatarHtml(user.avatar);
   if(mName)mName.textContent=user.name;
 }
-function openUserModal(e){
-  if(innerWidth<=720&&e&&e.target&&e.target.closest&&e.target.closest(".nm")){
-    editName();
-    return;
-  }
+function openUserModal(){
   $("#avatarRow").innerHTML=`<button class="avatar-opt" type="button" onclick="document.getElementById('avatarFile').click()" title="从相册选择">📷</button>`
     +AVATARS.map(a=>`<button class="avatar-opt${a===user.avatar?" on":""}" type="button" onclick="pickAvatar('${a}')">${a}</button>`).join("");
   $("#userModal").classList.add("open");

@@ -1965,6 +1965,12 @@ function staggerReveal(container, selector, stepMs, move){
   });
 }
 function goHome(){
+  inputModalCancel();
+  $("#userModal").classList.remove("open");
+  $("#viewNoteModal").classList.remove("open");
+  $("#sharePickModal").classList.remove("open");
+  $("#contactModal").classList.remove("open");
+  closeRxModal();
   $("#viewNotes").classList.remove("show");
   $("#viewShare").classList.remove("show");
   $("#viewHome").classList.remove("show");

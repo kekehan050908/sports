@@ -870,6 +870,24 @@ body.searching #toTop{
 .sh-name{font-size:13.5px;font-weight:700;color:var(--text)}
 .sh-meta{font-size:11px;color:var(--faint);display:block;margin-top:1px}
 .mine-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;color:#fff;background:var(--accent);border-radius:99px;padding:2px 7px;margin-left:6px;vertical-align:2px}
+
+/* 分享网站面板 */
+.share-hero{text-align:center;margin-bottom:14px}
+.sh-title{font-size:14px;font-weight:700;color:var(--text)}
+.sh-url{font-size:10.5px;color:var(--muted);word-break:break-all;margin-top:4px}
+.share-qr{display:block;margin:0 auto 14px;width:190px;height:190px;border:1px solid var(--border);border-radius:14px;padding:6px;background:#fff}
+.share-qr-fallback{text-align:center;font-size:12px;color:var(--muted);margin:0 auto 14px}
+.share-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.share-sq{
+  display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;
+  border:1px solid var(--border);border-radius:14px;background:var(--surface);
+  cursor:pointer;font-family:inherit;font-size:12px;color:var(--text);
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.share-sq:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.share-sq:active{transform:scale(.97)}
+.share-sq .si{font-size:22px;line-height:1}
+.share-wechat-hint{text-align:center;font-size:10.5px;color:var(--faint);margin-top:12px;line-height:1.5}
 .sh-like{
   flex:none;display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--faint);
   border:1px solid var(--border);background:var(--surface);border-radius:999px;padding:6px 11px;
@@ -971,6 +989,8 @@ body.searching #toTop{
   animation:signPop .55s cubic-bezier(.2,1.4,.4,1);
 }
 @keyframes signPop{from{opacity:0;transform:scale(.6) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.sign-brand{display:flex;align-items:center;justify-content:center;gap:5px;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1px;margin-bottom:7px}
+.sign-brand svg{width:13px;height:13px;color:var(--accent)}
 .sign-pop-badge{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px;margin-bottom:10px}
 .sign-pop-text{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--accent-deep);line-height:1.6}
 
@@ -1244,6 +1264,7 @@ body.searching #toTop{
 <!-- ============ 打卡签名弹窗 ============ -->
 <div id="signPopup" class="sign-pop" hidden aria-hidden="true">
   <div class="sign-pop-card">
+    <div class="sign-brand"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 4.5 13.5h5L8 22l9-11.5h-5L13.5 2z"/></svg>体育家园</div>
     <div class="sign-pop-badge">✓ 今日打卡成功</div>
     <div class="sign-pop-text" id="signPopupText"></div>
   </div>
@@ -1539,6 +1560,35 @@ body.searching #toTop{
   </div>
 </div>
 
+<!-- ============ 分享网站 ============ -->
+<div id="shareModal" class="modal" role="dialog" aria-modal="true" aria-label="分享体育家园">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel note-panel" role="document">
+    <div class="modal-head">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+        分享体育家园
+      </div>
+      <button class="modal-close" data-close aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="share-hero">
+        <div class="sh-title">全球顶级期刊数据库 × AI 综合分析</div>
+        <div class="sh-url" id="shareUrlText"></div>
+      </div>
+      <img class="share-qr" id="shareQr" alt="网站二维码" onerror="this.style.display='none';document.getElementById('shareQrFallback').style.display='block'">
+      <div class="share-qr-fallback" id="shareQrFallback" hidden>二维码加载失败，请用「复制链接」分享</div>
+      <div class="share-grid">
+        <button class="share-sq" type="button" onclick="shareToWechat()"><span class="si">💬</span>微信好友</button>
+        <button class="share-sq" type="button" onclick="shareToMoments()"><span class="si">🟢</span>朋友圈</button>
+        <button class="share-sq" type="button" onclick="shareSystem()"><span class="si">📤</span>系统分享</button>
+        <button class="share-sq" type="button" onclick="copyShareLink()"><span class="si">🔗</span>复制链接</button>
+      </div>
+      <div class="share-wechat-hint" id="shareWechatHint" hidden>提示：在微信里打开时，也可以点右上角「···」直接分享给朋友或朋友圈</div>
+    </div>
+  </div>
+</div>
+
 <!-- ============ 账户与设置 ============ -->
 <div id="userModal" class="modal" role="dialog" aria-modal="true" aria-label="账户与设置">
   <div class="modal-backdrop" data-close></div>
@@ -1588,8 +1638,8 @@ body.searching #toTop{
   <div class="modal-panel note-panel" role="document">
     <div class="modal-head">
       <div class="modal-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/></svg>
-        打卡记录
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 4.5 13.5h5L8 22l9-11.5h-5L13.5 2z"/></svg>
+        体育家园 · 打卡记录
       </div>
       <button class="modal-close" data-close aria-label="关闭">✕</button>
     </div>
@@ -2271,6 +2321,7 @@ $("#viewNoteModal").addEventListener("click",e=>{if(e.target.closest("[data-clos
 $("#calModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#calModal").classList.remove("open");});
 $("#sharePickModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#sharePickModal").classList.remove("open");});
 $("#contactModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#contactModal").classList.remove("open");});
+$("#shareModal").addEventListener("click",e=>{if(e.target.closest("[data-close]"))$("#shareModal").classList.remove("open");});
 addEventListener("keydown",e=>{if(e.key==="Escape"){closeRxModal();closeNoteModal();$("#userModal").classList.remove("open");$("#viewNoteModal").classList.remove("open");$("#calModal").classList.remove("open");$("#sharePickModal").classList.remove("open");$("#contactModal").classList.remove("open");$("#suggestBox").classList.remove("open");}});
 
 /* ============ 笔记 ============ */
@@ -2776,7 +2827,7 @@ function renderResults(rx,dt,engine){
     <div class="rx-foot">
       <div class="rx-tip">
         <span class="tip-text">📤 把体育家园分享给朋友，一起用前沿运动科学</span>
-        <button class="tip-btn" type="button" onclick="shareSite()">一键分享网站</button>
+        <button class="tip-btn" type="button" onclick="openShareSite()">一键分享网站</button>
       </div>
       <div class="rx-dis">AI 生成内容仅供参考，不构成医疗或训练处方；期刊内容仅涉及免费内容与摘要，请以原文与专业人士意见为准。</div>
     </div>`;
@@ -2784,12 +2835,50 @@ function renderResults(rx,dt,engine){
   requestAnimationFrame(initMoreBtns);
 }
 
-function shareSite(){
-  const url=location.href.split("#")[0]||location.href;
-  const text="我在用「体育家园」查运动科学文献——全球顶级期刊数据库 × AI 综合分析，推荐给你试试："+url;
-  copyText(text);
-  toast("网站链接已复制，去粘贴给朋友吧");
+function shareDesc(){
+  return "体育家园：全球顶级期刊数据库 × AI 综合分析，把世界先进的运动理念带给每一位教练与运动员。";
 }
+function shareUrl(){
+  return location.href.split("#")[0]||location.href;
+}
+function inWechat(){return /MicroMessenger/i.test(navigator.userAgent);}
+function openShareSite(){
+  $("#shareUrlText").textContent=shareUrl();
+  const qr=document.getElementById("shareQr");
+  if(qr)qr.src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data="+encodeURIComponent(shareUrl());
+  const fb=document.getElementById("shareQrFallback");
+  if(fb)fb.hidden=true;
+  if(qr)qr.style.display="";
+  const hint=document.getElementById("shareWechatHint");
+  if(hint)hint.hidden=!inWechat();
+  $("#shareModal").classList.add("open");
+}
+function shareToWechat(){
+  const text="我在用「体育家园」查运动科学文献——"+shareDesc()+shareUrl();
+  if(window.WeixinJSBridge){WeixinJSBridge.invoke("sendAppMessage",{title:"体育家园",desc:shareDesc(),link:shareUrl(),imgUrl:""},()=>{});return;}
+  copyText(text);
+  toast("已复制，打开微信粘贴给好友");
+}
+function shareToMoments(){
+  const text="【体育家园】"+shareDesc()+shareUrl();
+  if(window.WeixinJSBridge){WeixinJSBridge.invoke("shareTimeline",{title:"体育家园",desc:shareDesc(),link:shareUrl(),imgUrl:""},()=>{});return;}
+  copyText(text);
+  toast("已复制，去朋友圈粘贴");
+}
+function shareSystem(){
+  const desc=shareDesc(),url=shareUrl();
+  if(navigator.share){
+    navigator.share({title:"体育家园",text:desc,url:url}).catch(()=>{});
+  }else{
+    copyText(desc+url);
+    toast("已复制链接，去分享给朋友吧");
+  }
+}
+function copyShareLink(){
+  copyText(shareUrl());
+  toast("网站链接已复制");
+}
+function shareSite(){openShareSite();}
 function toggleMore(btn){
   const at=btn.closest(".advice").querySelector(".at");
   if(!at)return;

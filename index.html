@@ -2689,7 +2689,7 @@ function renderResults(rx,dt,engine){
   lastAdvice=rx.advice||[];
   lastQuery=rx.q||"";
   const papers=lastPapers&&lastPapers.length?lastPapers:[];
-  const srcs=(papers.length?papers:(rx.sources||[])).slice(0,3);
+  const srcs=(papers.length?papers:(rx.sources||[])).slice(0,2);
   const miss=papers.length?"":(engine?(engine==="llm"?`<div class="db-miss">以下内容由 AI 结合数据库与公开信息综合分析（来源为 AI 知识库）</div>`:`<div class="db-miss">数据库暂未匹配到相关内容，请换个问法试试</div>`):`<div class="db-miss">资料库暂无直接匹配文献，以下为综合处方与既有来源</div>`);
   const engChip=engine?`<span class="rm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>${engine==="llm"?"AI 综合分析":engine==="rule"?"期刊数据库":engine==="crossref"?"期刊数据库 · 浏览器直连":"AI 分析"}</span>`:"";
   const html=`

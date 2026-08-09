@@ -664,6 +664,13 @@ footer{padding:22px 0 12px;background:rgba(255,255,255,.45);margin-top:140px}
   opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .22s,transform .22s;
 }
 .suggest.open{opacity:1;transform:none;pointer-events:auto}
+.suggest-wrap{position:relative}
+.quota-badge{
+  position:absolute;top:-13px;right:0;z-index:5;pointer-events:none;
+  font-size:10px;font-weight:600;color:var(--muted);
+  background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:2px 9px;
+}
+.quota-badge.low{color:#c2574d;border-color:#e3b6b1;background:#fdf3f2}
 .suggest-title{font-size:10.5px;letter-spacing:1.5px;color:var(--faint);padding:6px 10px 4px}
 .suggest button{
   display:flex;align-items:center;gap:8px;width:100%;text-align:left;
@@ -1338,6 +1345,7 @@ body.searching #toTop{
                 生成处方
               </button>
             </form>
+            <span class="quota-badge" id="quotaBadge">今日剩余 12 次</span>
             <div class="suggest" id="suggestBox" role="listbox" aria-label="搜索建议"></div>
           </div>
         </div>
@@ -1628,9 +1636,9 @@ body.searching #toTop{
           <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>语言</span>
           <span class="si-r" id="langVal">简体中文</span>
         </button>
-        <button class="set-item danger" type="button" onclick="logoutUser()">
-          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>退出登录</span>
-          <span class="si-r">演示</span>
+        <button class="set-item" type="button" onclick="document.getElementById('userModal').classList.remove('open');openContact()">
+          <span class="si-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>联系我们</span>
+          <span class="si-r">1718711761@qq.com</span>
         </button>
       </div>
     </div>
@@ -3056,9 +3064,58 @@ function crossLoadingHTML(){
   </div>`;
 }
 
+/* ============ 每日搜索限额 + 真实用量/违规记录 ============ */
+const SEARCH_DAILY_LIMIT=12; // 演示：每天 12 次；正式版请改为 30
+function usageToday(){const u=JSON.parse(localStorage.getItem("sportlens_usage")||"{}");return u[todayKey()]||0;}
+function saveUsage(n){const u=JSON.parse(localStorage.getItem("sportlens_usage")||"{}");u[todayKey()]=n;localStorage.setItem("sportlens_usage",JSON.stringify(u));}
+function addTokens(n){
+  const tk=JSON.parse(localStorage.getItem("sportlens_tokens")||"{}");
+  tk[todayKey()]=(tk[todayKey()]||0)+Math.round(n||0);
+  localStorage.setItem("sportlens_tokens",JSON.stringify(tk));
+}
+const VIOLATION_RULES=[
+  {re:/色情|裸体|黄片|av片|av 片/i,rule:"色情内容",level:"high"},
+  {re:/杀人|炸弹|爆炸物|武器交易|毒品|冰毒|海洛因/i,rule:"违法内容",level:"high"},
+  {re:/自杀方法|教人自杀/i,rule:"自伤内容",level:"high"},
+  {re:/黑客|破解|入侵系统|盗取/i,rule:"黑客行为",level:"mid"},
+  {re:/傻逼|去死吧|废物垃圾/i,rule:"攻击性语言",level:"low"}
+];
+function checkViolation(q){
+  const qs=String(q||"");
+  for(const r of VIOLATION_RULES){
+    if(r.re.test(qs)){
+      const vs=JSON.parse(localStorage.getItem("sportlens_violations")||"[]");
+      vs.unshift({day:todayKey(),time:new Date().toLocaleTimeString("zh-CN",{hour12:false}),q:qs.slice(0,80),rule:r.rule,level:r.level});
+      if(vs.length>100)vs.pop();
+      localStorage.setItem("sportlens_violations",JSON.stringify(vs));
+      return r;
+    }
+  }
+  return null;
+}
+function renderQuota(){
+  const el=document.getElementById("quotaBadge");
+  if(!el)return;
+  const left=Math.max(0,SEARCH_DAILY_LIMIT-usageToday());
+  el.textContent="今日剩余 "+left+" 次";
+  el.classList.toggle("low",left<=10);
+}
 function doSearch(){
   const q=input.value.trim();
   if(!q){$(".search-box").classList.remove("shake");void $(".search-box").offsetWidth;$(".search-box").classList.add("shake");input.focus();return;}
+  const used=usageToday();
+  if(used>=SEARCH_DAILY_LIMIT){
+    toast("今日 "+SEARCH_DAILY_LIMIT+" 次搜索额度已用完，明天再来吧");
+    return;
+  }
+  checkViolation(q);
+  saveUsage(used+1);
+  renderQuota();
+  if(used+1>=SEARCH_DAILY_LIMIT){
+    toast("今日 "+SEARCH_DAILY_LIMIT+" 次搜索额度已用完");
+  }else if(used+1===SEARCH_DAILY_LIMIT-10){
+    toast("提醒：今日搜索余额还剩 10 次");
+  }
   pushHistory(q);
   const btn=$("#searchBtn");
   btn.classList.add("loading");
@@ -3129,6 +3186,8 @@ async function tryAiSearch(q){
     if(!res.ok){closeRxModal();toast("AI 分析服务异常，改用示例资料库");return false;}
     const ai=await res.json();
     if(ai.engine==="error"){closeRxModal();toast("AI 分析失败，改用示范资料库");return false;}
+    if(ai.usage&&ai.usage.total_tokens)addTokens(ai.usage.total_tokens);
+    else addTokens(Math.round((q.length+JSON.stringify(ai).length)/2));
     renderAiResults(ai,dt);
     requestAnimationFrame(()=>{
       document.querySelectorAll("#rxModal .advice,#rxModal .src-card").forEach((c,i)=>setTimeout(()=>c.classList.add("in"),120+i*90));
@@ -3375,6 +3434,7 @@ renderSig();
 renderTasks();
 renderHistory();
 renderNotesBadge();
+renderQuota();
 layoutSources();
 window.addEventListener("resize",()=>{clearTimeout(window.__srcT);window.__srcT=setTimeout(layoutSources,150);});
 

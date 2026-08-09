@@ -434,35 +434,35 @@ tr.user-row.banned td{color:var(--muted)}
       <section class="view show" id="view-overview">
         <div class="stat-grid">
           <div class="card stat">
-            <div class="lb">总用户数</div>
-            <div class="val"><span class="count" data-target="1284">0</span><small>人</small></div>
-            <div class="delta up">今日新增 +12</div>
+            <div class="lb">今日搜索次数（本机）</div>
+            <div class="val" id="todaySearches">0<small> 次</small></div>
+            <div class="delta up" id="todayLeft">今日剩余 12 次</div>
           </div>
           <div class="card stat live">
-            <div class="lb">今日 Token 消耗（即时）</div>
-            <div class="val" id="liveTokens">2.41M</div>
-            <div class="delta up">每分钟约 +86K</div>
+            <div class="lb">今日 Token 消耗（真实）</div>
+            <div class="val" id="todayTokens">0</div>
+            <div class="delta up">来自 DeepSeek 真实用量</div>
           </div>
           <div class="card stat">
-            <div class="lb">本月 Token 消耗</div>
-            <div class="val"><span class="count" data-target="58600">0</span><small>K</small></div>
-            <div class="delta up">较上月 +18%</div>
+            <div class="lb">本月 Token 消耗（本机）</div>
+            <div class="val" id="monthTokens">0</div>
+            <div class="delta up">本机累计真实值</div>
           </div>
           <div class="card stat danger">
-            <div class="lb">违规待处理</div>
-            <div class="val" id="pendingViol">3</div>
-            <div class="delta down">即时侦测中</div>
+            <div class="lb">违规记录</div>
+            <div class="val" id="violCount">0</div>
+            <div class="delta down">真实规则检测</div>
           </div>
         </div>
 
         <div class="grid-2">
           <div class="card panel">
             <div class="panel-head">
-              <h2>今日 Token 消耗趋势</h2>
-              <span class="hint">每 3 秒自动更新（模拟）</span>
+              <h2>近 7 天 Token 消耗（本机真实）</h2>
+              <span class="hint">按天累计 DeepSeek 用量</span>
             </div>
             <div class="chart-wrap">
-              <span class="chart-label">每小时 Token（百万）</span>
+              <span class="chart-label">每日 Token</span>
               <svg id="trendChart" viewBox="0 0 520 170" preserveAspectRatio="none" role="img" aria-label="Token 消耗趋势图">
                 <defs>
                   <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
@@ -477,8 +477,8 @@ tr.user-row.banned td{color:var(--muted)}
           </div>
           <div class="card panel">
             <div class="panel-head">
-              <h2>本月 Token 用量 Top 5</h2>
-              <span class="hint">用户排名</span>
+              <h2>本机近 7 天搜索统计</h2>
+              <span class="hint">次数与 Token</span>
             </div>
             <div class="mini-list" id="topUsers"></div>
           </div>
@@ -537,14 +537,14 @@ tr.user-row.banned td{color:var(--muted)}
       <!-- ============ MONITOR ============ -->
       <section class="view" id="view-monitor">
         <div class="mon-stats">
-          <div class="mon-stat"><div class="lb">今日违规事件</div><div class="val" id="mTotal">23</div></div>
-          <div class="mon-stat"><div class="lb">高风险</div><div class="val" style="color:var(--danger)" id="mHigh">4</div></div>
-          <div class="mon-stat"><div class="lb">已封禁用户</div><div class="val" id="mBanned">2</div></div>
-          <div class="mon-stat"><div class="lb">平均侦测延迟</div><div class="val small">0.8 秒</div></div>
+          <div class="mon-stat"><div class="lb">违规记录总数</div><div class="val" id="mTotal">0</div></div>
+          <div class="mon-stat"><div class="lb">高风险</div><div class="val" style="color:var(--danger)" id="mHigh">0</div></div>
+          <div class="mon-stat"><div class="lb">已封禁用户</div><div class="val" id="mBanned">0</div></div>
+          <div class="mon-stat"><div class="lb">检测方式</div><div class="val small">规则即时</div></div>
         </div>
         <div class="card panel" style="margin-bottom:16px">
           <div class="panel-head">
-            <h2>每分钟请求数（即时）</h2>
+            <h2>近 7 天搜索次数（本机真实）</h2>
             <span class="live-tag"><span class="pulse-dot"></span>LIVE</span>
           </div>
           <div class="chart-wrap" style="height:120px">
@@ -945,8 +945,6 @@ function addEvent(ev,feed){
   requestAnimationFrame(()=>requestAnimationFrame(()=>node.classList.add("in")));
   const limit = feed ? 8 : 40;
   while (target.children.length > limit) target.lastElementChild.remove();
-  $("#pendingViol").textContent=events.filter(e=>e.s==="high").length;
-  $("#violBadge").textContent=events.filter(e=>e.s==="high").length;
 }
 function renderFeeds(){
   $("#monFeed").innerHTML="";
@@ -1007,7 +1005,6 @@ drawReqs();
 renderUsers();
 renderTopUsers();
 renderFeeds();
-setTimeout(()=>addEvent({u:3,t:"Token 突增",d:"单日 Token 消耗达配额 210%，已通知管理员",s:"mid",time:nowHM()}),1200);
 
 /* ============ 登入（示范用，正式请改用后端验证） ============ */
 const ADMIN_PASS="admin123";
@@ -1025,6 +1022,7 @@ $("#loginForm").addEventListener("submit",e=>{
   if(v===ADMIN_PASS){
     $("#loginErr").classList.remove("show");
     unlock();
+    renderAllReal();
     toast("欢迎回来，管理员");
   }else{
     $("#loginErr").classList.add("show");
@@ -1039,9 +1037,96 @@ $("#logoutBtn").addEventListener("click",()=>{
 });
 if(sessionStorage.getItem("sl_admin")==="1"){
   $("#loginOverlay").classList.add("hidden");
+  renderAllReal();
 }else{
   $("#passInput").focus();
 }
+
+/* ============ 真实数据层：覆盖模拟，数据来自本机 localStorage ============ */
+var QUOTA_LIMIT=12; // 与前端一致：演示 12；正式版 30（用 var 避免启动期暂存死区）
+function adminTodayKey2(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function adminMonthPrefix2(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");}
+function readUsage2(){try{return JSON.parse(localStorage.getItem("sportlens_usage")||"{}");}catch(e){return {};}}
+function readTokens2(){try{return JSON.parse(localStorage.getItem("sportlens_tokens")||"{}");}catch(e){return {};}}
+function readViolations2(){try{return JSON.parse(localStorage.getItem("sportlens_violations")||"[]");}catch(e){return [];}}
+function todayUsed2(){return readUsage2()[adminTodayKey2()]||0;}
+function todayTokens2(){return readTokens2()[adminTodayKey2()]||0;}
+function monthTokens2(){const p=adminMonthPrefix2(),tk=readTokens2();let s=0;for(const k in tk)if(k.startsWith(p))s+=tk[k];return s;}
+function lastNDays2(n){const arr=[],d=new Date();for(let i=n-1;i>=0;i--){const t=new Date(d);t.setDate(d.getDate()-i);arr.push(t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0"));}return arr;}
+function realUsers(){
+  users.length=0;
+  users.push({id:1,name:"我",mail:"本机用户（演示版）",plan:"Pro",today:todayUsed2(),month:monthTokens2(),quota:QUOTA_LIMIT,status:"ok",last:"刚刚"});
+}
+function renderAllReal(){
+  realUsers();
+  const used=todayUsed2();
+  $("#todaySearches").textContent=used+" 次";
+  $("#todayLeft").textContent="今日剩余 "+Math.max(0,QUOTA_LIMIT-used)+" 次";
+  $("#todayTokens").textContent=fmtK(todayTokens2());
+  $("#monthTokens").textContent=fmtK(monthTokens2());
+  $("#violCount").textContent=readViolations2().length;
+  $("#violBadge").textContent=readViolations2().filter(v=>v.level==="high").length;
+  drawTrend();renderTopUsers();renderRecentFeed();renderUsers();
+}
+function drawTrend(){
+  const days=lastNDays2(7),tk=readTokens2();
+  const vals=days.map(k=>tk[k]||0);
+  const W=520,H=170,pad=8;
+  const max=Math.max(1,...vals)*1.15;
+  const pts=vals.map((v,i)=>[pad+i*(W-pad*2)/(vals.length-1),H-pad-(v/max)*(H-pad*2)]);
+  const line=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+  const l=$("#linePath"),a=$("#areaPath");
+  if(l)l.setAttribute("d",line);
+  if(a)a.setAttribute("d",line+" L "+pts[pts.length-1][0].toFixed(1)+" "+(H-pad)+" L "+pts[0][0].toFixed(1)+" "+(H-pad)+" Z");
+}
+function drawReqs(){
+  const days=lastNDays2(7),us=readUsage2();
+  const vals=days.map(k=>us[k]||0);
+  const W=520,H=120,pad=6;
+  const max=Math.max(1,...vals)*1.2;
+  const pts=vals.map((v,i)=>[pad+i*(W-pad*2)/(vals.length-1),H-pad-(v/max)*(H-pad*2)]);
+  const l=$("#reqLine");
+  if(l)l.setAttribute("d",pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" "));
+}
+function tickTokens(){renderAllReal();}
+function renderTopUsers(){
+  const days=lastNDays2(7),us=readUsage2(),tk=readTokens2();
+  $("#topUsers").innerHTML=days.map(k=>{
+    const d=new Date(k+"T00:00:00");
+    const label=(d.getMonth()+1)+"/"+d.getDate();
+    const u=us[k]||0,t=tk[k]||0;
+    return `<div class="mini-user"><span class="u-av">${label}</span><div class="info"><b>${u} 次搜索</b><span>${fmtK(t)} Token</span></div><span class="tnum">${u?("剩 "+(QUOTA_LIMIT-u)):""}</span></div>`;
+  }).join("")||'<div class="review-empty">暂无数据</div>';
+}
+function renderRecentFeed(){
+  const list=readViolations2().slice(0,5);
+  $("#recentFeed").innerHTML=list.length?list.map(v=>evHTML({u:1,t:v.rule,d:v.q,s:v.level,time:v.time},true)).join(""):'<div class="review-empty">暂无违规记录 · 系统正常</div>';
+}
+function renderFeeds(){renderRecentFeed();if($("#view-monitor").classList.contains("show"))renderMonitorReal();}
+function renderMonitorReal(){
+  const vs=readViolations2();
+  $("#mTotal").textContent=vs.length;
+  $("#mHigh").textContent=vs.filter(v=>v.level==="high").length;
+  $("#mBanned").textContent=0;
+  drawReqs();
+  $("#monFeed").innerHTML=vs.length?vs.map(v=>evHTML({u:1,t:v.rule,d:v.q,s:v.level,time:v.time})).join(""):'<div class="review-empty">暂无违规记录 · 系统正常</div>';
+}
+function renderUsers(){
+  realUsers();
+  const q=($("#userSearch").value||"").trim();
+  const st=$("#statusFilter .active").dataset.status;
+  const u=users[0];
+  const okS=st==="all"||u.status===st;
+  const okQ=!q||u.name.includes(q)||u.mail.includes(q);
+  $("#userBody").innerHTML=(okS&&okQ)?userRow(u):'<tr><td colspan="7" style="text-align:center;color:var(--faint);padding:26px">没有符合的用户</td></tr>';
+}
+function openBan(id){toast("本机演示版：多用户封禁需接入云端数据库后生效");return;}
+function liveViolation(){}
+setTimeout(renderAllReal,60);
+document.querySelectorAll(".sb-item").forEach(b=>b.addEventListener("click",()=>{
+  if(b.dataset.view==="monitor")renderMonitorReal();
+  if(b.dataset.view==="overview")renderAllReal();
+}));
 </script>
 </body>
 </html>

@@ -2288,6 +2288,25 @@ const DAILY=[
   {rx:"睡眠与表现",t:"睡眠少于 6 小时，受伤风险近乎翻倍",en:"Less than 6h of sleep nearly doubles injury risk",s:"J Appl Physiol · 2024"},
   {rx:"跑步经济性",t:"每周 2 次肌力训练，免费提升 2–4% 最大摄氧量",en:"2 strength sessions/week can boost VO2max by 2–4%",s:"MSSE · 2023"},
   {rx:"恢复策略",t:"冷水浸泡 10–15 分钟，快速缓解赛事期酸痛",en:"10–15 min cold water immersion eases race soreness",s:"Sports Med · 2024"},
+  {rx:"肌肥大",t:"同一肌群每周分散 2–3 次训练，优于集中练一次",en:"Split each muscle group across 2–3 weekly sessions beats one big day",s:"JSCR · 2023"},
+  {rx:"运动营养",t:"蛋白质平均分配到每餐，比训练后狂灌更有效",en:"Spreading protein across meals beats post-workout gorging",s:"Sports Med · 2023"},
+  {rx:"HIIT 训练",t:"每周 1 次冲刺间歇，就能改善胰岛素敏感性",en:"One sprint interval session a week improves insulin sensitivity",s:"Med Sci Sports Exerc · 2022"},
+  {rx:"恢复策略",t:"拉伸不能预防损伤，动态热身更关键",en:"Static stretching won't prevent injury; dynamic warm-up matters more",s:"BJSM · 2021"},
+  {rx:"HIIT 训练",t:"4×4 分钟间歇，提升最大摄氧量最快",en:"4×4 min intervals are the fastest way to raise VO2max",s:"Int J Sports Med · 2023"},
+  {rx:"肌肥大",t:"接近力竭的最后几下，才是肌肥大的关键",en:"The last reps near failure drive most muscle growth",s:"Eur J Appl Physiol · 2022"},
+  {rx:"运动营养",t:"赛前 3 天碳水装载，可多跑约 2% 距离",en:"3 days of carb loading can add ~2% endurance distance",s:"Sports Med · 2021"},
+  {rx:"跑步经济性",t:"增强式训练 8 周，跑步经济性提升明显",en:"8 weeks of plyometrics noticeably improves running economy",s:"J Strength Cond Res · 2022"},
+  {rx:"恢复策略",t:"泡沫轴放松，运动后酸痛恢复更快",en:"Foam rolling after exercise speeds up soreness recovery",s:"J Athl Train · 2021"},
+  {rx:"睡眠与表现",t:"赛前 2 天补足睡眠，比任何补给都值",en:"Catching up on sleep before race day beats any supplement",s:"Sports Med · 2022"},
+  {rx:"肌肥大",t:"每周总组数 10–20 组，增肌收益最高",en:"10–20 weekly sets per muscle gives the best gains",s:"JSCR · 2023"},
+  {rx:"HIIT 训练",t:"乳酸阈值训练，让配速更快更持久",en:"Lactate threshold training makes your pace faster and longer",s:"Int J Sports Physiol Perform · 2022"},
+  {rx:"运动营养",t:"训练后 30–60 分钟补充蛋白+碳水，恢复最优",en:"Protein + carbs within 30–60 min after training optimizes recovery",s:"J Int Soc Sports Nutr · 2021"},
+  {rx:"恢复策略",t:"离心训练能有效缓解延迟性肌肉酸痛",en:"Eccentric exercise helps ease delayed muscle soreness",s:"J Strength Cond Res · 2022"},
+  {rx:"睡眠与表现",t:"冥想 10 分钟，可降低赛前焦虑提升专注",en:"10 min of meditation lowers pre-race anxiety and sharpens focus",s:"J Sport Exerc Psychol · 2023"},
+  {rx:"跑步经济性",t:"核心稳定训练，让跑步姿态更省力",en:"Core stability training makes running posture more efficient",s:"J Sports Sci · 2022"},
+  {rx:"运动营养",t:"运动前 2 小时补水 500ml，表现更稳定",en:"500ml fluid 2h before exercise stabilizes performance",s:"Sports Med · 2021"},
+  {rx:"肌肥大",t:"深蹲重量上不去，先查动作幅度和频率",en:"Stuck squat? Check range of motion and weekly frequency first",s:"JSCR · 2023"},
+  {rx:"恢复策略",t:"高原训练 2 周，红细胞量显著上升",en:"2 weeks of altitude training significantly raises red cell mass",s:"Scand J Med Sci Sports · 2022"},
 ];
 function initDaily(){
   let idx=parseInt(localStorage.getItem("sportlens_daily_idx")||"0",10);
@@ -2298,8 +2317,13 @@ function renderDaily(){
   const wrap=document.getElementById("dailyList");
   if(!wrap)return;
   const idx=parseInt(localStorage.getItem("sportlens_daily_idx")||"0",10)%DAILY.length;
-  const arr=[...DAILY.slice(idx),...DAILY.slice(0,idx)];
-  wrap.innerHTML=arr.map(d=>`
+  const arr=[...DAILY.slice(idx),...DAILY.slice(0,idx)].slice(0,3);
+  renderDailyList(arr);
+}
+function renderDailyList(list){
+  const wrap=document.getElementById("dailyList");
+  if(!wrap||!list||!list.length)return;
+  wrap.innerHTML=list.map(d=>`
     <div class="ditem" onclick="openDailyItem('${d.rx}')" title="${LANG==="en"?"View":"点击查看"}">
       <span class="di-star" aria-hidden="true">✦</span>
       <div class="di-info">
@@ -2308,7 +2332,6 @@ function renderDaily(){
       </div>
     </div>`).join("");
 }
-
 /* ============ 最近搜索（前六条历史） ============ */
 let history=(()=>{
   try{const h=JSON.parse(localStorage.getItem("sportlens_history")||"null");return Array.isArray(h)?h:null;}catch(e){return null;}

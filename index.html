@@ -20,8 +20,6 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="体育家园 ｜ 全球顶级期刊运动数据库">
 <meta name="twitter:description" content="结合全球顶级期刊建立的数据库，AI 为您分析世界先进的运动理念。">
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" href="./icons/icon-180.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23f6f7f2'/%3E%3Cpath d='M18.5 6 10 17h5.2L13.8 26 23 14h-5.4L18.5 6z' fill='%235c8a6a'/%3E%3C/svg%3E">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"体育家园","alternateName":"全球顶级期刊运动数据库","description":"结合全球顶级期刊建立的运动科学数据库，为您带来世界先进的运动理念。","inLanguage":"zh-Hans"}
@@ -3824,13 +3822,6 @@ applyLang();
 layoutSources();
 window.addEventListener("resize",()=>{clearTimeout(window.__srcT);window.__srcT=setTimeout(layoutSources,150);});
 
-/* ============ PWA：可离线、可加到主画面 ============ */
-if("serviceWorker" in navigator){
-  window.addEventListener("load",()=>{
-    const ok=location.protocol==="https:"||["localhost","127.0.0.1"].includes(location.hostname);
-    if(ok)navigator.serviceWorker.register("./sw.js").catch(()=>{});
-  });
-}
 </script>
 </body>
 </html>

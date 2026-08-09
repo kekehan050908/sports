@@ -1887,8 +1887,10 @@ function goHome(){
 
 /* ============ 打卡：本月使用概况 ============ */
 function renderUsage(){
-  const checked=checkedIn;
-  const used=checked?13:12;
+  const now=new Date();
+  const prefix=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
+  const log=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{}");
+  const used=Object.keys(log).filter(k=>k.startsWith(prefix)).length;
   $("#checkinDays").dataset.target=used;
   let html="";
   for(let i=1;i<=31;i++){
@@ -1985,7 +1987,12 @@ function editTaskSlot(i){
 }
 
 /* ============ 今日打卡 ============ */
-let checkedIn=false;
+function todayKey(){
+  const d=new Date();
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+const __checkinLog0=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{}");
+let checkedIn=Array.isArray(__checkinLog0[todayKey()]);
 let checkinMode=false;
 function doCheckin(){
   if(checkedIn){toast("本次已打卡，重新登录可再打卡");return;}
@@ -1995,6 +2002,7 @@ function doCheckin(){
 }
 function enterCheckinMode(){
   checkinMode=true;
+  playConfirm();
   document.querySelector(".task-card").classList.add("checking");
   renderTasks();
   $("#checkinLabel").textContent="确认打卡";
@@ -2027,10 +2035,8 @@ function confirmCheckin(){
   completeCheckin(done);
 }
 function logTodayCheckin(done){
-  const d=new Date();
-  const key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
   const log=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{}");
-  log[key]=done;
+  log[todayKey()]=done;
   localStorage.setItem("sportlens_checkin_log",JSON.stringify(log));
 }
 function completeCheckin(done){
@@ -2049,10 +2055,14 @@ function completeCheckin(done){
     dots.appendChild(d);
     setTimeout(()=>{d.style.transform="scale(1.4)";setTimeout(()=>d.style.transform="scale(1)",260);},40);
   }
+  const now=new Date();
+  const prefix=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
+  const log=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{}");
+  const monthUsed=Object.keys(log).filter(k=>k.startsWith(prefix)).length;
   const days=$("#checkinDays");
-  days.textContent=+days.textContent+1;
-  $("#daysCaption").textContent="已使用 "+days.textContent+" 天";
-  $("#usageBarFill").style.width=(+days.textContent/31*100)+"%";
+  days.textContent=monthUsed;
+  $("#daysCaption").textContent="已使用 "+monthUsed+" 天";
+  $("#usageBarFill").style.width=(monthUsed/31*100)+"%";
   toast("今日打卡成功，继续保持 💪");
   showSignPopup();
 }
@@ -2119,23 +2129,27 @@ function openCalendar(){
 }
 function renderCalendar(){
   const now=new Date();
-  $("#calMonth").textContent=(now.getMonth()+1)+" 月";
-  const used=checkedIn?13:12;
+  $("#calMonth").textContent=now.getFullYear()+" 年 "+(now.getMonth()+1)+" 月";
+  const prefix=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
+  const log=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{}");
+  const used=Object.keys(log).filter(k=>k.startsWith(prefix)).length;
   $("#calStats").textContent="已打卡 "+used+" 天";
+  const daysInMonth=new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
   let html="";
-  for(let d=1;d<=31;d++){
-    const on=d<=used;
+  for(let d=1;d<=daysInMonth;d++){
+    const key=prefix+"-"+String(d).padStart(2,"0");
+    const on=Array.isArray(log[key]);
     const today=d===now.getDate();
     html+=`<div class="cal-cell${on?" on":""}${today?" today":""}">${d}</div>`;
   }
   $("#calGrid").innerHTML=html;
   const calT=$("#calTasks");
   const allTasks=JSON.parse(localStorage.getItem("sportlens_tasks")||"[]");
-  const doneTasks=JSON.parse(localStorage.getItem("sportlens_checkin_tasks")||"[]");
+  const todayLog=Array.isArray(log[todayKey()])?log[todayKey()]:[];
   let th="<div class=\"ct-label\">今日任务打卡</div>";
   if(allTasks.length){
     allTasks.forEach((t,ti)=>{
-      const ok=doneTasks.includes(t);
+      const ok=todayLog.includes(t);
       th+=`<div class="cal-task-row${ok?"":" miss"}"><span class="${ok?"ok":"no"}">${ok?"✓":"✗"}</span><span class="ct-num">任务${ti+1}</span><span>${esc(t)}</span></div>`;
     });
   }else{
@@ -2143,13 +2157,11 @@ function renderCalendar(){
   }
   calT.innerHTML=th;
   // 每项任务的本月打卡方格（7 格一组）
-  const log=JSON.parse(localStorage.getItem("sportlens_checkin_log")||"{}");
-  const daysInMonth=new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
   let strips="";
   allTasks.forEach((t,ti)=>{
     let rows="",cells="";
     for(let d=1;d<=daysInMonth;d++){
-      const key=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
+      const key=prefix+"-"+String(d).padStart(2,"0");
       const on=(log[key]||[]).includes(t);
       const today=d===now.getDate();
       cells+=`<span class="day-cell${on?" on":" off"}${today?" today2":""}"></span>`;
@@ -3345,6 +3357,10 @@ renderDaily();
 if(!STATIC_MODE)aiServerOk(true).then(ok=>{if(!ok)$("#aiBanner").hidden=false;});
 renderUser();
 renderUsage();
+if(checkedIn){
+  const cb=$("#checkinBtn");
+  if(cb){cb.classList.add("done");$("#checkinLabel").textContent="今日已打卡";}
+}
 initCounters();
 initQuote();
 renderSig();

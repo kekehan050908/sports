@@ -694,6 +694,7 @@ body.searching #toTop{
 /* ============ 结果弹窗 ============ */
 .modal{position:fixed;inset:0;z-index:90;display:none}
 .modal.open{display:block}
+#inputModal{z-index:120}
 .modal-backdrop{
   position:absolute;inset:0;background:rgba(40,52,44,.42);
   backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
@@ -1942,33 +1943,26 @@ function matchPapers(q){
 function staggerReveal(container, selector, stepMs, move){
   const els=container.querySelectorAll(selector);
   if(!els.length)return;
-  els.forEach(el=>{
-    el.style.opacity="";
-    el.style.transform="";
-    el.style.transition="";
-    el.style.transitionDelay="";
-  });
-  void container.offsetWidth;
+  const useMove=move!==false;
   els.forEach((el,i)=>{
-    el.style.opacity="0";
-    if(move!==false)el.style.transform="scale(.9) translateY(8px)";
-    el.style.transition="opacity .4s ease, transform .4s cubic-bezier(.2,1.6,.4,1)";
-    el.style.transitionDelay=(i*(stepMs||55))+"ms";
+    if(typeof el.animate==="function"){
+      el.animate(
+        useMove
+          ? [{opacity:0,transform:"scale(.9) translateY(8px)"},{opacity:1,transform:"none"}]
+          : [{opacity:0},{opacity:1}],
+        {duration:420,delay:i*(stepMs||55),easing:useMove?"cubic-bezier(.2,1.6,.4,1)":"ease",fill:"both"}
+      );
+    }else{
+      el.style.transition="opacity .4s ease"+(useMove?", transform .4s cubic-bezier(.2,1.6,.4,1)":"");
+      el.style.transitionDelay=(i*(stepMs||55))+"ms";
+      el.style.opacity="0";
+      if(useMove)el.style.transform="scale(.9) translateY(8px)";
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        el.style.opacity="1";
+        el.style.transform="none";
+      }));
+    }
   });
-  requestAnimationFrame(()=>{
-    els.forEach(el=>{
-      el.style.opacity="1";
-      el.style.transform="none";
-    });
-  });
-  setTimeout(()=>{
-    els.forEach(el=>{
-      el.style.opacity="";
-      el.style.transform="";
-      el.style.transition="";
-      el.style.transitionDelay="";
-    });
-  }, els.length*(stepMs||55)+750);
 }
 function goHome(){
   $("#viewNotes").classList.remove("show");
@@ -2785,6 +2779,7 @@ function pickAvatar(a){
   openUserModal();
 }
 function editName(){
+  $("#userModal").classList.remove("open");
   openInputModal({
     title:t("editNickname"),value:user.name,maxLength:16,
     placeholder:t("nicknamePlaceholder"),hint:t("inputHint").replace("{{n}}","16"),
@@ -2792,6 +2787,7 @@ function editName(){
   });
 }
 function editSigSettings(){
+  $("#userModal").classList.remove("open");
   openInputModal({
     title:t("editSignature"),value:sig,maxLength:30,
     placeholder:t("signaturePlaceholder"),hint:t("inputHint").replace("{{n}}","30"),
